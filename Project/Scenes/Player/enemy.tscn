@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dkoprr5x326x8"]
 
-[ext_resource type="Script" uid="uid://cdbep7d4o5ds5" path="res://Scripts/enemy.gd" id="1_eqn1u"]
+[ext_resource type="Script" uid="uid://cdbep7d4o5ds5" path="res://Scripts/Attached/enemy.gd" id="1_eqn1u"]
 [ext_resource type="Texture2D" uid="uid://bxvua0gasaqjd" path="res://Assets/Sprites/icon.svg" id="2_i3vir"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i3vir"]
@@ -13,9 +13,17 @@ safe_margin = 1.0
 script = ExtResource("1_eqn1u")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=998472841]
+scale = Vector2(0.8, 0.8)
 shape = SubResource("RectangleShape2D_i3vir")
 one_way_collision = true
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1656603093]
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("2_i3vir")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=329374249]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1768100830]
+shape = SubResource("RectangleShape2D_i3vir")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

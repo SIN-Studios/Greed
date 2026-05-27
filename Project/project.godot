@@ -15,6 +15,10 @@ run/main_scene="uid://cbm8wkrbhppjn"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+SignalManager="*uid://dqlltuxt2b8u4"
+
 [global_group]
 
 player=""
