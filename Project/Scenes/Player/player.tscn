@@ -2,11 +2,15 @@
 
 [ext_resource type="Script" uid="uid://dgmjab1xew0o5" path="res://Scripts/Attached/player.gd" id="1_a3d8c"]
 [ext_resource type="Texture2D" uid="uid://bxvua0gasaqjd" path="res://Assets/Sprites/icon.svg" id="1_uvnfx"]
+[ext_resource type="Script" uid="uid://bc7bimikjafko" path="res://Scripts/Attached/hand.gd" id="3_mtuoh"]
+[ext_resource type="PackedScene" uid="uid://c5ijv18l3wkwf" path="res://Scenes/Player/knife.tscn" id="3_xpcdj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a3d8c"]
 size = Vector2(32, 32)
 
 [node name="player" type="CharacterBody2D" unique_id=1334899193 groups=["player"]]
+collision_layer = 5
+collision_mask = 5
 motion_mode = 1
 script = ExtResource("1_a3d8c")
 
@@ -18,3 +22,13 @@ scale = Vector2(0.25, 0.25)
 texture = ExtResource("1_uvnfx")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=785665219]
+
+[node name="hand" type="Node2D" parent="." unique_id=778059746]
+script = ExtResource("3_mtuoh")
+
+[node name="knife" parent="hand" unique_id=331775305 instance=ExtResource("3_xpcdj")]
+position = Vector2(16, 0)
+
+[connection signal="body_entered" from="hand/knife/Area2D" to="hand" method="_on_area_2d_body_entered"]
+
+[editable path="hand/knife"]

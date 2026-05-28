@@ -22,6 +22,14 @@ SignalManager="*uid://dqlltuxt2b8u4"
 [global_group]
 
 player=""
+enemy=""
+
+[layer_names]
+
+2d_physics/layer_1="Enviroment Solid"
+2d_physics/layer_2="Enviroment Parsable"
+2d_physics/layer_3="Player"
+2d_physics/layer_4="Enemy"
 
 [physics]
 
