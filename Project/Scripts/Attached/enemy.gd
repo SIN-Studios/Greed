@@ -6,8 +6,10 @@ var speed_multuplier: int = 1
 const slipperiness_factor: int = 10 #Higher is more slippery
 const enemy_damage: int = 10
 var direction: Vector2
-var player: Node2D 
+var player: CharacterBody2D 
 var health: int = 100
+
+var item: PackedScene = preload("res://Scenes/Spawnable/item.tscn")
 
 func _ready() -> void:
 	player = get_tree().get_first_node_in_group("player")
@@ -32,8 +34,15 @@ func take_damage(damage):
 	print("enemy ", health)
 	health -= damage
 	if health <= 0:
-		print("enemy died")
-		
-		
+		enemy_die()
 	#knockback enemy
 	speed_multuplier = -10
+	
+func enemy_die():
+	summon_item()
+	queue_free()
+
+func summon_item():
+	var new_item = item.instantiate()
+	new_item.global_position = global_position
+	call_deferred("add_sibling", new_item)

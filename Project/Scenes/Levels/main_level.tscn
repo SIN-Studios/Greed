@@ -1,17 +1,15 @@
 [gd_scene format=3 uid="uid://cbm8wkrbhppjn"]
 
 [ext_resource type="PackedScene" uid="uid://xu8pjhossg40" path="res://Scenes/Player/player.tscn" id="1_s08vq"]
-[ext_resource type="Texture2D" uid="uid://bxvua0gasaqjd" path="res://Assets/Sprites/icon.svg" id="2_o3eya"]
-[ext_resource type="PackedScene" uid="uid://dkoprr5x326x8" path="res://Scenes/Player/enemy.tscn" id="3_tgb3g"]
+[ext_resource type="PackedScene" uid="uid://dkoprr5x326x8" path="res://Scenes/Spawnable/enemy.tscn" id="3_tgb3g"]
+[ext_resource type="PackedScene" uid="uid://cdg0mgghwb7fy" path="res://Scenes/Spawnable/item.tscn" id="3_vl75t"]
 
 [node name="main_level" type="Node2D" unique_id=1361892302]
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=798973066]
-position = Vector2(263, -7)
-rotation = -3.1415925
-texture = ExtResource("2_o3eya")
 
 [node name="player" parent="." unique_id=1334899193 instance=ExtResource("1_s08vq")]
 
 [node name="enemy" parent="." unique_id=1785780369 instance=ExtResource("3_tgb3g")]
 position = Vector2(-401, 96)
+
+[node name="item" parent="." unique_id=1286413482 instance=ExtResource("3_vl75t")]
+position = Vector2(-824, 28)
