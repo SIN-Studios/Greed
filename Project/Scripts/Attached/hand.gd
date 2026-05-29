@@ -9,10 +9,10 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	look_at(get_global_mouse_position())
 	if Input.is_action_just_pressed("left_click"):
-		weapon.disabled = false
+		weapon.set_deferred("disabled", false)
 	elif weapon.disabled == false:
 		await get_tree().create_timer(0.1).timeout
-		weapon.disabled = true
+		weapon.set_deferred("disabled", true)
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
@@ -20,4 +20,3 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		@warning_ignore("narrowing_conversion")
 		var new_damage: int = weapon_damage * randf_range(0.8,1.2)
 		SignalManager.enemy_take_damage.emit(new_damage)
-		weapon.disabled = true

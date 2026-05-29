@@ -11,11 +11,13 @@ var regen_gap: int = 0
 func _ready() -> void:
 	SignalManager.player_take_damage.connect(take_damage)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if time_till_regen < 0:
 		if health < 100 and regen_gap == 0:
+			@warning_ignore("narrowing_conversion")
 			health += regen_factor
 			regen_factor = regen_factor * 1.1
+			@warning_ignore("narrowing_conversion")
 			regen_gap = 50 * regen_factor
 			if health > 100:
 				health = 100
