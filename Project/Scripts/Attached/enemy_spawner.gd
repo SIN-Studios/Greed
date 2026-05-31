@@ -16,7 +16,6 @@ func create_item(enemy_name: String, enemy_texture: Texture2D, enemy_script: Scr
 
 func _on_timer_timeout() -> void:
 	spawn_enemy(Vector2(randf_range(-100,100),randf_range(-100,100)))
-	$Timer.stop()
 
 func spawn_enemy(coordinates: Vector2) -> void:
 	var new_enemy = enemy.instantiate()
