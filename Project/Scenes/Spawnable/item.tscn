@@ -3,8 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://bxvua0gasaqjd" path="res://Assets/Sprites/icon.svg" id="1_5etqo"]
 [ext_resource type="Script" uid="uid://cuk8g8o5tm540" path="res://Scripts/Attached/item.gd" id="1_rira6"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_1nyum"]
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_5etqo"]
 radius = 200.0
 
@@ -16,18 +14,11 @@ rotation = -1.5707964
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("1_5etqo")
 
-[node name="Area2D" type="Area2D" parent="." unique_id=1771012388]
+[node name="interaction_range" type="Area2D" parent="." unique_id=734438668]
 collision_layer = 16
 collision_mask = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=655153126]
-shape = SubResource("CircleShape2D_1nyum")
-
-[node name="collection_range" type="Area2D" parent="." unique_id=734438668]
-collision_layer = 16
-collision_mask = 4
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="collection_range" unique_id=1581641770]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interaction_range" unique_id=1581641770]
 shape = SubResource("CircleShape2D_5etqo")
 
 [node name="Timer" type="Timer" parent="." unique_id=1607761040]
@@ -36,9 +27,27 @@ one_shot = true
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=441095677]
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_entered" from="collection_range" to="." method="_on_collection_range_body_entered"]
-[connection signal="body_exited" from="collection_range" to="." method="_on_collection_range_body_exited"]
+[node name="Label" type="Label" parent="." unique_id=937403065]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+offset_right = 130.0
+grow_vertical = 0
+text = "Hold E to pick up"
+
+[node name="ColorRect" type="ColorRect" parent="Label" unique_id=174479522]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1e-05, 1)
+color = Color(0, 0, 0, 0.43529412)
+
+[connection signal="body_entered" from="interaction_range" to="." method="_on_interaction_range_body_entered"]
+[connection signal="body_exited" from="interaction_range" to="." method="_on_interaction_range_body_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

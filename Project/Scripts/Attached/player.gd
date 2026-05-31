@@ -45,6 +45,6 @@ func take_damage(damage):
 	health -= damage
 	regen_factor = 0.1
 	time_till_regen = 200
-	print(health)
+	print("Player", health)
 	if health <= 0:
 		print("You died")
