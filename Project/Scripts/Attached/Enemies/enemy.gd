@@ -37,7 +37,6 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		SignalManager.player_take_damage.emit(new_damage)
 
 
-
 func take_damage(damage, body) -> void:
 	if body == self:
 		print("enemy ", health)
@@ -57,6 +56,7 @@ func summon_item() -> void:
 	new_item.global_position = global_position
 	call_deferred("add_sibling", new_item)
 
+
 func _on_detection_range_body_entered(body: Node2D) -> void:
 	if body == player:
 		following_player = true
@@ -64,3 +64,13 @@ func _on_detection_range_body_entered(body: Node2D) -> void:
 func _on_focus_range_body_exited(body: Node2D) -> void:
 	if body == player:
 		following_player = false
+
+
+func _on_timer_timeout() -> void:
+	queue_free()
+
+func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
+	$Timer.start()
+
+func _on_visible_on_screen_notifier_2d_screen_entered() -> void:
+	$Timer.stop()
