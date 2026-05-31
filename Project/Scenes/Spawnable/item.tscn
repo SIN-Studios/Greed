@@ -17,15 +17,25 @@ scale = Vector2(0.1, 0.1)
 texture = ExtResource("1_5etqo")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1771012388]
+collision_layer = 16
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=655153126]
 shape = SubResource("CircleShape2D_1nyum")
 
 [node name="collection_range" type="Area2D" parent="." unique_id=734438668]
+collision_layer = 16
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="collection_range" unique_id=1581641770]
 shape = SubResource("CircleShape2D_5etqo")
 
+[node name="Timer" type="Timer" parent="." unique_id=1607761040]
+wait_time = 300.0
+one_shot = true
+autostart = true
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="collection_range" to="." method="_on_collection_range_body_entered"]
 [connection signal="body_exited" from="collection_range" to="." method="_on_collection_range_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -11,13 +11,18 @@ config_version=5
 [application]
 
 config/name="Greed"
-run/main_scene="uid://cbm8wkrbhppjn"
+run/main_scene="uid://bfgyopghckhci"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 SignalManager="*uid://dqlltuxt2b8u4"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
 
 [global_group]
 
@@ -62,7 +67,8 @@ right_click={
 2d_physics/layer_1="Enviroment Solid"
 2d_physics/layer_2="Enviroment Parsable"
 2d_physics/layer_3="Player"
-2d_physics/layer_4="Enemy"
+2d_physics/layer_4="Enemies"
+2d_physics/layer_5="Items"
 
 [physics]
 

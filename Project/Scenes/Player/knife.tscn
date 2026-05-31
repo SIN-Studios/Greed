@@ -7,7 +7,7 @@ height = 48.0
 [node name="knife" type="Node2D" unique_id=331775305]
 
 [node name="Area2D" type="Area2D" parent="." unique_id=297568975]
-collision_layer = 8
+collision_layer = 4
 collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1508981693]

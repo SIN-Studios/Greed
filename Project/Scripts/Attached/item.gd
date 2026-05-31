@@ -28,3 +28,7 @@ func _physics_process(delta: float) -> void:
 		var direction = global_position.direction_to(player.global_position)
 		var distance_to_player = global_position.distance_to(player.global_position)
 		global_position += direction * speed * delta * (200 - distance_to_player)
+
+
+func _on_timer_timeout() -> void:
+	queue_free()
