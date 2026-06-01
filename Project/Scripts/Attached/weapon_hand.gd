@@ -7,7 +7,6 @@ func _ready() -> void:
 	weapon.disabled = true
 
 func _process(_delta: float) -> void:
-	look_at(get_global_mouse_position())
 	if Input.is_action_just_pressed("left_click"):
 		weapon.set_deferred("disabled", false)
 	elif weapon.disabled == false:

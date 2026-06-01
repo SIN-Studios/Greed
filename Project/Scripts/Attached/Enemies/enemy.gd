@@ -18,16 +18,17 @@ func _ready() -> void:
 	SignalManager.enemy_take_damage.connect(take_damage)
 
 func _physics_process(_delta: float) -> void:
-	if following_player:
-		direction = global_position.direction_to(player.global_position)
-		velocity = direction * speed * speed_multuplier
-		if speed_multuplier != 1:
-			speed_multuplier += 1
-		else:
-			set_collision_mask_value(4, true)
-	else:
-		velocity = Vector2(0,0)
 	move_and_slide()
+	if not following_player:
+		velocity = Vector2.ZERO
+		return
+
+	direction = global_position.direction_to(player.global_position)
+	velocity = direction * speed * speed_multuplier
+	if speed_multuplier != 1:
+		speed_multuplier += 1
+	else:
+		set_collision_mask_value(4, true)
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:

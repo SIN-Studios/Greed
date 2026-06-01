@@ -4,3 +4,4 @@ signal player_take_damage
 signal enemy_take_damage
 signal player_knife_attack
 signal player_picks_up_item
+signal player_use_weapon
