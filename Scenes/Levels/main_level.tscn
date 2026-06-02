@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://cbm8wkrbhppjn"]
+
+[ext_resource type="PackedScene" uid="uid://xu8pjhossg40" path="res://Scenes/Player/player.tscn" id="1_s08vq"]
+[ext_resource type="PackedScene" uid="uid://dkoprr5x326x8" path="res://Scenes/Spawnable/enemy.tscn" id="3_tgb3g"]
+
+[node name="main_level" type="Node2D" unique_id=1361892302]
+
+[node name="player" parent="." unique_id=1334899193 instance=ExtResource("1_s08vq")]
+
+[node name="enemy" parent="." unique_id=1785780369 instance=ExtResource("3_tgb3g")]
+position = Vector2(-401, 96)

@@ -1,0 +1,7 @@
+extends Node
+@warning_ignore_start("unused_signal")
+signal player_take_damage
+signal enemy_take_damage
+signal player_knife_attack
+signal player_picks_up_item
+signal player_use_weapon

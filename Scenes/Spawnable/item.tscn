@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://cdg0mgghwb7fy"]
+
+[ext_resource type="Texture2D" uid="uid://bxvua0gasaqjd" path="res://Assets/Sprites/icon.svg" id="1_5etqo"]
+[ext_resource type="Script" uid="uid://cuk8g8o5tm540" path="res://Scripts/Attached/item.gd" id="1_rira6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rira6"]
+
+[node name="item" type="Node2D" unique_id=1286413482 groups=["items"]]
+script = ExtResource("1_rira6")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=464780554]
+rotation = -1.5707964
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_5etqo")
+
+[node name="Timer" type="Timer" parent="." unique_id=1607761040]
+wait_time = 300.0
+one_shot = true
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=441095677]
+
+[node name="Label" type="Label" parent="." unique_id=937403065]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+offset_right = 130.0
+grow_vertical = 0
+text = "Hold E to pick up"
+
+[node name="ColorRect" type="ColorRect" parent="Label" unique_id=174479522]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1e-05, 1)
+color = Color(0, 0, 0, 0.43529412)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1650933974 groups=["items"]]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1258650344]
+shape = SubResource("CircleShape2D_rira6")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
