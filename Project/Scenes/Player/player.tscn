@@ -1,13 +1,21 @@
 [gd_scene format=3 uid="uid://xu8pjhossg40"]
 
-[ext_resource type="Script" uid="uid://dgmjab1xew0o5" path="res://Scripts/player.gd" id="1_a3d8c"]
+[ext_resource type="Script" uid="uid://dgmjab1xew0o5" path="res://Scripts/Attached/player.gd" id="1_a3d8c"]
 [ext_resource type="Texture2D" uid="uid://bxvua0gasaqjd" path="res://Assets/Sprites/icon.svg" id="1_uvnfx"]
+[ext_resource type="Script" uid="uid://cgxggq05fdq0m" path="res://Scripts/Attached/hands.gd" id="3_dd0ac"]
+[ext_resource type="Script" uid="uid://bc7bimikjafko" path="res://Scripts/Attached/weapon_hand.gd" id="3_mtuoh"]
+[ext_resource type="PackedScene" uid="uid://c5ijv18l3wkwf" path="res://Scenes/Player/knife.tscn" id="3_xpcdj"]
+[ext_resource type="Script" uid="uid://bi2r3igu52m8r" path="res://Scripts/Attached/item_hand.gd" id="5_htcer"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a3d8c"]
 size = Vector2(32, 32)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_htcer"]
+radius = 200.0
+
 [node name="player" type="CharacterBody2D" unique_id=1334899193 groups=["player"]]
-collision_layer = 3
+collision_layer = 4
+motion_mode = 1
 script = ExtResource("1_a3d8c")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1830430437]
@@ -18,3 +26,29 @@ scale = Vector2(0.25, 0.25)
 texture = ExtResource("1_uvnfx")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=785665219]
+
+[node name="hands" type="Node2D" parent="." unique_id=347339087]
+script = ExtResource("3_dd0ac")
+
+[node name="weapon_hand" type="Node2D" parent="hands" unique_id=236381872]
+position = Vector2(16, 0)
+script = ExtResource("3_mtuoh")
+
+[node name="knife" parent="hands/weapon_hand" unique_id=331775305 instance=ExtResource("3_xpcdj")]
+
+[node name="item_hand" type="Node2D" parent="hands" unique_id=1934283680]
+position = Vector2(-16, 0)
+script = ExtResource("5_htcer")
+
+[node name="interaction_range" type="Area2D" parent="hands" unique_id=1532541765]
+collision_layer = 4
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hands/interaction_range" unique_id=1449726462]
+shape = SubResource("CircleShape2D_htcer")
+
+[connection signal="body_entered" from="hands/weapon_hand/knife/Area2D" to="hands/weapon_hand" method="_on_area_2d_body_entered"]
+[connection signal="area_shape_entered" from="hands/interaction_range" to="hands" method="_on_interaction_range_area_shape_entered"]
+[connection signal="area_shape_exited" from="hands/interaction_range" to="hands" method="_on_interaction_range_area_shape_exited"]
+
+[editable path="hands/weapon_hand/knife"]
