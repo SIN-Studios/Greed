@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Greed"
-run/main_scene="uid://bfgyopghckhci"
+run/main_scene="uid://cbm8wkrbhppjn"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -89,4 +89,5 @@ interact={
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=3
 rendering_device/driver.windows="d3d12"
