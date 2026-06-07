@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://mgv0saaxibs3"
-path="res://.godot/imported/actualplains.png-34667fe4a8f7983e899c268a1fe65806.ctex"
+uid="uid://34nsc4svhlph"
+path="res://.godot/imported/Sushi.png-0b19eaf77b13b51984d4a9b849795372.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/tilemaps/actualplains.png"
-dest_files=["res://.godot/imported/actualplains.png-34667fe4a8f7983e899c268a1fe65806.ctex"]
+source_file="res://Assets/Sprites/Enemy/Sushi.png"
+dest_files=["res://.godot/imported/Sushi.png-0b19eaf77b13b51984d4a9b849795372.ctex"]
 
 [params]
 
