@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://34nsc4svhlph"
-path="res://.godot/imported/Sushi.png-61eee6958ed47f854554c2244eb87972.ctex"
+uid="uid://c7gddsrdkno1g"
+path="res://.godot/imported/Apple.png-13abc087fbd01cc946e76f089f694547.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Food designs/Sushi.png"
-dest_files=["res://.godot/imported/Sushi.png-61eee6958ed47f854554c2244eb87972.ctex"]
+source_file="res://Assets/Sprites/Food designs/Apple.png"
+dest_files=["res://.godot/imported/Apple.png-13abc087fbd01cc946e76f089f694547.ctex"]
 
 [params]
 
