@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bxvua0gasaqjd" path="res://Assets/Sprites/icon.svg" id="1_5etqo"]
 [ext_resource type="Script" uid="uid://cuk8g8o5tm540" path="res://Scripts/Attached/item.gd" id="1_rira6"]
+[ext_resource type="PackedScene" uid="uid://cbixv6peqqoem" path="res://Scenes/Technical/despawn_timer.tscn" id="3_005tj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rira6"]
 
@@ -12,12 +13,6 @@ script = ExtResource("1_rira6")
 rotation = -1.5707964
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("1_5etqo")
-
-[node name="Timer" type="Timer" parent="." unique_id=1607761040]
-wait_time = 300.0
-one_shot = true
-
-[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=441095677]
 
 [node name="Label" type="Label" parent="." unique_id=937403065]
 anchors_preset = 2
@@ -45,6 +40,4 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1258650344]
 shape = SubResource("CircleShape2D_rira6")
 
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
-[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[node name="despawn_timer" parent="." unique_id=601905504 instance=ExtResource("3_005tj")]

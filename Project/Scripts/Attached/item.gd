@@ -1,8 +1,6 @@
 extends Node2D
 
 var player: CharacterBody2D
-const speed: float = 1.5
-var acceleration: float
 var player_in_range: bool = false
 var pickup: int = 0
 var label_visible: bool = false
@@ -20,16 +18,6 @@ func _on_interaction_range_body_entered(body: Node2D) -> void:
 func _on_interaction_range_body_exited(body: Node2D) -> void:
 	if body == player:
 		player_in_range = false
-
-
-func _on_timer_timeout() -> void:
-	queue_free()
-
-func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
-	$Timer.start()
-
-func _on_visible_on_screen_notifier_2d_screen_entered() -> void:
-	$Timer.stop()
 
 
 func _process(_delta: float) -> void:

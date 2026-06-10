@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://cbixv6peqqoem"]
+
+[ext_resource type="Script" uid="uid://b362ahbf2huv0" path="res://Scripts/Attached/Enemies/despawn_timer.gd" id="1_fd261"]
+
+[node name="despawn_timer" type="Node2D" unique_id=601905504]
+script = ExtResource("1_fd261")
+
+[node name="Timer" type="Timer" parent="." unique_id=107323906]
+wait_time = 300.0
+one_shot = true
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=397591748]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
