@@ -9,7 +9,7 @@ var hours: int
 var minutes: int
 var am_pm: String = "AM"
 
-const timescale = 144 # 10 irl minutes
+const timescale = 120 # 12 irl minutes per day (1440/time for day = timescale)
 
 func _process(delta: float) -> void:
 	@warning_ignore_start("integer_division")
