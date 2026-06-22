@@ -38,7 +38,7 @@ func _physics_process(_delta: float) -> void:
 func take_damage(damage):
 	health -= damage
 	regen_factor = 0.1
-	time_till_regen = 1
+	time_till_regen = 5
 	print("Player", health)
 	if health <= 0:
 		get_tree().quit()

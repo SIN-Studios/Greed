@@ -18,8 +18,9 @@ config/icon="res://icon.svg"
 [autoload]
 
 SignalManager="*uid://dqlltuxt2b8u4"
-Keybinds="*uid://bkfpudwva2ppb"
+KeybindManager="*uid://bkfpudwva2ppb"
 UIManager="*uid://xscywnuh0gsm"
+TimeManager="*uid://bgfbr7g6046ss"
 
 [display]
 
