@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://driccyjklop6y"
-path="res://.godot/imported/basictilemapreal.png-4e8359b8e5cc515c3705648ef1a38ff7.ctex"
+uid="uid://bb2juch33q6dx"
+path="res://.godot/imported/forest.png-7cc601652df03b48bea09e3fbcead897.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://isaac designs/Tilemaps/basictilemapreal.png"
-dest_files=["res://.godot/imported/basictilemapreal.png-4e8359b8e5cc515c3705648ef1a38ff7.ctex"]
+source_file="res://isaac designs/isaac assets/Tilemaps/forest.png"
+dest_files=["res://.godot/imported/forest.png-7cc601652df03b48bea09e3fbcead897.ctex"]
 
 [params]
 

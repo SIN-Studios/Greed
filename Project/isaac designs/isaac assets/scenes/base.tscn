@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://w581ic2xt0wj"]
+
+[ext_resource type="Texture2D" uid="uid://m82dcv3k827o" path="res://isaac designs/isaac assets/art/base.png" id="1_shtgq"]
+[ext_resource type="Script" uid="uid://bueoji2nn66gx" path="res://isaac designs/isaac assets/scripts/base.gd" id="2_xajau"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mptvn"]
+size = Vector2(129, 150)
+
+[node name="StaticBody2D" type="StaticBody2D" unique_id=637776246]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1360042976]
+polygon = PackedVector2Array(314, 440, 363, 358, 386, 356, 442, 434, 538, 434, 569, 394, 542, 207, 489, 106, 390, 88, 348, 87, 277, 98, 224, 131, 204, 181, 196, 216, 173, 340, 168, 412, 204, 440)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2103581351]
+position = Vector2(369, 241)
+scale = Vector2(6.6406255, 6.6406255)
+texture = ExtResource("1_shtgq")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=327500598]
+collision_layer = 7
+collision_mask = 7
+script = ExtResource("2_xajau")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=308004475]
+position = Vector2(372, 349)
+shape = SubResource("RectangleShape2D_mptvn")
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

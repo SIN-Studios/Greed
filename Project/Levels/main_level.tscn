@@ -1,10 +1,10 @@
 [gd_scene format=4 uid="uid://cbm8wkrbhppjn"]
 
-[ext_resource type="Texture2D" uid="uid://dnb8bxipkhmq2" path="res://isaac designs/isaac assets/bridge1.png" id="1_k6a8t"]
+[ext_resource type="Texture2D" uid="uid://dnb8bxipkhmq2" path="res://isaac designs/isaac assets/art/bridge1.png" id="1_k6a8t"]
 [ext_resource type="PackedScene" uid="uid://xu8pjhossg40" path="res://Player/player.tscn" id="1_s08vq"]
-[ext_resource type="Texture2D" uid="uid://sb16alad3duj" path="res://isaac designs/Tilemaps/water-basic-tilemap2 (1).png" id="1_tgb3g"]
-[ext_resource type="PackedScene" uid="uid://w581ic2xt0wj" path="res://isaac designs/isaac assets/base.tscn" id="2_13urm"]
-[ext_resource type="Texture2D" uid="uid://bb2juch33q6dx" path="res://isaac designs/Tilemaps/forest.png" id="2_k6a8t"]
+[ext_resource type="Texture2D" uid="uid://sb16alad3duj" path="res://isaac designs/isaac assets/Tilemaps/water-basic-tilemap2 (1).png" id="1_tgb3g"]
+[ext_resource type="PackedScene" uid="uid://w581ic2xt0wj" path="res://isaac designs/isaac assets/scenes/base.tscn" id="2_13urm"]
+[ext_resource type="Texture2D" uid="uid://bb2juch33q6dx" path="res://isaac designs/isaac assets/Tilemaps/forest.png" id="2_k6a8t"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k6a8t"]
 texture = ExtResource("2_k6a8t")

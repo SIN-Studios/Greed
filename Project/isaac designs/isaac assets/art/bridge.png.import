@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://sb16alad3duj"
-path="res://.godot/imported/water-basic-tilemap2 (1).png-96247b177703911d0abfddb412ee660f.ctex"
+uid="uid://dsabjvhma41ix"
+path="res://.godot/imported/bridge.png-7180663033465ad1df9fc0fd0c3c6984.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://isaac designs/Tilemaps/water-basic-tilemap2 (1).png"
-dest_files=["res://.godot/imported/water-basic-tilemap2 (1).png-96247b177703911d0abfddb412ee660f.ctex"]
+source_file="res://isaac designs/isaac assets/art/bridge.png"
+dest_files=["res://.godot/imported/bridge.png-7180663033465ad1df9fc0fd0c3c6984.ctex"]
 
 [params]
 

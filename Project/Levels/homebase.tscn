@@ -1,9 +1,9 @@
 [gd_scene format=4 uid="uid://1wj3dy7c4o24"]
 
-[ext_resource type="Texture2D" uid="uid://24b8noh23qp8" path="res://isaac designs/Tilemaps/basetilemap.png" id="1_vdfm2"]
+[ext_resource type="Texture2D" uid="uid://24b8noh23qp8" path="res://isaac designs/isaac assets/Tilemaps/basetilemap.png" id="1_vdfm2"]
 [ext_resource type="PackedScene" uid="uid://xu8pjhossg40" path="res://Player/player.tscn" id="2_4vjcd"]
-[ext_resource type="Script" uid="uid://bwyk57efqfsts" path="res://isaac designs/isaac assets/area_2d.gd" id="3_4vjcd"]
-[ext_resource type="Texture2D" uid="uid://m82dcv3k827o" path="res://isaac designs/isaac assets/base.png" id="4_4ule4"]
+[ext_resource type="Script" uid="uid://bwyk57efqfsts" path="res://isaac designs/isaac assets/scripts/area_2d.gd" id="3_4vjcd"]
+[ext_resource type="Texture2D" uid="uid://m82dcv3k827o" path="res://isaac designs/isaac assets/art/base.png" id="4_4ule4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4vjcd"]
 size = Vector2(1451, 708)

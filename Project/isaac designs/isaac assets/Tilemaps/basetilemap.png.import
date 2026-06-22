@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bb2juch33q6dx"
-path="res://.godot/imported/forest.png-ebed3b3c77219ec43008f6bfe7f52d71.ctex"
+uid="uid://24b8noh23qp8"
+path="res://.godot/imported/basetilemap.png-7cd3b93bc07c1d3d8413e04ccda3094e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://isaac designs/Tilemaps/forest.png"
-dest_files=["res://.godot/imported/forest.png-ebed3b3c77219ec43008f6bfe7f52d71.ctex"]
+source_file="res://isaac designs/isaac assets/Tilemaps/basetilemap.png"
+dest_files=["res://.godot/imported/basetilemap.png-7cd3b93bc07c1d3d8413e04ccda3094e.ctex"]
 
 [params]
 
