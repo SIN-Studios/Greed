@@ -12,6 +12,7 @@ var am_pm: String = "AM"
 const timescale = 144 # 10 irl minutes
 
 func _process(delta: float) -> void:
+	@warning_ignore_start("integer_division")
 	full_time += timescale * delta
 	round_time = int(floor(full_time))
 	military_hours = round_time / 3600
@@ -24,4 +25,5 @@ func _process(delta: float) -> void:
 		military_hours = 0
 		am_pm = "AM"
 		days += 1
+	
 	minutes = (round_time % 3600) / 60
