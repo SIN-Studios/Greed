@@ -6,3 +6,5 @@ signal player_knife_attack
 signal player_picks_up_item
 signal player_use_weapon
 signal player_update_calories
+signal player_dies
+signal new_day

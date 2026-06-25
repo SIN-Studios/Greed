@@ -27,7 +27,15 @@ grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 0.5)
 color = Color(1, 0, 0, 1)
 
-[node name="blue" type="ColorRect" parent="calorie_bar" unique_id=1667522286]
+[node name="goal" type="Control" parent="calorie_bar" unique_id=2128579085]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="blue" type="ColorRect" parent="calorie_bar/goal" unique_id=1667522286]
 layout_mode = 0
 offset_left = 150.0
 offset_right = 300.0
@@ -35,7 +43,7 @@ offset_bottom = 100.0
 pivot_offset_ratio = Vector2(0.5, 0.5)
 color = Color(0, 0, 1, 1)
 
-[node name="green" type="ColorRect" parent="calorie_bar" unique_id=729562535]
+[node name="green" type="ColorRect" parent="calorie_bar/goal" unique_id=729562535]
 layout_mode = 0
 offset_left = 200.0
 offset_right = 250.0
@@ -66,5 +74,3 @@ pivot_offset_ratio = Vector2(0.5, 0.5)
 horizontal_alignment = 1
 vertical_alignment = 1
 max_lines_visible = 1
-visible_characters = 4
-visible_ratio = 1.3333334

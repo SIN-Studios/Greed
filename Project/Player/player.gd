@@ -9,6 +9,7 @@ var regen_factor: float = 0.1
 
 func _ready() -> void:
 	SignalManager.player_take_damage.connect(take_damage)
+	SignalManager.player_dies.connect(die)
 
 func _process(delta: float) -> void:
 	if time_till_regen > 0:
@@ -41,4 +42,7 @@ func take_damage(damage):
 	time_till_regen = 5
 	print("Player", health)
 	if health <= 0:
-		get_tree().quit()
+		SignalManager.player_dies.emit()
+
+func die():
+	get_tree().quit()

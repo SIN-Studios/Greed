@@ -25,5 +25,6 @@ func _process(delta: float) -> void:
 		military_hours = 0
 		am_pm = "AM"
 		days += 1
+		SignalManager.new_day.emit()
 	
 	minutes = (round_time % 3600) / 60
