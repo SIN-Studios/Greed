@@ -1,21 +1,13 @@
-[gd_scene format=3 uid="uid://cqb2i6lpoayoi"]
+[gd_scene format=3 uid="uid://b65d3ippcmfhu"]
 
-[ext_resource type="Script" uid="uid://cwxro8hoibbr5" path="res://UI/calorie_bar.gd" id="1_nyf7h"]
+[ext_resource type="Script" uid="uid://cwxro8hoibbr5" path="res://UI/HUD/calorie_bar.gd" id="1_lw1wi"]
 
-[node name="calorie_tracker" type="Control" unique_id=345403893]
+[node name="calorie_bar" type="Control" unique_id=1361171727]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="calorie_bar" type="Control" parent="." unique_id=1025573919]
-layout_mode = 1
 anchors_preset = 0
-script = ExtResource("1_nyf7h")
+script = ExtResource("1_lw1wi")
 
-[node name="red" type="ColorRect" parent="calorie_bar" unique_id=919555368]
+[node name="red" type="ColorRect" parent="." unique_id=1932719178]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -27,7 +19,7 @@ grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 0.5)
 color = Color(1, 0, 0, 1)
 
-[node name="goal" type="Control" parent="calorie_bar" unique_id=2128579085]
+[node name="goal" type="Control" parent="." unique_id=1994311783]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -35,7 +27,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="blue" type="ColorRect" parent="calorie_bar/goal" unique_id=1667522286]
+[node name="blue" type="ColorRect" parent="goal" unique_id=684430366]
 layout_mode = 0
 offset_left = 150.0
 offset_right = 300.0
@@ -43,7 +35,7 @@ offset_bottom = 100.0
 pivot_offset_ratio = Vector2(0.5, 0.5)
 color = Color(0, 0, 1, 1)
 
-[node name="green" type="ColorRect" parent="calorie_bar/goal" unique_id=729562535]
+[node name="green" type="ColorRect" parent="goal" unique_id=1162838945]
 layout_mode = 0
 offset_left = 200.0
 offset_right = 250.0
@@ -51,14 +43,14 @@ offset_bottom = 100.0
 pivot_offset_ratio = Vector2(0.5, 0.5)
 color = Color(0, 1, 0, 1)
 
-[node name="indicator" type="ColorRect" parent="calorie_bar" unique_id=1842544812]
+[node name="indicator" type="ColorRect" parent="." unique_id=630219285]
 layout_mode = 0
 offset_right = 5.0
 offset_bottom = 100.0
 pivot_offset_ratio = Vector2(0.5, 0.5)
 color = Color(0, 0, 0, 1)
 
-[node name="count" type="Label" parent="calorie_bar/indicator" unique_id=1078173591]
+[node name="count" type="Label" parent="indicator" unique_id=899908889]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
