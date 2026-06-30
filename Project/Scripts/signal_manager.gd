@@ -8,3 +8,4 @@ signal player_use_weapon
 signal player_update_calories
 signal player_dies
 signal new_day
+signal player_go_to_sleep

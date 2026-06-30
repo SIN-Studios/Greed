@@ -10,6 +10,7 @@ var regen_factor: float = 0.1
 func _ready() -> void:
 	SignalManager.player_take_damage.connect(take_damage)
 	SignalManager.player_dies.connect(die)
+	SignalManager.player_go_to_sleep.connect(sleep)
 
 func _process(delta: float) -> void:
 	if time_till_regen > 0:
@@ -46,3 +47,10 @@ func take_damage(damage):
 
 func die():
 	get_tree().quit()
+
+
+func sleep(bed):
+	set_physics_process(false)
+	global_position = bed.global_position
+	rotation = bed.rotation
+	

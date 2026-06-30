@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://cdg0mgghwb7fy"]
+
+[ext_resource type="Script" uid="uid://cuk8g8o5tm540" path="res://Assets/item.gd" id="1_ov0ng"]
+[ext_resource type="Texture2D" uid="uid://bxvua0gasaqjd" path="res://icon.svg" id="2_j410p"]
+[ext_resource type="PackedScene" uid="uid://l6u2hn17t861" path="res://Assets/interaction.tscn" id="3_j410p"]
+
+[node name="item" type="Node2D" unique_id=1286413482 groups=["items"]]
+script = ExtResource("1_ov0ng")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=464780554]
+rotation = -1.5707964
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_j410p")
+
+[node name="interaction" parent="." unique_id=1391498403 instance=ExtResource("3_j410p")]
+
+[node name="Label" parent="interaction" index="0" unique_id=704071601]
+text = "Hold E to pick up"
+
+[editable path="interaction"]
