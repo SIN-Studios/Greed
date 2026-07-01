@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://l6u2hn17t861"]
+
+[ext_resource type="Script" uid="uid://1n4vr7k52ngr" path="res://Assets/interaction.gd" id="1_xsffv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mfe32"]
+
+[node name="interaction" type="Node2D" unique_id=1391498403]
+script = ExtResource("1_xsffv")
+
+[node name="Label" type="Label" parent="." unique_id=704071601]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+offset_right = 130.0
+grow_vertical = 0
+text = "Hold E to"
+
+[node name="ColorRect" type="ColorRect" parent="Label" unique_id=20821968]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1e-05, 1)
+color = Color(0, 0, 0, 0.43529412)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1537694048 groups=["interactables"]]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=903996742]
+shape = SubResource("CircleShape2D_mfe32")
