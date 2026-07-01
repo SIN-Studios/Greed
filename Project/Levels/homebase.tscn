@@ -348,6 +348,10 @@ shape = SubResource("RectangleShape2D_4vjcd")
 position = Vector2(822, 1156)
 shape = SubResource("RectangleShape2D_4vjcd")
 
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D" unique_id=1872799208]
+position = Vector2(181, 1316)
+shape = SubResource("RectangleShape2D_4vjcd")
+
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D" unique_id=444645355]
 position = Vector2(-756, 1156)
 shape = SubResource("RectangleShape2D_4vjcd")
@@ -370,7 +374,7 @@ collision_mask = 7
 script = ExtResource("3_4vjcd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1293689687]
-position = Vector2(34, 1177)
+position = Vector2(33, 1170)
 shape = SubResource("RectangleShape2D_4ule4")
 
 [node name="bed(REPLACE)" type="Sprite2D" parent="." unique_id=2123215636]
