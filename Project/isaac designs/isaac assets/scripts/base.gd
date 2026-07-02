@@ -5,7 +5,7 @@ extends Area2D
 func _on_body_entered(body: Node2D) -> void:
 	if body.name == "player":
 		# Fallback to homebase if the export variable was left blank in the inspector
-		var target = destination_scene if destination_scene != "" else "res://Levels/homebase.tscn"
+		var target = destination_scene if destination_scene != "" else "res://Levels/Base/homebase.tscn"
 		trigger_transition(target)
 
 func trigger_transition(target_path: String):
