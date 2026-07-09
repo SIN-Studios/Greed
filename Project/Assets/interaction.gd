@@ -6,6 +6,7 @@ var can_interact: bool = false
 
 
 func _process(_delta: float) -> void:
+	global_rotation = 0
 	if not label_visible:
 		$Label.visible = false
 	else:

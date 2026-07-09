@@ -1,6 +1,6 @@
 extends Node
 
-var calories: int
+var calories: int = 2250
 var max_calories: int = 4500
 var calorie_defecit: int 
 var hunger_zones = [

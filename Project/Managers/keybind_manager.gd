@@ -15,3 +15,10 @@ func _process(_delta: float) -> void:
 
 	if Input.is_action_just_pressed("new_day"):
 		SignalManager.new_day.emit()
+	
+	if Input.is_action_just_pressed("increase_timescale"):
+		SignalManager.change_timescale.emit(500)
+
+	if Input.is_action_just_pressed("decrease_timescale"):
+		SignalManager.change_timescale.emit(-500)
+	

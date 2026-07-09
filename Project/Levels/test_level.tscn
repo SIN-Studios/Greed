@@ -5,8 +5,8 @@
 
 [node name="test_level" type="Node2D" unique_id=428871611]
 
-[node name="player" parent="." unique_id=1334899193 instance=ExtResource("1_2ytpj")]
-position = Vector2(379, -134)
-
 [node name="bed" parent="." unique_id=1666831885 instance=ExtResource("2_00vsl")]
 rotation = -1.5707964
+
+[node name="player" parent="." unique_id=1334899193 instance=ExtResource("1_2ytpj")]
+position = Vector2(379, -134)
