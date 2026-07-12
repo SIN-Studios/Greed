@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://xscywnuh0gsm"]
+
+[ext_resource type="PackedScene" uid="uid://ddnd6vp0bj34k" path="res://UI/HUD/health.tscn" id="1_xiym8"]
+[ext_resource type="PackedScene" uid="uid://cgcs65u18fitb" path="res://UI/HUD/clock.tscn" id="2_bcnh8"]
+[ext_resource type="PackedScene" uid="uid://b65d3ippcmfhu" path="res://UI/HUD/calorie_bar.tscn" id="3_6a3h1"]
+
+[node name="UI_manager" type="CanvasLayer" unique_id=707474778]
+
+[node name="health" parent="." unique_id=1680525457 instance=ExtResource("1_xiym8")]
+offset_top = -1.0
+offset_bottom = -1.0
+
+[node name="clock" parent="." unique_id=1667837152 instance=ExtResource("2_bcnh8")]
+
+[node name="calorie_tracker" parent="." unique_id=345403893 instance=ExtResource("3_6a3h1")]

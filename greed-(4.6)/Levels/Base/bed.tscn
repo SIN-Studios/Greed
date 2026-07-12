@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://bojvsu82a50d3"]
+
+[ext_resource type="Script" uid="uid://b5cmq32ht0k1a" path="res://Levels/Base/bed.gd" id="1_hx305"]
+[ext_resource type="Texture2D" uid="uid://qrg21wimh0bo" path="res://Seth designs/bed.png" id="2_8dj80"]
+[ext_resource type="PackedScene" uid="uid://l6u2hn17t861" path="res://Assets/interaction.tscn" id="3_8dj80"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_g0den"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4k50d"]
+size = Vector2(32, 64)
+
+[node name="bed" type="Node2D" unique_id=1666831885]
+script = ExtResource("1_hx305")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1284564963]
+position = Vector2(9.536743e-07, -5.9604645e-08)
+rotation = 1.5707964
+texture = ExtResource("2_8dj80")
+
+[node name="bed_collision" type="StaticBody2D" parent="." unique_id=959963479]
+collision_mask = 12
+physics_material_override = SubResource("PhysicsMaterial_g0den")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bed_collision" unique_id=1371926322]
+shape = SubResource("RectangleShape2D_4k50d")
+
+[node name="interaction" parent="." unique_id=1391498403 instance=ExtResource("3_8dj80")]
+
+[node name="Label" parent="interaction" index="0" unique_id=704071601]
+text = "Hold E to sleep"
+
+[editable path="interaction"]

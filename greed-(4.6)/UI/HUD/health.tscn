@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://ddnd6vp0bj34k"]
+
+[ext_resource type="Texture2D" uid="uid://cpe0nvh7xdnsa" path="res://Seth designs/health.png" id="1_e03g0"]
+[ext_resource type="Script" uid="uid://dssj41lmhmj7k" path="res://UI/HUD/health.gd" id="1_ru2go"]
+[ext_resource type="Texture2D" uid="uid://dnykyevamhjqv" path="res://Seth designs/healthspritesheet.png" id="3_g63s6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g63s6"]
+atlas = ExtResource("3_g63s6")
+region = Rect2(64, 36, 64, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ybo6"]
+atlas = ExtResource("3_g63s6")
+region = Rect2(64, 0, 64, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wwkc3"]
+atlas = ExtResource("3_g63s6")
+region = Rect2(0, 36, 64, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kprqs"]
+atlas = ExtResource("3_g63s6")
+region = Rect2(0, 0, 64, 36)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kikbh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g63s6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ybo6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wwkc3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kprqs")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="health" type="Control" unique_id=1680525457]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ru2go")
+
+[node name="health_indicator112" type="TextureRect" parent="." unique_id=1837561000]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_e03g0")
+stretch_mode = 5
+
+[node name="health_indicator" type="AnimatedSprite2D" parent="." unique_id=1804155351]
+position = Vector2(960, 540)
+scale = Vector2(30, 30)
+sprite_frames = SubResource("SpriteFrames_kikbh")

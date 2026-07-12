@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://w581ic2xt0wj"]
+
+[ext_resource type="Texture2D" uid="uid://bf4hfj6igiltm" path="res://isaac designs/isaac assets/art/bettercave.png" id="1_6tscd"]
+[ext_resource type="Script" uid="uid://bueoji2nn66gx" path="res://isaac designs/isaac assets/scripts/base.gd" id="2_xajau"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mptvn"]
+size = Vector2(41, 42)
+
+[node name="StaticBody2D" type="StaticBody2D" unique_id=637776246]
+position = Vector2(0, -3)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2103581351]
+modulate = Color(0.46229059, 0.46229059, 0.46229059, 1)
+position = Vector2(337, 261)
+texture = ExtResource("1_6tscd")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=327500598]
+collision_layer = 7
+collision_mask = 7
+script = ExtResource("2_xajau")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=308004475]
+position = Vector2(337.5, 296)
+shape = SubResource("RectangleShape2D_mptvn")
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
