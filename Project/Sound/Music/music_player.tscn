@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://cxq7fq2r8b6o4"]
+
+[ext_resource type="AudioStream" uid="uid://grmfocprxjmh" path="res://Sound/Music/Lost_in_the_Wild_FULL_SONG_MusicGPT.mp3" id="1_1bad6"]
+
+[node name="music_player" type="Node" unique_id=2065152722]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1675332906]
+stream = ExtResource("1_1bad6")
+autoplay = true
+parameters/looping = true
