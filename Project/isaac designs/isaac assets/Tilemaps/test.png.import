@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://brxvb54nttkh7"
-path="res://.godot/imported/water-basic-tilemap2.png-04aeae45fc525b6706beb07cd401df53.ctex"
+uid="uid://cxtmk5fgtbupa"
+path="res://.godot/imported/test.png-6b75d1d0f34954d5484c15311d0511ed.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://isaac designs/isaac assets/Tilemaps/water-basic-tilemap2.png"
-dest_files=["res://.godot/imported/water-basic-tilemap2.png-04aeae45fc525b6706beb07cd401df53.ctex"]
+source_file="res://isaac designs/isaac assets/Tilemaps/test.png"
+dest_files=["res://.godot/imported/test.png-6b75d1d0f34954d5484c15311d0511ed.ctex"]
 
 [params]
 

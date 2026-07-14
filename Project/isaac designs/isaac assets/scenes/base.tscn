@@ -7,10 +7,13 @@
 size = Vector2(41, 42)
 
 [node name="StaticBody2D" type="StaticBody2D" unique_id=637776246]
-position = Vector2(0, -3)
+collision_layer = 7
+collision_mask = 7
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1333657686]
+polygon = PackedVector2Array(316, 317, 292, 316, 277, 298, 282, 267, 285, 264, 287, 246, 297, 233, 326, 212, 351, 219, 359, 226, 368, 236, 369, 242, 379, 260, 379, 265, 384, 270, 389, 276, 394, 286, 392, 295, 380, 311, 365, 317, 358, 317, 355, 296, 331, 283, 327, 296)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2103581351]
-modulate = Color(0.46229059, 0.46229059, 0.46229059, 1)
 position = Vector2(337, 261)
 texture = ExtResource("1_6tscd")
 

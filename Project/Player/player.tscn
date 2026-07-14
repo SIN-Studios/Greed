@@ -8,7 +8,7 @@
 [ext_resource type="Script" uid="uid://bi2r3igu52m8r" path="res://Player/item_hand.gd" id="5_htcer"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a3d8c"]
-size = Vector2(32, 32)
+size = Vector2(19, 32)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_htcer"]
 radius = 200.0
@@ -19,6 +19,7 @@ motion_mode = 1
 script = ExtResource("1_a3d8c")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1830430437]
+position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_a3d8c")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=526365195]
@@ -26,6 +27,7 @@ position = Vector2(0, -16)
 texture = ExtResource("2_fhl08")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=785665219]
+zoom = Vector2(3, 3)
 
 [node name="hands" type="Node2D" parent="." unique_id=347339087]
 script = ExtResource("3_dd0ac")

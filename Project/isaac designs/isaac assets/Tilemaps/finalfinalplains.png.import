@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cbukotukp8d4i"
-path="res://.godot/imported/plainstilemapcurrent (1)-1.png.png-366b5b0ce3333965129030d0ef72df8d.ctex"
+uid="uid://brnhdov5kek8p"
+path="res://.godot/imported/finalfinalplains.png-487d4938464da9c161ed0fc433970e0c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://isaac designs/isaac assets/Tilemaps/plainstilemapcurrent (1)-1.png.png"
-dest_files=["res://.godot/imported/plainstilemapcurrent (1)-1.png.png-366b5b0ce3333965129030d0ef72df8d.ctex"]
+source_file="res://isaac designs/isaac assets/Tilemaps/finalfinalplains.png"
+dest_files=["res://.godot/imported/finalfinalplains.png-487d4938464da9c161ed0fc433970e0c.ctex"]
 
 [params]
 
