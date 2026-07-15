@@ -978,4 +978,4 @@ position = Vector2(-90, 844)
 
 [node name="player" parent="." unique_id=1334899193 instance=ExtResource("1_s08vq")]
 y_sort_enabled = true
-position = Vector2(-88, 860)
+position = Vector2(-87, 882)
