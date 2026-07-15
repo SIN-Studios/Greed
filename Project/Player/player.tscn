@@ -14,6 +14,7 @@ size = Vector2(19, 19)
 radius = 200.0
 
 [node name="player" type="CharacterBody2D" unique_id=1334899193 groups=["player"]]
+position = Vector2(0, -16)
 collision_layer = 4
 motion_mode = 1
 script = ExtResource("1_a3d8c")
@@ -27,7 +28,7 @@ position = Vector2(0, -16)
 texture = ExtResource("2_fhl08")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=785665219]
-zoom = Vector2(3.5, 3.5)
+zoom = Vector2(3.39, 3.39)
 
 [node name="hands" type="Node2D" parent="." unique_id=347339087]
 script = ExtResource("3_dd0ac")

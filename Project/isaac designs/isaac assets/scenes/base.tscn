@@ -11,10 +11,11 @@ collision_layer = 7
 collision_mask = 7
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1333657686]
-polygon = PackedVector2Array(316, 317, 292, 316, 277, 298, 282, 267, 285, 264, 287, 246, 297, 233, 326, 212, 351, 219, 359, 226, 368, 236, 369, 242, 379, 260, 379, 265, 384, 270, 389, 276, 394, 286, 392, 295, 380, 311, 365, 317, 358, 317, 355, 296, 331, 283, 327, 296)
+position = Vector2(-336.9, -317)
+polygon = PackedVector2Array(316, 317, 292, 316, 277, 298, 282, 267, 285, 264, 294, 264, 311, 264, 334, 264, 350, 264, 359, 264, 367, 264, 373, 264, 378, 264, 379, 265, 384, 270, 389, 276, 394, 286, 392, 295, 380, 311, 365, 317, 358, 317, 355, 296, 331, 283, 327, 296)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2103581351]
-position = Vector2(337, 261)
+position = Vector2(0.1000061, -56)
 texture = ExtResource("1_6tscd")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=327500598]
@@ -23,7 +24,7 @@ collision_mask = 7
 script = ExtResource("2_xajau")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=308004475]
-position = Vector2(337.5, 296)
+position = Vector2(0.6000061, -21)
 shape = SubResource("RectangleShape2D_mptvn")
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
