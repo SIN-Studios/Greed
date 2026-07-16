@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cxq7fq2r8b6o4"]
 
-[ext_resource type="AudioStream" uid="uid://cak0wst6qthlk" path="res://Sound/Music/mus_vsasgore.ogg" id="1_1bad6"]
+[ext_resource type="AudioStream" uid="uid://deqrlsxjgwph5" path="res://Sound/Music/mus_zz_megalovania.ogg" id="1_1bad6"]
 
 [node name="music_player" type="Node" unique_id=2065152722]
 
