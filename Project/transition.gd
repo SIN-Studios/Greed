@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-signal transition_finished
+
 var _target_scene: String = ""
 @onready var wipe = $ColorRect
 
