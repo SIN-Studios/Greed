@@ -1,0 +1,160 @@
+[gd_scene format=3 uid="uid://br1fl5vgfqr31"]
+
+[ext_resource type="Script" uid="uid://ddi6singkx3l4" path="res://UI/Inventory/inventory_ui.gd" id="1_gka8b"]
+[ext_resource type="Texture2D" uid="uid://c6e2558stckv8" path="res://UI/Inventory/inventory-background.png" id="2_l6l0t"]
+[ext_resource type="PackedScene" uid="uid://dq837tnw08i1u" path="res://UI/Inventory/inventory_ui_slot.tscn" id="3_dk10o"]
+
+[node name="inventory_ui" type="Control" unique_id=1055113431]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+script = ExtResource("1_gka8b")
+
+[node name="inventory" type="NinePatchRect" parent="." unique_id=1789316978]
+custom_minimum_size = Vector2(80, 45)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -22.5
+offset_right = 40.0
+offset_bottom = 22.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(10, 10)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("2_l6l0t")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="GridContainer" type="GridContainer" parent="inventory" unique_id=257954890]
+custom_minimum_size = Vector2(76, 36)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -38.0
+offset_top = -18.0
+offset_right = 38.0
+offset_bottom = 18.100002
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+columns = 4
+
+[node name="inventory_ui_slot1" parent="inventory/GridContainer" unique_id=2014344690 instance=ExtResource("3_dk10o")]
+layout_mode = 2
+
+[node name="inventory_ui_slot2" parent="inventory/GridContainer" unique_id=1879225681 instance=ExtResource("3_dk10o")]
+layout_mode = 2
+
+[node name="inventory_ui_slot3" parent="inventory/GridContainer" unique_id=1774830311 instance=ExtResource("3_dk10o")]
+layout_mode = 2
+
+[node name="inventory_ui_slot4" parent="inventory/GridContainer" unique_id=486610303 instance=ExtResource("3_dk10o")]
+layout_mode = 2
+
+[node name="inventory_ui_slot5" parent="inventory/GridContainer" unique_id=1580639668 instance=ExtResource("3_dk10o")]
+layout_mode = 2
+
+[node name="inventory_ui_slot6" parent="inventory/GridContainer" unique_id=1228748685 instance=ExtResource("3_dk10o")]
+layout_mode = 2
+
+[node name="inventory_ui_slot7" parent="inventory/GridContainer" unique_id=1712166726 instance=ExtResource("3_dk10o")]
+layout_mode = 2
+
+[node name="inventory_ui_slot8" parent="inventory/GridContainer" unique_id=1025726905 instance=ExtResource("3_dk10o")]
+layout_mode = 2
+
+[node name="weapon_hand" type="NinePatchRect" parent="." unique_id=938053797]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -320.0
+offset_top = 360.0
+offset_right = -296.0
+offset_bottom = 384.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(10, 10)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("2_l6l0t")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="GridContainer" type="GridContainer" parent="weapon_hand" unique_id=1493360531]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+columns = 4
+
+[node name="inventory_ui_slot" parent="weapon_hand/GridContainer" unique_id=830379053 instance=ExtResource("3_dk10o")]
+layout_mode = 2
+
+[node name="item_hand" type="NinePatchRect" parent="." unique_id=1062561264]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 320.0
+offset_top = 360.0
+offset_right = 344.0
+offset_bottom = 384.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(10, 10)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("2_l6l0t")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="GridContainer" type="GridContainer" parent="item_hand" unique_id=1219828052]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+columns = 4
+
+[node name="inventory_ui_slot" parent="item_hand/GridContainer" unique_id=376626433 instance=ExtResource("3_dk10o")]
+layout_mode = 2
