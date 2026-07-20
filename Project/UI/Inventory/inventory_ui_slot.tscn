@@ -1,12 +1,16 @@
 [gd_scene format=3 uid="uid://dq837tnw08i1u"]
 
+[ext_resource type="Script" uid="uid://vkwpbsvantml" path="res://UI/Inventory/inventory_ui_slot.gd" id="1_fo5jd"]
 [ext_resource type="Texture2D" uid="uid://cer7rfavgxd4c" path="res://UI/Inventory/inventory-slot.png" id="1_ompl0"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7rdt1"]
 
 [node name="inventory_ui_slot" type="Panel" unique_id=2014344690]
 self_modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(16, 16)
 offset_right = 16.0
 offset_bottom = 16.0
+script = ExtResource("1_fo5jd")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=513484804]
 texture = ExtResource("1_ompl0")
@@ -21,4 +25,6 @@ offset_bottom = 16.0
 [node name="Panel" type="Panel" parent="CenterContainer" unique_id=238757845]
 layout_mode = 2
 
-[node name="item_display" type="Sprite2D" parent="CenterContainer/Panel" unique_id=590709354]
+[node name="item_display" type="AnimatedSprite2D" parent="CenterContainer/Panel" unique_id=200369224]
+scale = Vector2(0.25, 0.25)
+sprite_frames = SubResource("SpriteFrames_7rdt1")

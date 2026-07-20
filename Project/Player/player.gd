@@ -8,6 +8,8 @@ var time_till_regen: float = 0.0
 var regen_factor: float = 0.
 var wake_up_position
 
+@export var player_inventory: inventory
+
 func _ready() -> void:
 	SignalManager.player_take_damage.connect(take_damage)
 	SignalManager.player_dies.connect(die)

@@ -45,7 +45,8 @@ color = Color(0, 1, 0, 1)
 
 [node name="indicator" type="ColorRect" parent="." unique_id=630219285]
 layout_mode = 0
-offset_right = 5.0
+offset_left = -2.5
+offset_right = 2.5
 offset_bottom = 100.0
 pivot_offset_ratio = Vector2(0.5, 0.5)
 color = Color(0, 0, 0, 1)

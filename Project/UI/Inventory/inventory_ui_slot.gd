@@ -1,0 +1,7 @@
+extends Panel
+
+@onready var item_display: AnimatedSprite2D = $CenterContainer/Panel/item_display
+
+func update_texture(slot_item: enemy) -> void:
+	if slot_item:
+		item_display.sprite_frames = slot_item.item_texture
