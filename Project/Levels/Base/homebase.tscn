@@ -278,9 +278,6 @@ shape = SubResource("RectangleShape2D_4vjcd")
 position = Vector2(-2786, 291)
 shape = SubResource("RectangleShape2D_4vjcd")
 
-[node name="player" parent="." unique_id=1334899193 instance=ExtResource("2_4vjcd")]
-position = Vector2(29, 861)
-
 [node name="Area2D" type="Area2D" parent="." unique_id=988237686]
 collision_layer = 7
 collision_mask = 7
@@ -302,5 +299,8 @@ texture = ExtResource("4_wgwyp")
 
 [node name="bed" parent="." unique_id=1666831885 instance=ExtResource("5_2u8it")]
 position = Vector2(-246, 701)
+
+[node name="player" parent="." unique_id=1334899193 instance=ExtResource("2_4vjcd")]
+position = Vector2(29, 861)
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
