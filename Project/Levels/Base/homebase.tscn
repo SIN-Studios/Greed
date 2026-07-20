@@ -3,7 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://24b8noh23qp8" path="res://isaac designs/isaac assets/Tilemaps/basetilemap.png" id="1_vdfm2"]
 [ext_resource type="PackedScene" uid="uid://xu8pjhossg40" path="res://Player/player.tscn" id="2_4vjcd"]
 [ext_resource type="Script" uid="uid://bwyk57efqfsts" path="res://isaac designs/isaac assets/scripts/area_2d.gd" id="3_4vjcd"]
-[ext_resource type="Texture2D" uid="uid://m82dcv3k827o" path="res://isaac designs/isaac assets/art/base.png" id="4_4ule4"]
+[ext_resource type="Texture2D" uid="uid://bf4hfj6igiltm" path="res://isaac designs/isaac assets/art/bettercave.png" id="4_wgwyp"]
+[ext_resource type="PackedScene" uid="uid://bojvsu82a50d3" path="res://Levels/Base/bed.tscn" id="5_2u8it"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4ule4"]
 texture = ExtResource("1_vdfm2")
@@ -289,19 +290,17 @@ script = ExtResource("3_4vjcd")
 position = Vector2(34, 1112)
 shape = SubResource("RectangleShape2D_4ule4")
 
-[node name="bed(REPLACE)" type="Sprite2D" parent="." unique_id=2123215636]
-position = Vector2(-204.00003, 667)
-scale = Vector2(3.046875, 1)
-texture = ExtResource("4_4ule4")
-
 [node name="board(REPLACE)" type="Sprite2D" parent="." unique_id=367157491]
 position = Vector2(23, 509)
 scale = Vector2(1.164062, 0.359375)
-texture = ExtResource("4_4ule4")
+texture = ExtResource("4_wgwyp")
 
 [node name="fire(REPLACE)" type="Sprite2D" parent="." unique_id=2123065555]
 position = Vector2(-1, 631)
 scale = Vector2(0.7265624, 1)
-texture = ExtResource("4_4ule4")
+texture = ExtResource("4_wgwyp")
+
+[node name="bed" parent="." unique_id=1666831885 instance=ExtResource("5_2u8it")]
+position = Vector2(-246, 701)
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
