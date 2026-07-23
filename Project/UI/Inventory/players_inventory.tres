@@ -4,11 +4,7 @@
 [ext_resource type="Resource" uid="uid://d0gmi00i17de1" path="res://Enemies/apple.tres" id="2_y2skb"]
 [ext_resource type="Script" uid="uid://d1x2llqr6y1k4" path="res://UI/Inventory/inventory.gd" id="3_gu0ot"]
 
-[sub_resource type="Resource" id="Resource_m7sn4"]
-script = ExtResource("1_m7sn4")
-metadata/_custom_type_script = "uid://ju7wht6ok7t"
-
 [resource]
 script = ExtResource("3_gu0ot")
-items = Array[ExtResource("1_m7sn4")]([null, null, SubResource("Resource_m7sn4"), ExtResource("2_y2skb"), null, SubResource("Resource_m7sn4"), null, null])
+items = Array[ExtResource("1_m7sn4")]([null, null, null, ExtResource("2_y2skb"), null, null, null, null])
 metadata/_custom_type_script = "uid://d1x2llqr6y1k4"
