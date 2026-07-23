@@ -3,11 +3,26 @@
 [ext_resource type="Script" uid="uid://ju7wht6ok7t" path="res://Enemies/enemy.gd" id="1_r8fvl"]
 [ext_resource type="Texture2D" uid="uid://c7gddsrdkno1g" path="res://Seth designs/Apple.png" id="2_gjwuc"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ehjx"]
+atlas = ExtResource("2_gjwuc")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4k50d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ehjx")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_r8fvl"]
 atlas = ExtResource("2_gjwuc")
 region = Rect2(64, 64, 64, 64)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_5568c"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_i4ak4"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -36,6 +51,7 @@ animations = [{
 [resource]
 script = ExtResource("1_r8fvl")
 name = "apple"
-item_texture = SubResource("SpriteFrames_5568c")
+item_inventory_texture = SubResource("SpriteFrames_i4ak4")
+item_ground_textre = SubResource("SpriteFrames_4k50d")
 texture = SubResource("SpriteFrames_amj4j")
 metadata/_custom_type_script = "uid://ju7wht6ok7t"
