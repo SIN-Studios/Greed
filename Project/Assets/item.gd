@@ -8,5 +8,5 @@ func _ready() -> void:
 
 
 func interacted_with():
-	SignalManager.player_picks_up_item.emit()
+	SignalManager.player_picks_up_item.emit(item)
 	queue_free()

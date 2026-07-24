@@ -8,7 +8,7 @@ var time_till_regen: float = 0.0
 var regen_factor: float = 0.
 var wake_up_position
 
-@export var player_inventory: inventory
+@export var player_inventory: inventory = load("res://UI/Inventory/players_inventory.tres")
 
 func _ready() -> void:
 	SignalManager.player_take_damage.connect(take_damage)
@@ -16,6 +16,7 @@ func _ready() -> void:
 	SignalManager.player_lay_down.connect(lie_down)
 	SignalManager.player_go_to_sleep.connect(sleep)
 	SignalManager.player_get_up.connect(get_up)
+	SignalManager.player_picks_up_item.connect(pickup_item)
 
 func _process(delta: float) -> void:
 	if time_till_regen > 0:
@@ -67,3 +68,8 @@ func get_up():
 	global_position = wake_up_position
 	rotation = 0
 	TimeManager.timescale = 120
+
+func pickup_item(item):
+	print(item)
+	player_inventory.pickup_item(item)
+	

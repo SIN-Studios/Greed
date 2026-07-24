@@ -6,6 +6,7 @@ var is_open: bool
 
 
 func _ready() -> void:
+	SignalManager.update_inventory_ui.connect(update_slots)
 	close()
 	update_slots()
 

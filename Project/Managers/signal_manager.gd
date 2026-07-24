@@ -12,3 +12,4 @@ signal player_go_to_sleep
 signal player_lay_down
 signal player_get_up
 signal change_timescale
+signal update_inventory_ui
