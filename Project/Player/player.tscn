@@ -14,6 +14,10 @@ height = 14.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_htcer"]
 radius = 200.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k3jbv"]
+radius = 7.0
+height = 14.0
+
 [node name="player" type="CharacterBody2D" unique_id=1334899193 groups=["player"]]
 collision_layer = 4
 motion_mode = 1
@@ -53,8 +57,27 @@ collision_mask = 16
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hands/interaction_range" unique_id=1449726462]
 shape = SubResource("CircleShape2D_htcer")
 
+[node name="lavahurts" type="Area2D" parent="." unique_id=1097002975]
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="lavahurts" unique_id=784103891]
+position = Vector2(1, -1)
+shape = SubResource("CapsuleShape2D_k3jbv")
+
+[node name="magmahurts" type="Area2D" parent="." unique_id=1842508742]
+collision_layer = 0
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="magmahurts" unique_id=1448025011]
+position = Vector2(1, -1)
+shape = SubResource("CapsuleShape2D_k3jbv")
+
 [connection signal="body_entered" from="hands/weapon_hand/knife/Area2D" to="hands/weapon_hand" method="_on_area_2d_body_entered"]
 [connection signal="area_shape_entered" from="hands/interaction_range" to="hands" method="_on_interaction_range_area_shape_entered"]
 [connection signal="area_shape_exited" from="hands/interaction_range" to="hands" method="_on_interaction_range_area_shape_exited"]
+[connection signal="body_entered" from="lavahurts" to="." method="_on_lavahurts_body_entered"]
+[connection signal="body_entered" from="magmahurts" to="." method="_on_magmahurts_body_entered"]
+[connection signal="body_entered" from="magmahurts" to="." method="_on_lavahurts_body_entered"]
 
 [editable path="hands/weapon_hand/knife"]

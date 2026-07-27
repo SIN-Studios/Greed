@@ -1,6 +1,5 @@
 extends CharacterBody2D
 
-
 const speed: int = 125
 const slipperiness_factor: int = 10 #Higher is more slippery
 var health: float = 100.0
@@ -42,6 +41,16 @@ func _physics_process(_delta: float) -> void:
 	else:
 		velocity.y = move_toward(velocity.y, 0, slipperiness_factor)
 	move_and_slide()
+
+
+func _on_lavahurts_body_entered(body: Node2D) -> void:
+	if body is TileMapLayer:
+		take_damage(40)
+		
+func _on_magmahurts_body_entered(body: Node2D) -> void:
+	if body is TileMapLayer:
+		take_damage(30)
+
 
 func take_damage(damage):
 	health -= damage
