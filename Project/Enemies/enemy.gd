@@ -1,5 +1,6 @@
 extends Resource
 
+#class for enemy which is referenced when creating enemy files, includes what they drop
 class_name enemy
 
 @export var name: String

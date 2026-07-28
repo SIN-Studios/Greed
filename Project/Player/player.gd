@@ -4,8 +4,8 @@ const speed: int = 125
 const slipperiness_factor: int = 10 #Higher is more slippery
 var health: float = 100.0
 var time_till_regen: float = 0.0
-var regen_factor: float = 0.
-var wake_up_position
+var regen_factor: float = 0.0
+var wake_up_position: Vector2
 
 @export var player_inventory: inventory = load("res://UI/Inventory/players_inventory.tres")
 

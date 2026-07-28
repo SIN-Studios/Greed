@@ -2,7 +2,7 @@ extends CanvasLayer
 
 
 var _target_scene: String = ""
-@onready var wipe = $ColorRect
+@onready var wipe: ColorRect = $ColorRect
 
 func slide_and_change_scene(scene_path: String):
 	_target_scene = scene_path
