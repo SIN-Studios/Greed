@@ -45,11 +45,11 @@ func _physics_process(_delta: float) -> void:
 
 func _on_lavahurts_body_entered(body: Node2D) -> void:
 	if body is TileMapLayer:
-		take_damage(40)
+		take_damage(35)
 		
 func _on_magmahurts_body_entered(body: Node2D) -> void:
 	if body is TileMapLayer:
-		take_damage(30)
+		take_damage(20)
 
 
 func take_damage(damage):

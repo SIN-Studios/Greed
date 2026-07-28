@@ -77,7 +77,7 @@ shape = SubResource("CapsuleShape2D_k3jbv")
 [connection signal="area_shape_entered" from="hands/interaction_range" to="hands" method="_on_interaction_range_area_shape_entered"]
 [connection signal="area_shape_exited" from="hands/interaction_range" to="hands" method="_on_interaction_range_area_shape_exited"]
 [connection signal="body_entered" from="lavahurts" to="." method="_on_lavahurts_body_entered"]
-[connection signal="body_entered" from="magmahurts" to="." method="_on_magmahurts_body_entered"]
 [connection signal="body_entered" from="magmahurts" to="." method="_on_lavahurts_body_entered"]
+[connection signal="body_entered" from="magmahurts" to="." method="_on_magmahurts_body_entered"]
 
 [editable path="hands/weapon_hand/knife"]
