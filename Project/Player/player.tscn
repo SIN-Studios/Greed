@@ -6,9 +6,9 @@
 [ext_resource type="Script" uid="uid://bc7bimikjafko" path="res://Player/weapon_hand.gd" id="3_mtuoh"]
 [ext_resource type="PackedScene" uid="uid://c5ijv18l3wkwf" path="res://Player/knife.tscn" id="3_xpcdj"]
 [ext_resource type="Script" uid="uid://bi2r3igu52m8r" path="res://Player/item_hand.gd" id="5_htcer"]
-[ext_resource type="Script" uid="uid://cxaewei6kie7x" path="res://state_machine.gd" id="7_x3vf3"]
-[ext_resource type="Script" uid="uid://clwfm81t7rv8m" path="res://idle_state.gd" id="8_apopc"]
-[ext_resource type="Script" uid="uid://cada3n443ivqb" path="res://walk_state.gd" id="9_5htga"]
+[ext_resource type="Script" uid="uid://cxaewei6kie7x" path="res://Player/States/player_state_machine.gd" id="7_x3vf3"]
+[ext_resource type="Script" uid="uid://clwfm81t7rv8m" path="res://Player/States/player_idle_state.gd" id="8_apopc"]
+[ext_resource type="Script" uid="uid://cada3n443ivqb" path="res://Player/States/player_walk_state.gd" id="9_5htga"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k6a8t"]
 radius = 7.0
@@ -76,16 +76,16 @@ collision_mask = 32
 position = Vector2(1, -1)
 shape = SubResource("CapsuleShape2D_k3jbv")
 
-[node name="StateMachine" type="Node" parent="." unique_id=957407941 node_paths=PackedStringArray("initial_state")]
+[node name="PlayerStateMachine" type="Node" parent="." unique_id=187046789 node_paths=PackedStringArray("initial_state")]
 script = ExtResource("7_x3vf3")
-initial_state = NodePath("IdleState")
+initial_state = NodePath("PlayerIdleState")
 metadata/_custom_type_script = "uid://cxaewei6kie7x"
 
-[node name="IdleState" type="Node" parent="StateMachine" unique_id=1508282813]
+[node name="PlayerIdleState" type="Node" parent="PlayerStateMachine" unique_id=160471070]
 script = ExtResource("8_apopc")
 metadata/_custom_type_script = "uid://clwfm81t7rv8m"
 
-[node name="WalkState" type="Node" parent="StateMachine" unique_id=1700660527]
+[node name="PlayerWalkState" type="Node" parent="PlayerStateMachine" unique_id=1506997018]
 script = ExtResource("9_5htga")
 metadata/_custom_type_script = "uid://cada3n443ivqb"
 
@@ -93,7 +93,7 @@ metadata/_custom_type_script = "uid://cada3n443ivqb"
 [connection signal="area_shape_entered" from="hands/interaction_range" to="hands" method="_on_interaction_range_area_shape_entered"]
 [connection signal="area_shape_exited" from="hands/interaction_range" to="hands" method="_on_interaction_range_area_shape_exited"]
 [connection signal="body_entered" from="lavahurts" to="." method="_on_lavahurts_body_entered"]
-[connection signal="body_entered" from="magmahurts" to="." method="_on_lavahurts_body_entered"]
 [connection signal="body_entered" from="magmahurts" to="." method="_on_magmahurts_body_entered"]
+[connection signal="body_entered" from="magmahurts" to="." method="_on_lavahurts_body_entered"]
 
 [editable path="hands/weapon_hand/knife"]
