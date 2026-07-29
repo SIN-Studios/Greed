@@ -28,21 +28,6 @@ func _process(delta: float) -> void:
 		if health > 100:
 			health = 100
 
-
-func _physics_process(_delta: float) -> void:
-	var direction_x := Input.get_axis("move_left", "move_right")
-	if direction_x:
-		velocity.x = direction_x * speed
-	else:
-		velocity.x = move_toward(velocity.x, 0, slipperiness_factor)
-	var direction_y := Input.get_axis("move_forward", "move_backward")
-	if direction_y:
-		velocity.y = direction_y * speed
-	else:
-		velocity.y = move_toward(velocity.y, 0, slipperiness_factor)
-	move_and_slide()
-
-
 func _on_lavahurts_body_entered(body: Node2D) -> void:
 	if body is TileMapLayer:
 		take_damage(35)

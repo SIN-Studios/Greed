@@ -6,6 +6,9 @@
 [ext_resource type="Script" uid="uid://bc7bimikjafko" path="res://Player/weapon_hand.gd" id="3_mtuoh"]
 [ext_resource type="PackedScene" uid="uid://c5ijv18l3wkwf" path="res://Player/knife.tscn" id="3_xpcdj"]
 [ext_resource type="Script" uid="uid://bi2r3igu52m8r" path="res://Player/item_hand.gd" id="5_htcer"]
+[ext_resource type="Script" uid="uid://cxaewei6kie7x" path="res://state_machine.gd" id="7_x3vf3"]
+[ext_resource type="Script" uid="uid://clwfm81t7rv8m" path="res://idle_state.gd" id="8_apopc"]
+[ext_resource type="Script" uid="uid://cada3n443ivqb" path="res://walk_state.gd" id="9_5htga"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k6a8t"]
 radius = 7.0
@@ -27,7 +30,7 @@ script = ExtResource("1_a3d8c")
 position = Vector2(0, -16)
 texture = ExtResource("2_fhl08")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1830430437]
+[node name="hitbox" type="CollisionShape2D" parent="." unique_id=1830430437]
 position = Vector2(1, -1)
 shape = SubResource("CapsuleShape2D_k6a8t")
 
@@ -72,6 +75,19 @@ collision_mask = 32
 [node name="CollisionShape2D" type="CollisionShape2D" parent="magmahurts" unique_id=1448025011]
 position = Vector2(1, -1)
 shape = SubResource("CapsuleShape2D_k3jbv")
+
+[node name="StateMachine" type="Node" parent="." unique_id=957407941 node_paths=PackedStringArray("initial_state")]
+script = ExtResource("7_x3vf3")
+initial_state = NodePath("IdleState")
+metadata/_custom_type_script = "uid://cxaewei6kie7x"
+
+[node name="IdleState" type="Node" parent="StateMachine" unique_id=1508282813]
+script = ExtResource("8_apopc")
+metadata/_custom_type_script = "uid://clwfm81t7rv8m"
+
+[node name="WalkState" type="Node" parent="StateMachine" unique_id=1700660527]
+script = ExtResource("9_5htga")
+metadata/_custom_type_script = "uid://cada3n443ivqb"
 
 [connection signal="body_entered" from="hands/weapon_hand/knife/Area2D" to="hands/weapon_hand" method="_on_area_2d_body_entered"]
 [connection signal="area_shape_entered" from="hands/interaction_range" to="hands" method="_on_interaction_range_area_shape_entered"]
