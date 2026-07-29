@@ -4,6 +4,10 @@ extends Control
 
 #triggered every tick
 func _process(_delta: float) -> void:
+	#makes sure player exists
+	if not player:
+		player = get_tree().get_first_node_in_group("player")
+		return
 	#fades the health vignette
 	$health_indicator.modulate.a8 = (100 - float(player.health)) * 2.55
 	if player.time_till_regen > 2:
