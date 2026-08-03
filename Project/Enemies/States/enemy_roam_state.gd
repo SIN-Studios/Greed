@@ -9,8 +9,8 @@ var direction: Vector2 = Vector2.ZERO
 func enter():
 	if !control:
 		return
-	if timer:
-		timer.start()
+	timer.start.call_deferred()
+
 
 func exit():
 	timer.stop()
