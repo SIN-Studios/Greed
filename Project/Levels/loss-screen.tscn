@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://dl8b7ws17iij3"]
+
+[node name="Control" type="Control" unique_id=1089055683]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+metadata/_edit_lock_ = true
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=384541554]
+layout_mode = 0
+offset_right = 3858.0
+offset_bottom = 2194.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="." unique_id=409397495]
+layout_mode = 0
+offset_left = 1228.0
+offset_top = 566.0
+offset_right = 2770.0
+offset_bottom = 1190.0
+theme_override_colors/font_color = Color(0.8421412, 0, 0.040536843, 1)
+theme_override_font_sizes/font_size = 320
+text = "YOU LOSE"
+
+[node name="Button" type="Button" parent="." unique_id=1219366679]
+layout_mode = 0
+offset_left = 1663.0
+offset_top = 1137.0
+offset_right = 2303.0
+offset_bottom = 1474.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 85
+text = "PLAY AGAIN"
