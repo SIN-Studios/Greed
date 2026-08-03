@@ -15,6 +15,7 @@ func _ready() -> void:
 	SignalManager.player_go_to_sleep.connect(sleep)
 	SignalManager.player_get_up.connect(get_up)
 	SignalManager.player_picks_up_item.connect(pickup_item)
+	Global.player = self
 
 func _process(delta: float) -> void:
 	if time_till_regen > 0:
@@ -29,15 +30,16 @@ func _process(delta: float) -> void:
 
 func _on_lavahurts_body_entered(body: Node2D) -> void:
 	if body is TileMapLayer:
-		take_damage(35)
+		take_damage(35, Vector2(0,0))
 		
 func _on_magmahurts_body_entered(body: Node2D) -> void:
 	if body is TileMapLayer:
-		take_damage(20)
+		take_damage(20, Vector2(0,0))
 
 
-func take_damage(damage):
+func take_damage(damage, direction):
 	health -= damage
+	velocity += direction * 200
 	regen_factor = 0.1
 	time_till_regen = 5
 	print("Player", health)

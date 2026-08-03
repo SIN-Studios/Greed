@@ -1,9 +1,10 @@
-extends Resource
+extends CharacterBody2D
 
-#class for enemy which is referenced when creating enemy files, includes what they drop
-class_name enemy
+var current_enemy: enemy = load("res://Enemies/apple.tres")
+var health: int
 
-@export var name: String
-@export var item_inventory_texture: SpriteFrames
-@export var item_ground_textre: SpriteFrames
-@export var texture: SpriteFrames
+func _ready() -> void:
+	if !current_enemy:
+		return
+	$AnimatedSprite2D.sprite_frames = current_enemy.texture
+	health = current_enemy.health

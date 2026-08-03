@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="inventory" format=3 uid="uid://gypwa2bpr03s"]
 
-[ext_resource type="Script" uid="uid://ju7wht6ok7t" path="res://Enemies/enemy.gd" id="1_m7sn4"]
+[ext_resource type="Script" uid="uid://ju7wht6ok7t" path="res://Classes and Resource templates/enemy_class.gd" id="1_m7sn4"]
 [ext_resource type="Resource" uid="uid://d0gmi00i17de1" path="res://Enemies/apple.tres" id="2_y2skb"]
 [ext_resource type="Script" uid="uid://d1x2llqr6y1k4" path="res://UI/Inventory/inventory.gd" id="3_gu0ot"]
 

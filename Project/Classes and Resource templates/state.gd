@@ -3,6 +3,7 @@ extends Node
 class_name State
 
 var state_machine: StateMachine
+@onready var control = get_parent().get_parent()
 
 func enter():
 	pass

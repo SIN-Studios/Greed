@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="enemy" format=3 uid="uid://d0gmi00i17de1"]
 
-[ext_resource type="Script" uid="uid://ju7wht6ok7t" path="res://Enemies/enemy.gd" id="1_r8fvl"]
 [ext_resource type="Texture2D" uid="uid://c7gddsrdkno1g" path="res://Seth designs/Apple.png" id="2_gjwuc"]
+[ext_resource type="Script" uid="uid://ju7wht6ok7t" path="res://Classes and Resource templates/enemy_class.gd" id="2_r8fvl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2ehjx"]
 atlas = ExtResource("2_gjwuc")
@@ -49,9 +49,10 @@ animations = [{
 }]
 
 [resource]
-script = ExtResource("1_r8fvl")
+script = ExtResource("2_r8fvl")
 name = "apple"
 item_inventory_texture = SubResource("SpriteFrames_i4ak4")
 item_ground_textre = SubResource("SpriteFrames_4k50d")
 texture = SubResource("SpriteFrames_amj4j")
+health = 100
 metadata/_custom_type_script = "uid://ju7wht6ok7t"

@@ -1,0 +1,84 @@
+[gd_scene format=3 uid="uid://edxssx2kupab"]
+
+[ext_resource type="Script" uid="uid://cxaewei6kie7x" path="res://Managers/state_machine.gd" id="1_3ih25"]
+[ext_resource type="Script" uid="uid://bop6i241r56p6" path="res://Enemies/enemy.gd" id="1_rt1x0"]
+[ext_resource type="Script" uid="uid://c13cwyjhiyyn0" path="res://Enemies/States/enemy_roam_state.gd" id="2_bxkaj"]
+[ext_resource type="Script" uid="uid://7hm510sx4ewt" path="res://Enemies/States/enemy_chase_state.gd" id="3_47qgu"]
+[ext_resource type="Script" uid="uid://d0hb5tp0u582q" path="res://Enemies/States/enemy_attack_state.gd" id="4_rt1x0"]
+[ext_resource type="Script" uid="uid://c67yxu37eiks" path="res://Enemies/States/enemy_dies_state.gd" id="5_8wvsg"]
+[ext_resource type="Script" uid="uid://yjbgn26jgydr" path="res://Enemies/States/enemy_damage_state.gd" id="6_gk8ng"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u1n1c"]
+radius = 25.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2vwo2"]
+radius = 150.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dnawn"]
+radius = 100.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7rdt1"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gjwuc"]
+
+[node name="enemy" type="CharacterBody2D" unique_id=923606778 groups=["enemy"]]
+collision_layer = 13
+collision_mask = 8
+script = ExtResource("1_rt1x0")
+
+[node name="attack_range" type="Area2D" parent="." unique_id=93049031]
+collision_layer = 8
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="attack_range" unique_id=1530917231]
+shape = SubResource("CircleShape2D_u1n1c")
+
+[node name="detection_range_exit" type="Area2D" parent="." unique_id=493961257]
+collision_layer = 8
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detection_range_exit" unique_id=2089254631]
+shape = SubResource("CircleShape2D_2vwo2")
+
+[node name="detection_range_enter" type="Area2D" parent="." unique_id=358888585]
+collision_layer = 8
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detection_range_enter" unique_id=1841867787]
+shape = SubResource("CircleShape2D_dnawn")
+
+[node name="collision" type="CollisionShape2D" parent="." unique_id=1463650258]
+shape = SubResource("CircleShape2D_7rdt1")
+
+[node name="Timer" type="Timer" parent="." unique_id=1214927114]
+
+[node name="StateMachine" type="Node" parent="." unique_id=1783725191 node_paths=PackedStringArray("initial_state")]
+script = ExtResource("1_3ih25")
+initial_state = NodePath("EnemyRoamState")
+metadata/_custom_type_script = "uid://cxaewei6kie7x"
+
+[node name="EnemyChaseState" type="Node" parent="StateMachine" unique_id=2076544464]
+script = ExtResource("3_47qgu")
+
+[node name="EnemyRoamState" type="Node" parent="StateMachine" unique_id=1911568399]
+script = ExtResource("2_bxkaj")
+
+[node name="EnemyAttackState" type="Node" parent="StateMachine" unique_id=1617242545]
+script = ExtResource("4_rt1x0")
+metadata/_custom_type_script = "uid://d0hb5tp0u582q"
+
+[node name="EnemyDiesState" type="Node" parent="StateMachine" unique_id=1446591939]
+script = ExtResource("5_8wvsg")
+metadata/_custom_type_script = "uid://c67yxu37eiks"
+
+[node name="EnemyDamageState" type="Node" parent="StateMachine" unique_id=1207308554]
+script = ExtResource("6_gk8ng")
+metadata/_custom_type_script = "uid://yjbgn26jgydr"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1112023235]
+sprite_frames = SubResource("SpriteFrames_gjwuc")
+
+[connection signal="body_entered" from="attack_range" to="StateMachine/EnemyChaseState" method="_on_attack_range_body_entered"]
+[connection signal="body_exited" from="detection_range_exit" to="StateMachine/EnemyChaseState" method="_on_detection_range_exit_body_exited"]
+[connection signal="body_entered" from="detection_range_enter" to="StateMachine/EnemyRoamState" method="_on_detection_range_enter_body_entered"]
+[connection signal="timeout" from="Timer" to="StateMachine/EnemyRoamState" method="_on_timer_timeout"]

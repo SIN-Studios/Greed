@@ -18,4 +18,4 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("enemy"):
 		@warning_ignore("narrowing_conversion")
 		var new_damage: int = weapon_damage * randf_range(0.9,1.1)
-		SignalManager.enemy_take_damage.emit(new_damage, body)
+		SignalManager.enemy_take_damage.emit(new_damage, (position.direction_to(body.position)), body)
