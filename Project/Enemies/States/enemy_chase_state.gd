@@ -5,8 +5,8 @@ class_name EnemyChaseState
 const speed: int = 50
 
 func enter():
-	if !control:
-		return
+	if control.get_node("AnimatedSprite2D").sprite_frames.has_animation("chase"):
+		control.get_node("AnimatedSprite2D").play("chase")
 
 func physics_update(_delta):
 	control.velocity = control.position.direction_to(Global.player.position) * speed

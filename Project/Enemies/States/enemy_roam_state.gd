@@ -7,8 +7,9 @@ var direction: Vector2 = Vector2.ZERO
 @onready var timer = $"../../Timer"
 
 func enter():
-	if !control:
-		return
+	if is_inside_tree():
+		await get_tree().create_timer(0.01).timeout
+	control.get_node("AnimatedSprite2D").play("roam") 
 	timer.start.call_deferred()
 
 

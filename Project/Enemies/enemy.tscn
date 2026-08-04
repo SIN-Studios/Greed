@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://d0hb5tp0u582q" path="res://Enemies/States/enemy_attack_state.gd" id="4_rt1x0"]
 [ext_resource type="Script" uid="uid://c67yxu37eiks" path="res://Enemies/States/enemy_dies_state.gd" id="5_8wvsg"]
 [ext_resource type="Script" uid="uid://yjbgn26jgydr" path="res://Enemies/States/enemy_damage_state.gd" id="6_gk8ng"]
+[ext_resource type="Script" uid="uid://wrbmnw45mfgt" path="res://Enemies/States/enemy_force_state.gd" id="8_4o6mh"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_u1n1c"]
 radius = 25.0
@@ -74,6 +75,10 @@ metadata/_custom_type_script = "uid://c67yxu37eiks"
 [node name="EnemyDamageState" type="Node" parent="StateMachine" unique_id=1207308554]
 script = ExtResource("6_gk8ng")
 metadata/_custom_type_script = "uid://yjbgn26jgydr"
+
+[node name="EnemyForceState" type="Node" parent="StateMachine" unique_id=1186667365]
+script = ExtResource("8_4o6mh")
+metadata/_custom_type_script = "uid://wrbmnw45mfgt"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1112023235]
 sprite_frames = SubResource("SpriteFrames_gjwuc")
