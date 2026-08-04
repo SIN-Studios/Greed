@@ -9,7 +9,8 @@ var direction: Vector2 = Vector2.ZERO
 func enter():
 	if is_inside_tree():
 		await get_tree().create_timer(0.01).timeout
-	control.get_node("AnimatedSprite2D").play("roam") 
+	if control.get_node("AnimatedSprite2D").sprite_frames.has_animation("roam"):
+		control.get_node("AnimatedSprite2D").play("roam") 
 	timer.start.call_deferred()
 
 

@@ -1,6 +1,6 @@
 extends Node2D
 
-var item: enemy = load("res://Enemies/apple.tres")
+var item: enemy
 
 func _ready() -> void:
 	if item:

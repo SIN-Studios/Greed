@@ -1,0 +1,58 @@
+[gd_resource type="Resource" script_class="enemy" format=3 uid="uid://cfhir6y8nnwg5"]
+
+[ext_resource type="Texture2D" uid="uid://dx60hri1e5qqq" path="res://Seth designs/Drumsticks.png" id="1_g8owm"]
+[ext_resource type="Script" uid="uid://ju7wht6ok7t" path="res://Enemies/Enemy Resources/enemy_class.gd" id="2_nhnwu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h5cyj"]
+atlas = ExtResource("1_g8owm")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fjp7o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h5cyj")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_38i8m"]
+atlas = ExtResource("1_g8owm")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r56kj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_38i8m")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3bhd0"]
+atlas = ExtResource("1_g8owm")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g2yqp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3bhd0")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[resource]
+script = ExtResource("2_nhnwu")
+name = "Drumstick"
+item_inventory_texture = SubResource("SpriteFrames_r56kj")
+item_ground_textre = SubResource("SpriteFrames_fjp7o")
+texture = SubResource("SpriteFrames_g2yqp")
+health = 100
+metadata/_custom_type_script = "uid://ju7wht6ok7t"
