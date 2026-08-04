@@ -11,6 +11,8 @@ func enter():
 		await get_tree().create_timer(0.01).timeout
 	if control.get_node("AnimatedSprite2D").sprite_frames.has_animation("roam"):
 		control.get_node("AnimatedSprite2D").play("roam") 
+	elif control.get_node("AnimatedSprite2D").sprite_frames.has_animation("default"):
+		control.get_node("AnimatedSprite2D").play("default")
 	timer.start.call_deferred()
 
 

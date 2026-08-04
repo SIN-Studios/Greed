@@ -26,10 +26,6 @@ collision_layer = 4
 motion_mode = 1
 script = ExtResource("1_a3d8c")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=526365195]
-position = Vector2(0, -16)
-texture = ExtResource("2_fhl08")
-
 [node name="hitbox" type="CollisionShape2D" parent="." unique_id=1830430437]
 position = Vector2(1, -1)
 shape = SubResource("CapsuleShape2D_k6a8t")
@@ -76,6 +72,10 @@ collision_mask = 32
 position = Vector2(1, -1)
 shape = SubResource("CapsuleShape2D_k3jbv")
 
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=526365195]
+position = Vector2(0, -16)
+texture = ExtResource("2_fhl08")
+
 [node name="StateMachine" type="Node" parent="." unique_id=187046789 node_paths=PackedStringArray("initial_state")]
 script = ExtResource("7_x3vf3")
 initial_state = NodePath("PlayerIdleState")
@@ -93,7 +93,7 @@ metadata/_custom_type_script = "uid://cada3n443ivqb"
 [connection signal="area_shape_entered" from="hands/interaction_range" to="hands" method="_on_interaction_range_area_shape_entered"]
 [connection signal="area_shape_exited" from="hands/interaction_range" to="hands" method="_on_interaction_range_area_shape_exited"]
 [connection signal="body_entered" from="lavahurts" to="." method="_on_lavahurts_body_entered"]
-[connection signal="body_entered" from="magmahurts" to="." method="_on_magmahurts_body_entered"]
 [connection signal="body_entered" from="magmahurts" to="." method="_on_lavahurts_body_entered"]
+[connection signal="body_entered" from="magmahurts" to="." method="_on_magmahurts_body_entered"]
 
 [editable path="hands/weapon_hand/knife"]

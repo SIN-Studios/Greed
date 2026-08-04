@@ -7,6 +7,8 @@ const speed: int = 50
 func enter():
 	if control.get_node("AnimatedSprite2D").sprite_frames.has_animation("chase"):
 		control.get_node("AnimatedSprite2D").play("chase")
+	elif control.get_node("AnimatedSprite2D").sprite_frames.has_animation("default"):
+		control.get_node("AnimatedSprite2D").play("default")
 
 func physics_update(_delta):
 	control.velocity = control.position.direction_to(Global.player.position) * speed

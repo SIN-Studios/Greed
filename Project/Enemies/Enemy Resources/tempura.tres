@@ -1,0 +1,152 @@
+[gd_resource type="Resource" script_class="enemy" format=3 uid="uid://ca4cpehmoqq68"]
+
+[ext_resource type="Texture2D" uid="uid://b77c7chfhc2yj" path="res://Seth designs/tempura.png" id="1_pl3av"]
+[ext_resource type="Script" uid="uid://ju7wht6ok7t" path="res://Enemies/Enemy Resources/enemy_class.gd" id="2_4pdva"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kbgb5"]
+atlas = ExtResource("1_pl3av")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x3vf3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kbgb5")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ctbl8"]
+atlas = ExtResource("1_pl3av")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_00tjw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ctbl8")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pl3av"]
+atlas = ExtResource("1_pl3av")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4pdva"]
+atlas = ExtResource("1_pl3av")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ta7q"]
+atlas = ExtResource("1_pl3av")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jhkh4"]
+atlas = ExtResource("1_pl3av")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lk3lw"]
+atlas = ExtResource("1_pl3av")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lhgo1"]
+atlas = ExtResource("1_pl3av")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_javv8"]
+atlas = ExtResource("1_pl3av")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8v5i2"]
+atlas = ExtResource("1_pl3av")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k8lvp"]
+atlas = ExtResource("1_pl3av")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_424as"]
+atlas = ExtResource("1_pl3av")
+region = Rect2(128, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0x2jq"]
+atlas = ExtResource("1_pl3av")
+region = Rect2(192, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i0bb8"]
+atlas = ExtResource("1_pl3av")
+region = Rect2(256, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ksaaf"]
+atlas = ExtResource("1_pl3av")
+region = Rect2(320, 64, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_apopc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pl3av")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4pdva")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ta7q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jhkh4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lk3lw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lhgo1")
+}],
+"loop": 0,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_javv8")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8v5i2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k8lvp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_424as")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0x2jq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i0bb8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ksaaf")
+}],
+"loop": 0,
+"name": &"recoil",
+"speed": 5.0
+}]
+
+[resource]
+script = ExtResource("2_4pdva")
+name = "Tempura"
+item_inventory_texture = SubResource("SpriteFrames_00tjw")
+item_ground_textre = SubResource("SpriteFrames_x3vf3")
+texture = SubResource("SpriteFrames_apopc")
+health = 100
+metadata/_custom_type_script = "uid://ju7wht6ok7t"
