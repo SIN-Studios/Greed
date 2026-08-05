@@ -6,4 +6,5 @@
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1675332906]
 stream = ExtResource("1_1bad6")
+autoplay = true
 parameters/looping = true
