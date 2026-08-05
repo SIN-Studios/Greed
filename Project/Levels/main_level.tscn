@@ -4031,13 +4031,25 @@ position = Vector2(343, 790)
 position = Vector2(344, 813)
 
 [node name="enemy" parent="." unique_id=923606778 instance=ExtResource("9_3d006")]
-position = Vector2(183, 648)
+position = Vector2(-316, 619)
 
 [node name="enemy2" parent="." unique_id=1585322091 instance=ExtResource("9_3d006")]
-position = Vector2(-177, 811)
+position = Vector2(-542, 267)
 
 [node name="enemy3" parent="." unique_id=1569876147 instance=ExtResource("9_3d006")]
-position = Vector2(236, 1041)
+position = Vector2(1419, 1412)
 
 [node name="enemy4" parent="." unique_id=437380789 instance=ExtResource("9_3d006")]
 position = Vector2(551, 587)
+
+[node name="enemy5" parent="." unique_id=1860039680 instance=ExtResource("9_3d006")]
+position = Vector2(-24, 981)
+
+[node name="enemy6" parent="." unique_id=91051681 instance=ExtResource("9_3d006")]
+position = Vector2(315, 195)
+
+[node name="enemy7" parent="." unique_id=1518761988 instance=ExtResource("9_3d006")]
+position = Vector2(1259, 941)
+
+[node name="enemy8" parent="." unique_id=1457801123 instance=ExtResource("9_3d006")]
+position = Vector2(82, 763)
