@@ -64,7 +64,7 @@ func get_up():
 	rotation = 0
 	TimeManager.timescale = 120
 
-func pickup_item(item):
+func pickup_item(item, dropped_entity):
 	print(item)
-	player_inventory.pickup_item(item)
+	player_inventory.pickup_item(item, dropped_entity)
 	
