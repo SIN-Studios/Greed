@@ -45,6 +45,11 @@ script = ExtResource("3_mtuoh")
 [node name="CollisionShape2D" parent="hands/weapon_hand/knife/Area2D" parent_id_path=PackedInt32Array(331775305, 297568975) index="0" unique_id=1508981693]
 position = Vector2(0, -4)
 
+[node name="ColorRect" parent="hands/weapon_hand/knife" index="1" unique_id=562575260]
+offset_top = -9.0
+offset_right = 18.0
+offset_bottom = 0.0
+
 [node name="item_hand" type="Node2D" parent="hands" unique_id=1934283680]
 position = Vector2(-16, 0)
 script = ExtResource("5_htcer")
@@ -93,7 +98,7 @@ metadata/_custom_type_script = "uid://cada3n443ivqb"
 [connection signal="area_shape_entered" from="hands/interaction_range" to="hands" method="_on_interaction_range_area_shape_entered"]
 [connection signal="area_shape_exited" from="hands/interaction_range" to="hands" method="_on_interaction_range_area_shape_exited"]
 [connection signal="body_entered" from="lavahurts" to="." method="_on_lavahurts_body_entered"]
-[connection signal="body_entered" from="magmahurts" to="." method="_on_lavahurts_body_entered"]
 [connection signal="body_entered" from="magmahurts" to="." method="_on_magmahurts_body_entered"]
+[connection signal="body_entered" from="magmahurts" to="." method="_on_lavahurts_body_entered"]
 
 [editable path="hands/weapon_hand/knife"]
