@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="inventory" format=3 uid="uid://gypwa2bpr03s"]
 
 [ext_resource type="Script" uid="uid://ju7wht6ok7t" path="res://Enemies/Enemy Resources/enemy_class.gd" id="1_m7sn4"]
-[ext_resource type="Script" uid="uid://d1x2llqr6y1k4" path="res://UI/Inventory/inventory.gd" id="3_gu0ot"]
+[ext_resource type="Script" uid="uid://d1x2llqr6y1k4" path="res://Inventory/inventory.gd" id="3_gu0ot"]
 
 [resource]
 script = ExtResource("3_gu0ot")

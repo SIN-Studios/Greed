@@ -2,7 +2,7 @@ extends Control
 
 var is_open: bool
 @onready var inventory_slots: Array = $inventory/GridContainer.get_children()
-@export var player_inventory: inventory = preload("res://UI/Inventory/players_inventory.tres")
+@export var player_inventory: inventory = preload("res://Inventory/players_inventory.tres")
 
 
 func _ready() -> void:
