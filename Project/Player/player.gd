@@ -6,7 +6,7 @@ var time_till_regen: float = 0.0
 var regen_factor: float = 0.0
 var wake_up_position: Vector2
 
-@export var player_inventory: inventory = load("res://UI/Inventory/players_inventory.tres")
+@export var player_inventory: inventory = load("res://Inventory/players_inventory.tres")
 
 func _ready() -> void:
 	SignalManager.player_take_damage.connect(take_damage)
@@ -14,7 +14,6 @@ func _ready() -> void:
 	SignalManager.player_lay_down.connect(lie_down)
 	SignalManager.player_go_to_sleep.connect(sleep)
 	SignalManager.player_get_up.connect(get_up)
-	SignalManager.player_picks_up_item.connect(pickup_item)
 	Global.player = self
 
 func _process(delta: float) -> void:
@@ -31,11 +30,10 @@ func _process(delta: float) -> void:
 func _on_lavahurts_body_entered(body: Node2D) -> void:
 	if body is TileMapLayer:
 		take_damage(35, Vector2(0,0))
-		
+
 func _on_magmahurts_body_entered(body: Node2D) -> void:
 	if body is TileMapLayer:
 		take_damage(20, Vector2(0,0))
-
 
 func take_damage(damage, direction):
 	health -= damage
@@ -63,8 +61,3 @@ func get_up():
 	global_position = wake_up_position
 	rotation = 0
 	TimeManager.timescale = 120
-
-func pickup_item(item, dropped_entity):
-	print(item)
-	player_inventory.pickup_item(item, dropped_entity)
-	
