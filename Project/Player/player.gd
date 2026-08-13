@@ -8,6 +8,7 @@ var wake_up_position: Vector2
 
 @export var player_inventory: inventory = load("res://Inventory/players_inventory.tres")
 
+
 func _ready() -> void:
 	SignalManager.player_take_damage.connect(take_damage)
 	SignalManager.player_dies.connect(die)

@@ -24,8 +24,6 @@ func interaction_in_range():
 		can_interact = true
 	if Input.is_action_just_released("interact"):
 		can_interact = false
-	#checks if the players inventory is full
-	can_interact = not Global.player.player_inventory.inventory_full()
 	#checks if player is still interacting
 	if Input.is_action_pressed("interact") and can_interact:
 		interact()

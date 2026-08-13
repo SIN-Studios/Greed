@@ -2,20 +2,18 @@
 
 [ext_resource type="Script" uid="uid://dgmjab1xew0o5" path="res://Player/player.gd" id="1_a3d8c"]
 [ext_resource type="Texture2D" uid="uid://dm4yf36g4s33n" path="res://Seth designs/Playersprite_0001.png" id="2_fhl08"]
-[ext_resource type="Script" uid="uid://cgxggq05fdq0m" path="res://Player/hands.gd" id="3_dd0ac"]
-[ext_resource type="Script" uid="uid://bc7bimikjafko" path="res://Player/weapon_hand.gd" id="3_mtuoh"]
+[ext_resource type="Script" uid="uid://y55l8p1is7l4" path="res://Player/interaction_range.gd" id="3_dd0ac"]
 [ext_resource type="PackedScene" uid="uid://c5ijv18l3wkwf" path="res://Player/knife.tscn" id="3_xpcdj"]
-[ext_resource type="Script" uid="uid://bi2r3igu52m8r" path="res://Player/item_hand.gd" id="5_htcer"]
 [ext_resource type="Script" uid="uid://cxaewei6kie7x" path="res://Managers/state_machine.gd" id="7_x3vf3"]
 [ext_resource type="Script" uid="uid://clwfm81t7rv8m" path="res://Player/States/player_idle_state.gd" id="8_apopc"]
 [ext_resource type="Script" uid="uid://cada3n443ivqb" path="res://Player/States/player_walk_state.gd" id="9_5htga"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_htcer"]
+radius = 200.0
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k6a8t"]
 radius = 7.0
 height = 14.0
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_htcer"]
-radius = 200.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k3jbv"]
 radius = 7.0
@@ -26,41 +24,22 @@ collision_layer = 4
 motion_mode = 1
 script = ExtResource("1_a3d8c")
 
+[node name="knife" parent="." unique_id=331775305 instance=ExtResource("3_xpcdj")]
+
+[node name="interaction_range" type="Area2D" parent="." unique_id=1532541765]
+collision_layer = 4
+collision_mask = 16
+script = ExtResource("3_dd0ac")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interaction_range" unique_id=1449726462]
+shape = SubResource("CircleShape2D_htcer")
+
 [node name="hitbox" type="CollisionShape2D" parent="." unique_id=1830430437]
 position = Vector2(1, -1)
 shape = SubResource("CapsuleShape2D_k6a8t")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=785665219]
 zoom = Vector2(3.39, 3.39)
-
-[node name="hands" type="Node2D" parent="." unique_id=347339087]
-script = ExtResource("3_dd0ac")
-
-[node name="weapon_hand" type="Node2D" parent="hands" unique_id=236381872]
-position = Vector2(16, 0)
-script = ExtResource("3_mtuoh")
-
-[node name="knife" parent="hands/weapon_hand" unique_id=331775305 instance=ExtResource("3_xpcdj")]
-
-[node name="CollisionShape2D" parent="hands/weapon_hand/knife/Area2D" parent_id_path=PackedInt32Array(331775305, 297568975) index="0" unique_id=1508981693]
-position = Vector2(61, -5)
-
-[node name="ColorRect" parent="hands/weapon_hand/knife" index="1" unique_id=1159810917]
-offset_left = 30.0
-offset_top = -38.0
-offset_right = 94.0
-offset_bottom = 26.0
-
-[node name="item_hand" type="Node2D" parent="hands" unique_id=1934283680]
-position = Vector2(-16, 0)
-script = ExtResource("5_htcer")
-
-[node name="interaction_range" type="Area2D" parent="hands" unique_id=1532541765]
-collision_layer = 4
-collision_mask = 16
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="hands/interaction_range" unique_id=1449726462]
-shape = SubResource("CircleShape2D_htcer")
 
 [node name="lavahurts" type="Area2D" parent="." unique_id=1097002975]
 collision_layer = 0
@@ -82,24 +61,21 @@ shape = SubResource("CapsuleShape2D_k3jbv")
 position = Vector2(0, -16)
 texture = ExtResource("2_fhl08")
 
-[node name="StateMachine" type="Node" parent="." unique_id=187046789 node_paths=PackedStringArray("initial_state")]
+[node name="MovementStateMachine" type="Node" parent="." unique_id=187046789 node_paths=PackedStringArray("initial_state")]
 script = ExtResource("7_x3vf3")
 initial_state = NodePath("PlayerIdleState")
 metadata/_custom_type_script = "uid://cxaewei6kie7x"
 
-[node name="PlayerIdleState" type="Node" parent="StateMachine" unique_id=160471070]
+[node name="PlayerIdleState" type="Node" parent="MovementStateMachine" unique_id=160471070]
 script = ExtResource("8_apopc")
 metadata/_custom_type_script = "uid://clwfm81t7rv8m"
 
-[node name="PlayerWalkState" type="Node" parent="StateMachine" unique_id=1506997018]
+[node name="PlayerWalkState" type="Node" parent="MovementStateMachine" unique_id=1506997018]
 script = ExtResource("9_5htga")
 metadata/_custom_type_script = "uid://cada3n443ivqb"
 
-[connection signal="body_entered" from="hands/weapon_hand/knife/Area2D" to="hands/weapon_hand" method="_on_area_2d_body_entered"]
-[connection signal="area_shape_entered" from="hands/interaction_range" to="hands" method="_on_interaction_range_area_shape_entered"]
-[connection signal="area_shape_exited" from="hands/interaction_range" to="hands" method="_on_interaction_range_area_shape_exited"]
+[connection signal="area_shape_entered" from="interaction_range" to="interaction_range" method="_on_interaction_range_area_shape_entered"]
+[connection signal="area_shape_exited" from="interaction_range" to="interaction_range" method="_on_interaction_range_area_shape_exited"]
 [connection signal="body_entered" from="lavahurts" to="." method="_on_lavahurts_body_entered"]
 [connection signal="body_entered" from="magmahurts" to="." method="_on_magmahurts_body_entered"]
 [connection signal="body_entered" from="magmahurts" to="." method="_on_lavahurts_body_entered"]
-
-[editable path="hands/weapon_hand/knife"]

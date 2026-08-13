@@ -6,6 +6,8 @@ var sleeptime: int
 var waketime: int
 var sleep_defecit: int 
 var laying: bool = false
+var can_sleep: bool
+var after_8: bool
 
 #trigered whenever the item on the ground is interacted with
 func interacted_with():
@@ -15,7 +17,7 @@ func interacted_with():
 		SignalManager.player_get_up.emit()
 		return
 	#if its after 8:00pm (night time)
-	if TimeManager.day_time > 72000:
+	if after_8:
 		SignalManager.player_lay_down.emit(self)
 		laying = true
 		@warning_ignore("integer_division")
@@ -43,8 +45,23 @@ func interacted_with():
 
 #triggered every tick
 func _process(_delta: float) -> void:
+	after_8 = TimeManager.day_time > 72000
+	#checks if the players inventory is full
 	#checks to see if the player should be woken up
-	if sleeping and TimeManager.day_time >= waketime and TimeManager.day_time < 72000 :
+	if sleeping and TimeManager.day_time >= waketime and not after_8:
 		#wakes the player up
 		sleeping = false
 		SignalManager.player_get_up.emit()
+
+	if sleeping:
+		$interaction/Label.text = "Can't sleep: already asleep"
+		$interaction.can_interact = false
+	elif laying:
+		$interaction/Label.text = "Hold E to get up"
+		$interaction.can_interact = true
+	elif not after_8:
+		$interaction/Label.text = "Can't sleep: too early"
+		$interaction.can_interact = false
+	else:
+		$interaction/Label.text = "Hold E to lie down"
+		$interaction.can_interact = true

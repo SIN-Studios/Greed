@@ -8,7 +8,7 @@ var day_time: int
 var days: int
 var hours: int
 var minutes: int
-var am_pm: String = "AM"
+var am_pm: String
 var am_pm_just_changed: bool = false
 
 var timescale = 120 # 12 irl minutes per day (1440/time for day = timescale)
