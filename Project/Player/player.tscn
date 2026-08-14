@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c5ijv18l3wkwf" path="res://Player/knife.tscn" id="3_xpcdj"]
 [ext_resource type="Script" uid="uid://cxaewei6kie7x" path="res://Managers/state_machine.gd" id="7_x3vf3"]
 [ext_resource type="Script" uid="uid://clwfm81t7rv8m" path="res://Player/States/player_idle_state.gd" id="8_apopc"]
+[ext_resource type="Script" uid="uid://pi1yylx60pdd" path="res://Player/States/player_lay_state.gd" id="8_od3ui"]
 [ext_resource type="Script" uid="uid://cada3n443ivqb" path="res://Player/States/player_walk_state.gd" id="9_5htga"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_htcer"]
@@ -61,18 +62,22 @@ shape = SubResource("CapsuleShape2D_k3jbv")
 position = Vector2(0, -16)
 texture = ExtResource("2_fhl08")
 
-[node name="MovementStateMachine" type="Node" parent="." unique_id=187046789 node_paths=PackedStringArray("initial_state")]
+[node name="StateMachine" type="Node" parent="." unique_id=187046789 node_paths=PackedStringArray("initial_state")]
 script = ExtResource("7_x3vf3")
 initial_state = NodePath("PlayerIdleState")
 metadata/_custom_type_script = "uid://cxaewei6kie7x"
 
-[node name="PlayerIdleState" type="Node" parent="MovementStateMachine" unique_id=160471070]
+[node name="PlayerIdleState" type="Node" parent="StateMachine" unique_id=160471070]
 script = ExtResource("8_apopc")
 metadata/_custom_type_script = "uid://clwfm81t7rv8m"
 
-[node name="PlayerWalkState" type="Node" parent="MovementStateMachine" unique_id=1506997018]
+[node name="PlayerWalkState" type="Node" parent="StateMachine" unique_id=1506997018]
 script = ExtResource("9_5htga")
 metadata/_custom_type_script = "uid://cada3n443ivqb"
+
+[node name="PlayerLayState" type="Node" parent="StateMachine" unique_id=1244570938]
+script = ExtResource("8_od3ui")
+metadata/_custom_type_script = "uid://pi1yylx60pdd"
 
 [connection signal="area_shape_entered" from="interaction_range" to="interaction_range" method="_on_interaction_range_area_shape_entered"]
 [connection signal="area_shape_exited" from="interaction_range" to="interaction_range" method="_on_interaction_range_area_shape_exited"]

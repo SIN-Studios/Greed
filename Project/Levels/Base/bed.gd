@@ -13,24 +13,21 @@ var after_8: bool
 func interacted_with():
 	if laying:
 		# allows player to leave bed before the fall asleep
-		laying = false
 		SignalManager.player_get_up.emit()
+		TimeManager.timescale = 120
 		return
+
 	#if its after 8:00pm (night time)
 	if after_8:
 		SignalManager.player_lay_down.emit(self)
-		laying = true
 		@warning_ignore("integer_division")
 		#waits 15-30 in game minutes for player to fall asleep
 		await get_tree().create_timer(randi_range(900, 1800) / TimeManager.timescale).timeout
 		#makes sure the player hasn't gotten up before putting them to sleep
 		if not laying:
 			return
-		#maybe this will be replaced by a proper statemachine 
-		#otherwise for now changes the players 'state' from laying to sleeping
-		laying = false
 		sleeping = true
-		SignalManager.player_go_to_sleep.emit()
+		TimeManager.timescale = 3000
 		#gets the time the player fell asleep
 		bedtime = snapped(TimeManager.day_time, 1800)
 		#decides when player will wake up
@@ -43,8 +40,9 @@ func interacted_with():
 		@warning_ignore("narrowing_conversion")
 		waketime = waketime * randf_range(0.98, 1.02)
 
-#triggered every tick
+#triggered every frame
 func _process(_delta: float) -> void:
+	laying = (Global.player.player_state_machine.current_state.name.to_lower() == "playerlaystate")
 	after_8 = TimeManager.day_time > 72000
 	#checks if the players inventory is full
 	#checks to see if the player should be woken up
@@ -52,7 +50,7 @@ func _process(_delta: float) -> void:
 		#wakes the player up
 		sleeping = false
 		SignalManager.player_get_up.emit()
-
+		TimeManager.timescale = 120
 	if sleeping:
 		$interaction/Label.text = "Can't sleep: already asleep"
 		$interaction.can_interact = false

@@ -7,14 +7,11 @@ var regen_factor: float = 0.0
 var wake_up_position: Vector2
 
 @export var player_inventory: inventory = load("res://Inventory/players_inventory.tres")
-
+@onready var player_state_machine: StateMachine = $StateMachine
 
 func _ready() -> void:
 	SignalManager.player_take_damage.connect(take_damage)
 	SignalManager.player_dies.connect(die)
-	SignalManager.player_lay_down.connect(lie_down)
-	SignalManager.player_go_to_sleep.connect(sleep)
-	SignalManager.player_get_up.connect(get_up)
 	Global.player = self
 
 func _process(delta: float) -> void:
@@ -48,17 +45,3 @@ func take_damage(damage, direction):
 func die():
 	print("player died")
 	get_tree().quit()
-
-func lie_down(bed):
-	set_physics_process(false)
-	wake_up_position = global_position
-	global_position = bed.global_position
-	rotation = bed.rotation
-
-func sleep():
-	TimeManager.timescale = 3000
-
-func get_up():
-	global_position = wake_up_position
-	rotation = 0
-	TimeManager.timescale = 120

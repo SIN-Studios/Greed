@@ -2,7 +2,7 @@ extends State
 
 class_name EnemyChaseState
 
-const speed: int = 75
+const speed: int = 60
 
 func enter():
 	if control.get_node("AnimatedSprite2D").sprite_frames.has_animation("chase"):

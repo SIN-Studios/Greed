@@ -37,8 +37,8 @@ window/stretch/scale=2.0
 [global_group]
 
 player=""
-enemy=""
 interactables=""
+enemy=""
 
 [input]
 
