@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://c67yxu37eiks" path="res://Enemies/States/enemy_dies_state.gd" id="5_8wvsg"]
 [ext_resource type="Script" uid="uid://yjbgn26jgydr" path="res://Enemies/States/enemy_damage_state.gd" id="6_gk8ng"]
 [ext_resource type="Script" uid="uid://wrbmnw45mfgt" path="res://Enemies/States/enemy_force_state.gd" id="8_4o6mh"]
+[ext_resource type="Texture2D" uid="uid://bxvua0gasaqjd" path="res://icon.svg" id="9_koi6q"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_u1n1c"]
 radius = 25.0
@@ -20,7 +21,25 @@ radius = 100.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7rdt1"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_jlnat"]
+atlas = ExtResource("9_koi6q")
+region = Rect2(0, 0, 128, 128)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_gjwuc"]
+animations = [{
+"frames": [],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jlnat")
+}],
+"loop": 1,
+"name": &"test",
+"speed": 5.0
+}]
 
 [node name="enemy" type="CharacterBody2D" unique_id=923606778 groups=["enemy"]]
 collision_layer = 13
@@ -55,14 +74,8 @@ shape = SubResource("CircleShape2D_7rdt1")
 
 [node name="StateMachine" type="Node" parent="." unique_id=1783725191 node_paths=PackedStringArray("initial_state")]
 script = ExtResource("1_3ih25")
-initial_state = NodePath("EnemyRoamState")
+initial_state = NodePath("")
 metadata/_custom_type_script = "uid://cxaewei6kie7x"
-
-[node name="EnemyChaseState" type="Node" parent="StateMachine" unique_id=2076544464]
-script = ExtResource("3_47qgu")
-
-[node name="EnemyRoamState" type="Node" parent="StateMachine" unique_id=1911568399]
-script = ExtResource("2_bxkaj")
 
 [node name="EnemyAttackState" type="Node" parent="StateMachine" unique_id=1617242545]
 script = ExtResource("4_rt1x0")
@@ -80,10 +93,14 @@ metadata/_custom_type_script = "uid://yjbgn26jgydr"
 script = ExtResource("8_4o6mh")
 metadata/_custom_type_script = "uid://wrbmnw45mfgt"
 
+[node name="EnemyChaseState" type="Node" parent="StateMachine" unique_id=1948555776]
+script = ExtResource("3_47qgu")
+metadata/_custom_type_script = "uid://7hm510sx4ewt"
+
+[node name="EnemyRoamState" type="Node" parent="StateMachine" unique_id=1497154653]
+script = ExtResource("2_bxkaj")
+metadata/_custom_type_script = "uid://c13cwyjhiyyn0"
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1112023235]
 sprite_frames = SubResource("SpriteFrames_gjwuc")
-
-[connection signal="body_entered" from="attack_range" to="StateMachine/EnemyChaseState" method="_on_attack_range_body_entered"]
-[connection signal="body_exited" from="detection_range_exit" to="StateMachine/EnemyChaseState" method="_on_detection_range_exit_body_exited"]
-[connection signal="body_entered" from="detection_range_enter" to="StateMachine/EnemyRoamState" method="_on_detection_range_enter_body_entered"]
-[connection signal="timeout" from="Timer" to="StateMachine/EnemyRoamState" method="_on_timer_timeout"]
+animation = &"test"
