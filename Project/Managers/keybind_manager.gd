@@ -18,6 +18,3 @@ func _process(_delta: float) -> void:
 
 	if Input.is_action_just_pressed("decrease_timescale"):
 		SignalManager.change_timescale.emit(-500)
-
-	if Input.is_action_just_pressed("left_click"):
-		SignalManager.player_knife_attack.emit()

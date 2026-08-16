@@ -10,8 +10,6 @@ var wake_up_position: Vector2
 @onready var player_state_machine: StateMachine = $StateMachine
 
 func _ready() -> void:
-	SignalManager.player_take_damage.connect(take_damage)
-	SignalManager.player_dies.connect(die)
 	Global.player = self
 
 func _process(delta: float) -> void:
@@ -27,21 +25,8 @@ func _process(delta: float) -> void:
 
 func _on_lavahurts_body_entered(body: Node2D) -> void:
 	if body is TileMapLayer:
-		take_damage(35, Vector2(0,0))
+		get_node("StateMachine/PlayerHurtState").take_damage(35, Vector2(0,0))
 
 func _on_magmahurts_body_entered(body: Node2D) -> void:
 	if body is TileMapLayer:
-		take_damage(20, Vector2(0,0))
-
-func take_damage(damage, direction):
-	health -= damage
-	velocity += direction * 200
-	regen_factor = 0.1
-	time_till_regen = 5
-	print("Player", health)
-	if health <= 0:
-		SignalManager.player_dies.emit()
-
-func die():
-	print("player died")
-	get_tree().quit()
+		get_node("StateMachine/PlayerHurtState").take_damage(35, Vector2(0,0))

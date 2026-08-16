@@ -99,5 +99,6 @@ metadata/_custom_type_script = "uid://yjbgn26jgydr"
 sprite_frames = SubResource("SpriteFrames_gjwuc")
 animation = &"test"
 
+[connection signal="body_entered" from="attack_range" to="StateMachine/EnemyAttackState" method="_on_attack_range_body_entered"]
 [connection signal="body_exited" from="detection_range_exit" to="StateMachine/EnemyChaseState" method="_on_detection_range_exit_body_exited"]
 [connection signal="body_entered" from="detection_range_enter" to="StateMachine/EnemyRoamState" method="_on_detection_range_enter_body_entered"]
