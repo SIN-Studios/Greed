@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://cv2qt8q5f288n"]
+
+[ext_resource type="Texture2D" uid="uid://2ujfj010ippk" path="res://isaac designs/isaac assets/art/shipwreckfinal.png" id="1_7u8x6"]
+
+[node name="StaticBody2D" type="StaticBody2D" unique_id=842243906]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=274604847]
+position = Vector2(9.300003, -64)
+texture = ExtResource("1_7u8x6")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1650161185]
+position = Vector2(9.300003, -64)
+polygon = PackedVector2Array(-77.3, 43, -95.3, 43, -85, 55, -79, 58, -42, 59, -9, 63, 40, 68, 78, 50, 76.7, 43)
