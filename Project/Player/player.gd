@@ -11,7 +11,7 @@ var wake_up_position: Vector2
 
 func _ready() -> void:
 	Global.player = self
-
+	$CPUParticles2D.emitting = false
 func _process(delta: float) -> void:
 	if time_till_regen > 0:
 		time_till_regen -= delta

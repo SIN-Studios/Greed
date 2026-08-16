@@ -23,6 +23,13 @@ height = 14.0
 radius = 7.0
 height = 14.0
 
+[sub_resource type="Curve" id="Curve_r5wtc"]
+_limits = [-360.0, 360.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_bj1wu"]
+
 [node name="player" type="CharacterBody2D" unique_id=1334899193 groups=["player"]]
 collision_layer = 4
 motion_mode = 1
@@ -90,6 +97,24 @@ metadata/_custom_type_script = "uid://dmewao14eoiit"
 [node name="PlayerDiesState" type="Node" parent="StateMachine" unique_id=99198696]
 script = ExtResource("10_x3vf3")
 metadata/_custom_type_script = "uid://13ithac0yrs1"
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1503979517]
+emitting = false
+amount = 100
+lifetime = 0.5
+one_shot = true
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector2(100, 100)
+spread = 180.0
+initial_velocity_min = 252.53
+initial_velocity_max = 1000.0
+angular_velocity_max = 77.85
+angular_velocity_curve = SubResource("Curve_r5wtc")
+scale_amount_curve = SubResource("Curve_bj1wu")
+split_scale = true
+scale_curve_x = null
+scale_curve_y = null
 
 [connection signal="area_shape_entered" from="interaction_range" to="interaction_range" method="_on_interaction_range_area_shape_entered"]
 [connection signal="area_shape_exited" from="interaction_range" to="interaction_range" method="_on_interaction_range_area_shape_exited"]

@@ -9,6 +9,7 @@ func take_damage(input_damage, input_direction):
 	damage = input_damage
 	direction = input_direction
 	SignalManager.shake_requested.emit(0.5) 
+	$"../../CPUParticles2D".restart()
 	state_machine.change_state("playerhurtstate")
 
 func enter():
