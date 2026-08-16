@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dm4yf36g4s33n" path="res://Seth designs/Playersprite_0001.png" id="2_fhl08"]
 [ext_resource type="Script" uid="uid://y55l8p1is7l4" path="res://Player/interaction_range.gd" id="3_dd0ac"]
 [ext_resource type="PackedScene" uid="uid://c5ijv18l3wkwf" path="res://Player/knife.tscn" id="3_xpcdj"]
+[ext_resource type="Script" uid="uid://bbw1ou5a12pqk" path="res://Player/screenshake.gd" id="4_apopc"]
 [ext_resource type="Script" uid="uid://cxaewei6kie7x" path="res://Managers/state_machine.gd" id="7_x3vf3"]
 [ext_resource type="Script" uid="uid://clwfm81t7rv8m" path="res://Player/States/player_idle_state.gd" id="8_apopc"]
 [ext_resource type="Script" uid="uid://pi1yylx60pdd" path="res://Player/States/player_lay_state.gd" id="8_od3ui"]
@@ -43,6 +44,7 @@ shape = SubResource("CapsuleShape2D_k6a8t")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=785665219]
 zoom = Vector2(3.39, 3.39)
+script = ExtResource("4_apopc")
 
 [node name="lavahurts" type="Area2D" parent="." unique_id=1097002975]
 collision_layer = 0
@@ -92,5 +94,5 @@ metadata/_custom_type_script = "uid://13ithac0yrs1"
 [connection signal="area_shape_entered" from="interaction_range" to="interaction_range" method="_on_interaction_range_area_shape_entered"]
 [connection signal="area_shape_exited" from="interaction_range" to="interaction_range" method="_on_interaction_range_area_shape_exited"]
 [connection signal="body_entered" from="lavahurts" to="." method="_on_lavahurts_body_entered"]
-[connection signal="body_entered" from="magmahurts" to="." method="_on_lavahurts_body_entered"]
 [connection signal="body_entered" from="magmahurts" to="." method="_on_magmahurts_body_entered"]
+[connection signal="body_entered" from="magmahurts" to="." method="_on_lavahurts_body_entered"]
