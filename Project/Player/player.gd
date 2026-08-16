@@ -25,8 +25,8 @@ func _process(delta: float) -> void:
 
 func _on_lavahurts_body_entered(body: Node2D) -> void:
 	if body is TileMapLayer:
-		get_node("StateMachine/PlayerHurtState").take_damage(35, Vector2(0,0))
+		get_node("StateMachine/PlayerHurtState").take_damage(34, Vector2(0,0))
 
 func _on_magmahurts_body_entered(body: Node2D) -> void:
 	if body is TileMapLayer:
-		get_node("StateMachine/PlayerHurtState").take_damage(35, Vector2(0,0))
+		get_node("StateMachine/PlayerHurtState").take_damage(20, Vector2(0,0))

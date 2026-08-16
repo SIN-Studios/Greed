@@ -42,7 +42,7 @@ animations = [{
 
 [node name="enemy" type="CharacterBody2D" unique_id=923606778 groups=["enemy"]]
 collision_layer = 13
-collision_mask = 9
+collision_mask = 137
 script = ExtResource("1_rt1x0")
 
 [node name="attack_range" type="Area2D" parent="." unique_id=93049031]
