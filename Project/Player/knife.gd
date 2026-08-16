@@ -47,10 +47,10 @@ func flip_sprite():
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("enemy"):
 		var speed = mouse_velocity.length()
-		if speed > 500.0:
-			var hit_direction = mouse_velocity.normalized() * -1 + (body.global_position - Global.player.global_position).normalized()
+		if speed > 1000.0:
+			var hit_direction = mouse_velocity.normalized() * -1
 			var damage: int = base_damage * (speed / 750) * randf_range(0.8,1.2)
 			var knockback_strength = min(speed * 2.0, max_knockback_force)
 	
-			if body.get_node("StateMachine/EnemyDamageState").has_method("take_damage"):
-				body.get_node("StateMachine/EnemyDamageState").take_damage(damage, hit_direction * knockback_strength)
+			if body.get_node("StateMachine/EnemyHurtState").has_method("take_damage"):
+				body.get_node("StateMachine/EnemyHurtState").take_damage(damage, hit_direction * knockback_strength)
