@@ -9,8 +9,6 @@ var base_damage: int = 10
 var mouse_velocity: Vector2 = Vector2.ZERO
 var last_position: Vector2 = Vector2.ZERO
 
-func _ready():
-	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 
 func _process(_delta):
 	lock_mouse()

@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cgcs65u18fitb" path="res://UI/HUD/clock.tscn" id="2_bcnh8"]
 [ext_resource type="PackedScene" uid="uid://b65d3ippcmfhu" path="res://UI/HUD/calorie_bar.tscn" id="3_6a3h1"]
 [ext_resource type="PackedScene" uid="uid://br1fl5vgfqr31" path="res://Inventory/inventory_ui.tscn" id="4_5t5gs"]
+[ext_resource type="PackedScene" uid="uid://cfvyui0q4mpxb" path="res://UI/Menu/game_menu.tscn" id="5_3y5q1"]
 
 [node name="UI_manager" type="CanvasLayer" unique_id=707474778]
 
@@ -36,4 +37,6 @@ grow_vertical = 2
 
 [node name="inventory_ui" parent="UI" unique_id=1055113431 instance=ExtResource("4_5t5gs")]
 layout_mode = 1
-scale = Vector2(1, 1)
+
+[node name="game_menu" parent="UI" unique_id=996962239 instance=ExtResource("5_3y5q1")]
+layout_mode = 1
