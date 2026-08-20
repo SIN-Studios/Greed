@@ -17,6 +17,48 @@ grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 0.5)
 script = ExtResource("1_gka8b")
 
+[node name="eat_menu" type="Control" parent="." unique_id=120443663]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="calorie_bar_updated" parent="eat_menu" unique_id=596578006 instance=ExtResource("4_jhqvo")]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -450.0
+offset_right = -450.0
+grow_horizontal = 0
+script = null
+
+[node name="ColorRect" type="TextureRect" parent="eat_menu" unique_id=481400813]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -250.0
+offset_right = 250.0
+offset_bottom = 100.0
+grow_horizontal = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("5_jhqvo")
+
+[node name="Label" type="Label" parent="eat_menu/ColorRect" unique_id=2103750285]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "20
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="inventory" type="NinePatchRect" parent="." unique_id=1789316978]
 custom_minimum_size = Vector2(80, 45)
 layout_mode = 1
@@ -79,48 +121,6 @@ layout_mode = 2
 
 [node name="inventory_ui_slot8" parent="inventory/GridContainer" unique_id=1025726905 instance=ExtResource("3_dk10o")]
 layout_mode = 2
-
-[node name="eat_menu" type="Control" parent="." unique_id=120443663]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="calorie_bar_updated" parent="eat_menu" unique_id=596578006 instance=ExtResource("4_jhqvo")]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -450.0
-offset_right = -450.0
-grow_horizontal = 0
-script = null
-
-[node name="ColorRect" type="TextureRect" parent="eat_menu" unique_id=481400813]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -250.0
-offset_right = 250.0
-offset_bottom = 100.0
-grow_horizontal = 2
-pivot_offset_ratio = Vector2(0.5, 0.5)
-texture = ExtResource("5_jhqvo")
-
-[node name="Label" type="Label" parent="eat_menu/ColorRect" unique_id=2103750285]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "20
-"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [connection signal="mouse_entered" from="inventory/GridContainer/inventory_ui_slot1" to="." method="_on_inventory_ui_slot_1_mouse_entered"]
 [connection signal="mouse_entered" from="inventory/GridContainer/inventory_ui_slot2" to="." method="_on_inventory_ui_slot_2_mouse_entered"]
