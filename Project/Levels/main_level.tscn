@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://bvk6rdjknnxwg" path="res://isaac designs/isaac assets/Tilemaps/decorations.png" id="6_3d006"]
 [ext_resource type="PackedScene" uid="uid://edxssx2kupab" path="res://Enemies/enemy.tscn" id="9_3d006"]
 [ext_resource type="PackedScene" uid="uid://cv2qt8q5f288n" path="res://shipwreck.tscn" id="10_5aiwm"]
+[ext_resource type="Texture2D" uid="uid://d2vapkprbmos5" path="res://isaac designs/isaac assets/art/mastfinal.png" id="12_8b1du"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6opdx"]
 texture = ExtResource("1_13urm")
@@ -4590,3 +4591,8 @@ position = Vector2(-800, 3373)
 
 [node name="shipwreck" parent="." unique_id=842243906 instance=ExtResource("10_5aiwm")]
 position = Vector2(350, 1230)
+
+[node name="Mastfinal" type="Sprite2D" parent="." unique_id=923309534]
+y_sort_enabled = true
+position = Vector2(745, 1093)
+texture = ExtResource("12_8b1du")
