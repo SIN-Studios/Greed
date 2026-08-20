@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cfvyui0q4mpxb" path="res://UI/Menu/game_menu.tscn" id="5_3y5q1"]
 
 [node name="UI_manager" type="CanvasLayer" unique_id=707474778]
+process_mode = 3
 
 [node name="HUD" type="Control" parent="." unique_id=901373795]
 layout_mode = 3
@@ -18,14 +19,12 @@ grow_vertical = 2
 
 [node name="health" parent="HUD" unique_id=1680525457 instance=ExtResource("1_xiym8")]
 layout_mode = 1
-offset_top = -1.0
-offset_bottom = -1.0
 
 [node name="clock" parent="HUD" unique_id=1667837152 instance=ExtResource("2_bcnh8")]
 layout_mode = 1
 
 [node name="calorie_tracker" parent="HUD" unique_id=345403893 instance=ExtResource("3_6a3h1")]
-layout_mode = 0
+layout_mode = 1
 
 [node name="UI" type="Control" parent="." unique_id=1213947697]
 layout_mode = 3
@@ -35,8 +34,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="inventory_ui" parent="UI" unique_id=1055113431 instance=ExtResource("4_5t5gs")]
+[node name="game_menu" parent="UI" unique_id=996962239 instance=ExtResource("5_3y5q1")]
 layout_mode = 1
 
-[node name="game_menu" parent="UI" unique_id=996962239 instance=ExtResource("5_3y5q1")]
+[node name="inventory_ui" parent="UI" unique_id=1055113431 instance=ExtResource("4_5t5gs")]
 layout_mode = 1

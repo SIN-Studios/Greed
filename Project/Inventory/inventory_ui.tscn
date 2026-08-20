@@ -3,8 +3,11 @@
 [ext_resource type="Script" uid="uid://dof2sv6ee2nmo" path="res://Inventory/inventory_ui.gd" id="1_gka8b"]
 [ext_resource type="Texture2D" uid="uid://c6e2558stckv8" path="res://Inventory/inventory-background.png" id="2_l6l0t"]
 [ext_resource type="PackedScene" uid="uid://dq837tnw08i1u" path="res://Inventory/inventory_ui_slot.tscn" id="3_dk10o"]
+[ext_resource type="PackedScene" uid="uid://b65d3ippcmfhu" path="res://UI/HUD/calorie_bar.tscn" id="4_jhqvo"]
+[ext_resource type="Texture2D" uid="uid://cer7rfavgxd4c" path="res://Inventory/inventory-slot.png" id="5_jhqvo"]
 
 [node name="inventory_ui" type="Control" unique_id=1055113431]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -77,84 +80,53 @@ layout_mode = 2
 [node name="inventory_ui_slot8" parent="inventory/GridContainer" unique_id=1025726905 instance=ExtResource("3_dk10o")]
 layout_mode = 2
 
-[node name="weapon_hand" type="NinePatchRect" parent="." unique_id=938053797]
-custom_minimum_size = Vector2(24, 24)
+[node name="eat_menu" type="Control" parent="." unique_id=120443663]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -320.0
-offset_top = 360.0
-offset_right = -296.0
-offset_bottom = 384.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(10, 10)
-pivot_offset_ratio = Vector2(0.5, 0.5)
-texture = ExtResource("2_l6l0t")
-patch_margin_left = 6
-patch_margin_top = 6
-patch_margin_right = 6
-patch_margin_bottom = 6
 
-[node name="GridContainer" type="GridContainer" parent="weapon_hand" unique_id=1493360531]
+[node name="calorie_bar_updated" parent="eat_menu" unique_id=596578006 instance=ExtResource("4_jhqvo")]
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -450.0
+offset_right = -450.0
+grow_horizontal = 0
+script = null
+
+[node name="ColorRect" type="TextureRect" parent="eat_menu" unique_id=481400813]
+layout_mode = 1
+anchors_preset = 5
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -8.0
-offset_top = -8.0
-offset_right = 8.0
-offset_bottom = 8.0
+offset_left = -250.0
+offset_right = 250.0
+offset_bottom = 100.0
+grow_horizontal = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("5_jhqvo")
+
+[node name="Label" type="Label" parent="eat_menu/ColorRect" unique_id=2103750285]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-pivot_offset_ratio = Vector2(0.5, 0.5)
-columns = 4
+text = "20
+"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="inventory_ui_slot" parent="weapon_hand/GridContainer" unique_id=830379053 instance=ExtResource("3_dk10o")]
-layout_mode = 2
-
-[node name="item_hand" type="NinePatchRect" parent="." unique_id=1062561264]
-custom_minimum_size = Vector2(24, 24)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 320.0
-offset_top = 360.0
-offset_right = 344.0
-offset_bottom = 384.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(10, 10)
-pivot_offset_ratio = Vector2(0.5, 0.5)
-texture = ExtResource("2_l6l0t")
-patch_margin_left = 6
-patch_margin_top = 6
-patch_margin_right = 6
-patch_margin_bottom = 6
-
-[node name="GridContainer" type="GridContainer" parent="item_hand" unique_id=1219828052]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -8.0
-offset_top = -8.0
-offset_right = 8.0
-offset_bottom = 8.0
-grow_horizontal = 2
-grow_vertical = 2
-pivot_offset_ratio = Vector2(0.5, 0.5)
-columns = 4
-
-[node name="inventory_ui_slot" parent="item_hand/GridContainer" unique_id=376626433 instance=ExtResource("3_dk10o")]
-layout_mode = 2
+[connection signal="mouse_entered" from="inventory/GridContainer/inventory_ui_slot1" to="." method="_on_inventory_ui_slot_1_mouse_entered"]
+[connection signal="mouse_entered" from="inventory/GridContainer/inventory_ui_slot2" to="." method="_on_inventory_ui_slot_2_mouse_entered"]
+[connection signal="mouse_entered" from="inventory/GridContainer/inventory_ui_slot3" to="." method="_on_inventory_ui_slot_3_mouse_entered"]
+[connection signal="mouse_entered" from="inventory/GridContainer/inventory_ui_slot4" to="." method="_on_inventory_ui_slot_4_mouse_entered"]
+[connection signal="mouse_entered" from="inventory/GridContainer/inventory_ui_slot5" to="." method="_on_inventory_ui_slot_5_mouse_entered"]
+[connection signal="mouse_entered" from="inventory/GridContainer/inventory_ui_slot6" to="." method="_on_inventory_ui_slot_6_mouse_entered"]
+[connection signal="mouse_entered" from="inventory/GridContainer/inventory_ui_slot7" to="." method="_on_inventory_ui_slot_7_mouse_entered"]
+[connection signal="mouse_entered" from="inventory/GridContainer/inventory_ui_slot8" to="." method="_on_inventory_ui_slot_8_mouse_entered"]

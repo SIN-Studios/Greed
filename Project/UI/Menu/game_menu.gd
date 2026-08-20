@@ -1,34 +1,44 @@
 extends Control
 
 var tween 
+var menu_is_open: bool = true
 
 func _ready() -> void:
 	await get_tree().process_frame
 	$PanelContainer/Node/VBoxContainer/resume.pivot_offset = $PanelContainer/Node/VBoxContainer/resume.size / 2
 	$PanelContainer/Node/VBoxContainer/settings.pivot_offset = $PanelContainer/Node/VBoxContainer/settings.size / 2
 	$PanelContainer/Node/VBoxContainer/quit.pivot_offset = $PanelContainer/Node/VBoxContainer/quit.size / 2
-	get_tree().paused = true
-	$AnimationPlayer.play("blur")
+	close()
 
 
 func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("menu") and get_tree().paused == false:
-		get_tree().paused = true
-		$AnimationPlayer.play("blur")
-		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	elif Input.is_action_just_pressed("menu") and get_tree().paused == true:
-		get_tree().paused = false
-		$AnimationPlayer.play_backwards("blur")
-		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	if Input.is_action_just_pressed("menu") and !get_tree().paused:
+		open()
+	elif Input.is_action_just_pressed("menu") and get_tree().paused:
+		close()
+
+func open():
+	if menu_is_open:
+		return
+	menu_is_open = true
+	get_tree().paused = true
+	$AnimationPlayer.play("blur")
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+
+func close():
+	if !menu_is_open:
+		return
+	menu_is_open = false
+	get_tree().paused = false
+	$AnimationPlayer.play_backwards("blur")
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 
 
 func _on_resume_pressed() -> void:
 	tween = create_tween().set_trans(Tween.TRANS_SPRING)
 	tween.tween_property($PanelContainer/Node/VBoxContainer/resume, "scale", Vector2(0,0), 0.1).from_current()
-	$AnimationPlayer.play_backwards("blur")
 	await tween.finished
-	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
-	get_tree().paused = false
+	close()
 
 func _on_settings_pressed() -> void:
 	tween = create_tween().set_trans(Tween.TRANS_SPRING)
@@ -37,12 +47,13 @@ func _on_settings_pressed() -> void:
 	print("Settings not set up")
 
 func _on_quit_pressed() -> void:
+	if OS.get_name() == "Web":
+		print("Quit button does not work on web.")
+		return
 	tween = create_tween().set_trans(Tween.TRANS_SPRING)
 	tween.tween_property($PanelContainer/Node/VBoxContainer/quit, "scale", Vector2(0,0), 0.1).from_current()
 	await tween.finished
 	get_tree().quit()
-	if OS.get_name() == "Web":
-		print("Quit button does not work on web.")
 
 
 func _on_resume_mouse_entered() -> void:

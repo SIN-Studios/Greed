@@ -1,13 +1,8 @@
 [gd_scene format=3 uid="uid://cfvyui0q4mpxb"]
 
 [ext_resource type="Script" uid="uid://j06ae8ikcvnk" path="res://UI/Menu/game_menu.gd" id="1_gvxyv"]
-[ext_resource type="Shader" uid="uid://dj5a6iqkmol7y" path="res://UI/Menu/blur.gdshader" id="2_gysth"]
 [ext_resource type="Texture2D" uid="uid://c6e2558stckv8" path="res://Inventory/inventory-background.png" id="3_2j7in"]
 [ext_resource type="Texture2D" uid="uid://cer7rfavgxd4c" path="res://Inventory/inventory-slot.png" id="5_83vdo"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_jkth0"]
-shader = ExtResource("2_gysth")
-shader_parameter/lod = 1.25
 
 [sub_resource type="Animation" id="Animation_w8inr"]
 length = 0.2
@@ -30,46 +25,34 @@ length = 0.25
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("blur:material:shader_parameter/lod")
+tracks/0/path = NodePath("PanelContainer:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.25),
-"transitions": PackedFloat32Array(1, 1),
+"transitions": PackedFloat32Array(1, 0.225312),
 "update": 0,
-"values": [0.0, 1.25]
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("PanelContainer:modulate")
+tracks/1/path = NodePath("PanelContainer/Node/VBoxContainer:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.25),
-"transitions": PackedFloat32Array(1, 0.225312),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("PanelContainer/Node/VBoxContainer:modulate")
+tracks/2/path = NodePath("PanelContainer/Node/VBoxContainer:material:shader_parameter/modulate_color")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.25),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("PanelContainer/Node/VBoxContainer:material:shader_parameter/modulate_color")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.25),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
@@ -96,15 +79,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_gvxyv")
-
-[node name="blur" type="ColorRect" parent="." unique_id=331192158]
-material = SubResource("ShaderMaterial_jkth0")
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
 
 [node name="PanelContainer" type="NinePatchRect" parent="." unique_id=1178165220]
 layout_mode = 1
