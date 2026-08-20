@@ -8,9 +8,9 @@ var direction: Vector2
 func take_damage(input_damage, input_direction):
 	damage = input_damage
 	direction = input_direction
+	state_machine.change_state("playerhurtstate")
 	SignalManager.shake_requested.emit(0.5) 
 	$"../../CPUParticles2D".restart()
-	state_machine.change_state("playerhurtstate")
 
 func enter():
 	control.modulate = Color8(255, 0, 0, 200)

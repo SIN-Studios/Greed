@@ -76,6 +76,7 @@ amount = 50
 texture = ExtResource("5_5htga")
 lifetime = 0.5
 one_shot = true
+explosiveness = 0.5
 emission_shape = 1
 emission_sphere_radius = 1.0
 direction = Vector2(100, 100)
@@ -121,5 +122,7 @@ metadata/_custom_type_script = "uid://13ithac0yrs1"
 [connection signal="area_shape_entered" from="interaction_range" to="interaction_range" method="_on_interaction_range_area_shape_entered"]
 [connection signal="area_shape_exited" from="interaction_range" to="interaction_range" method="_on_interaction_range_area_shape_exited"]
 [connection signal="body_entered" from="lavahurts" to="." method="_on_lavahurts_body_entered"]
+[connection signal="body_exited" from="lavahurts" to="." method="_on_lavahurts_body_exited"]
 [connection signal="body_entered" from="magmahurts" to="." method="_on_magmahurts_body_entered"]
 [connection signal="body_entered" from="magmahurts" to="." method="_on_lavahurts_body_entered"]
+[connection signal="body_exited" from="magmahurts" to="." method="_on_magmahurts_body_exited"]
