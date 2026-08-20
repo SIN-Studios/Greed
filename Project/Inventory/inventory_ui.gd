@@ -25,9 +25,9 @@ func _process(_delta: float) -> void:
 			open()
 	
 	if current_item == null:
-		item_calories = 10
+		item_calories = 0
 	else:
-		item_calories = current_item.calories
+		item_calories = current_item.nutrition
 	
 	updated_calories = CalorieManager.calories + item_calories
 	
@@ -56,6 +56,7 @@ func open():
 func _on_inventory_ui_slot_1_mouse_entered() -> void:
 	current_item = $"../inventory_ui".player_inventory.items[0]
 	$eat_menu.visible = true
+	print(current_item)
 
 func _on_inventory_ui_slot_2_mouse_entered() -> void:
 	current_item = $"../inventory_ui".player_inventory.items[1]

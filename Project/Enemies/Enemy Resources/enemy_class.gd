@@ -7,5 +7,6 @@ class_name enemy
 @export var item_inventory_texture: SpriteFrames
 @export var item_ground_textre: SpriteFrames
 @export var texture: SpriteFrames
-@export var health: int = 200
-@export var base_damage: int = 20
+@export var health: int
+@export var base_damage: int
+@export var nutrition: int
