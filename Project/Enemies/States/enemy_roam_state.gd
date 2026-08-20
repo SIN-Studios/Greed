@@ -7,13 +7,14 @@ var direction: Vector2 = Vector2.ZERO
 @onready var timer = $"../../Timer"
 
 func enter():
-	if is_inside_tree():
+	if !is_inside_tree():
 		await get_tree().create_timer(0.01).timeout
 	if control.get_node("AnimatedSprite2D").sprite_frames.has_animation("roam"):
 		control.get_node("AnimatedSprite2D").play("roam") 
 	elif control.get_node("AnimatedSprite2D").sprite_frames.has_animation("default"):
 		control.get_node("AnimatedSprite2D").play("default")
 	timer.start.call_deferred()
+	print("eh")
 
 
 func exit():
@@ -21,6 +22,7 @@ func exit():
 
 
 func _on_timer_timeout() -> void:
+	print("timeout")
 	timer.wait_time = choose([1,1.5,2])
 	direction = choose([Vector2.ZERO, Vector2.UP, Vector2.DOWN, Vector2.LEFT, Vector2.RIGHT])
 
