@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://c1es0s5rne32t"]
+
+[ext_resource type="Texture2D" uid="uid://uqdm421iom6v" path="res://isaac designs/isaac assets/art/mast.png" id="1_mlaqn"]
+
+[node name="StaticBody2D" type="StaticBody2D" unique_id=1828058146]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1970608013]
+texture = ExtResource("1_mlaqn")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=413705344]
+polygon = PackedVector2Array(-29, 10, -25, 10, -19, 8, 9, -10, 6, -13, -28, 6, -29, 7)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="." unique_id=1202134754]
+polygon = PackedVector2Array(9, -10, 9, -5, 12, -3, 16, -3, 27, -8, 27, -16, 21, -18, 19, -18)

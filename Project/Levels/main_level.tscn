@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://edxssx2kupab" path="res://Enemies/enemy.tscn" id="9_3d006"]
 [ext_resource type="PackedScene" uid="uid://cv2qt8q5f288n" path="res://shipwreck.tscn" id="10_5aiwm"]
 [ext_resource type="Texture2D" uid="uid://d2vapkprbmos5" path="res://isaac designs/isaac assets/art/mastfinal.png" id="12_8b1du"]
+[ext_resource type="PackedScene" uid="uid://c1es0s5rne32t" path="res://oar.tscn" id="13_vte7q"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6opdx"]
 texture = ExtResource("1_13urm")
@@ -4596,3 +4597,6 @@ position = Vector2(350, 1230)
 y_sort_enabled = true
 position = Vector2(745, 1093)
 texture = ExtResource("12_8b1du")
+
+[node name="Oar" parent="." unique_id=1828058146 instance=ExtResource("13_vte7q")]
+position = Vector2(525, 985)
