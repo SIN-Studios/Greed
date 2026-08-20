@@ -18,7 +18,7 @@ func update_slots():
 		inventory_slots[i].update_texture(player_inventory.items[i])
 
 func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("toggle_inventory"):
+	if Input.is_action_just_pressed("toggle_inventory") or (Input.is_action_just_pressed("menu") and is_open):
 		if is_open:
 			close()
 		elif !get_tree().paused:
@@ -56,7 +56,6 @@ func open():
 func _on_inventory_ui_slot_1_mouse_entered() -> void:
 	current_item = $"../inventory_ui".player_inventory.items[0]
 	$eat_menu.visible = true
-	print(current_item)
 
 func _on_inventory_ui_slot_2_mouse_entered() -> void:
 	current_item = $"../inventory_ui".player_inventory.items[1]
