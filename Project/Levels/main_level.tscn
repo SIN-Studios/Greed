@@ -4563,7 +4563,7 @@ y_sort_enabled = true
 position = Vector2(343, 790)
 
 [node name="player" parent="." unique_id=1334899193 instance=ExtResource("1_s08vq")]
-position = Vector2(-1715, 1666)
+position = Vector2(343, 813)
 
 [node name="enemy" parent="." unique_id=923606778 instance=ExtResource("9_3d006")]
 position = Vector2(-316, 619)
