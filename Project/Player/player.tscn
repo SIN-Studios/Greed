@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://y55l8p1is7l4" path="res://Player/interaction_range.gd" id="3_dd0ac"]
 [ext_resource type="PackedScene" uid="uid://c5ijv18l3wkwf" path="res://Player/knife.tscn" id="3_xpcdj"]
 [ext_resource type="Script" uid="uid://bbw1ou5a12pqk" path="res://Player/screenshake.gd" id="4_apopc"]
-[ext_resource type="Texture2D" uid="uid://c6qqmd0wwao4u" path="res://isaac designs/isaac assets/particles/hurt.png" id="5_5htga"]
+[ext_resource type="Texture2D" uid="uid://cunpo6biovblf" path="res://isaac designs/isaac assets/particles/hurt.png" id="5_5htga"]
 [ext_resource type="Script" uid="uid://cxaewei6kie7x" path="res://Managers/state_machine.gd" id="7_x3vf3"]
 [ext_resource type="Script" uid="uid://clwfm81t7rv8m" path="res://Player/States/player_idle_state.gd" id="8_apopc"]
 [ext_resource type="Script" uid="uid://pi1yylx60pdd" path="res://Player/States/player_lay_state.gd" id="8_od3ui"]
@@ -76,7 +76,10 @@ amount = 50
 texture = ExtResource("5_5htga")
 lifetime = 0.5
 one_shot = true
+speed_scale = 1.45
 explosiveness = 0.5
+randomness = 0.5
+fixed_fps = 75
 emission_shape = 1
 emission_sphere_radius = 1.0
 direction = Vector2(100, 100)
