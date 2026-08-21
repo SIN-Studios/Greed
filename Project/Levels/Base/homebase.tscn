@@ -254,26 +254,6 @@ tile_set = SubResource("TileSet_b1gy2")
 collision_layer = 3
 collision_mask = 3
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1745528189]
-position = Vector2(31.75, 296)
-shape = SubResource("RectangleShape2D_4vjcd")
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=394085004]
-position = Vector2(799, 638)
-shape = SubResource("RectangleShape2D_4vjcd")
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" unique_id=830350142]
-position = Vector2(477, 989)
-shape = SubResource("RectangleShape2D_4vjcd")
-
-[node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D" unique_id=1872799208]
-position = Vector2(-735, 636)
-shape = SubResource("RectangleShape2D_4vjcd")
-
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D" unique_id=444645355]
-position = Vector2(-413, 989)
-shape = SubResource("RectangleShape2D_4vjcd")
-
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=1338207059]
 position = Vector2(-2786, 291)
 shape = SubResource("RectangleShape2D_4vjcd")
