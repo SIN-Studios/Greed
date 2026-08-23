@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c6e2558stckv8" path="res://Inventory/inventory-background.png" id="2_l6l0t"]
 [ext_resource type="PackedScene" uid="uid://dq837tnw08i1u" path="res://Inventory/inventory_ui_slot.tscn" id="3_dk10o"]
 [ext_resource type="PackedScene" uid="uid://b65d3ippcmfhu" path="res://UI/HUD/calorie_bar.tscn" id="4_jhqvo"]
+[ext_resource type="Script" uid="uid://dbxrudnk3c7x0" path="res://Inventory/eating_interaction.gd" id="4_pphwo"]
 [ext_resource type="Texture2D" uid="uid://cer7rfavgxd4c" path="res://Inventory/inventory-slot.png" id="5_jhqvo"]
 
 [node name="inventory_ui" type="Control" unique_id=1055113431]
@@ -58,6 +59,28 @@ text = "20
 "
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="eat_menu/ColorRect" unique_id=1673785207]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Hold E to eat"
+horizontal_alignment = 1
+vertical_alignment = 2
+script = ExtResource("4_pphwo")
+
+[node name="ColorRect" type="ColorRect" parent="eat_menu/ColorRect/Label2" unique_id=1074482451]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1e-05, 1)
+color = Color(0, 0, 0, 0.43529412)
 
 [node name="inventory" type="NinePatchRect" parent="." unique_id=1789316978]
 custom_minimum_size = Vector2(80, 45)

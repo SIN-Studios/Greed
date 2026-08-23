@@ -13,3 +13,8 @@ func pickup_item(item):
 	if index != -1:
 		items[index] = item
 	SignalManager.update_inventory_ui.emit()
+
+func eat_item(slot):
+	if slot >= 0 and slot < items.size():
+		items[slot] = null
+		SignalManager.update_inventory_ui.emit()

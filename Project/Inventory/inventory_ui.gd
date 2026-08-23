@@ -6,6 +6,7 @@ var is_open: bool
 var current_item: enemy
 var updated_calories: int
 var item_calories: int
+var current_slot: int
 
 func _ready() -> void:
 	SignalManager.update_inventory_ui.connect(update_slots)
@@ -38,6 +39,11 @@ func _process(_delta: float) -> void:
 	$eat_menu/calorie_bar_updated/indicator.position.x = updated_calories / 10 
 	$eat_menu/calorie_bar_updated/goal.position.x = CalorieManager.calorie_defecit / 10
 
+func interacted_with():
+	CalorieManager.calories += item_calories
+	player_inventory.eat_item(current_slot)
+	current_item = $"../inventory_ui".player_inventory.items[current_slot]
+
 func close():
 	$eat_menu.visible = false
 	get_tree().paused = false
@@ -55,32 +61,41 @@ func open():
 
 func _on_inventory_ui_slot_1_mouse_entered() -> void:
 	current_item = $"../inventory_ui".player_inventory.items[0]
+	current_slot = 0
 	$eat_menu.visible = true
 
 func _on_inventory_ui_slot_2_mouse_entered() -> void:
 	current_item = $"../inventory_ui".player_inventory.items[1]
+	current_slot = 1
 	$eat_menu.visible = true
 
 func _on_inventory_ui_slot_3_mouse_entered() -> void:
 	current_item = $"../inventory_ui".player_inventory.items[2]
+	current_slot = 2
 	$eat_menu.visible = true
 
 func _on_inventory_ui_slot_4_mouse_entered() -> void:
 	current_item = $"../inventory_ui".player_inventory.items[3]
+	current_slot = 3
 	$eat_menu.visible = true
 
 func _on_inventory_ui_slot_5_mouse_entered() -> void:
 	current_item = $"../inventory_ui".player_inventory.items[4]
+	current_slot = 4
 	$eat_menu.visible = true
 
 func _on_inventory_ui_slot_6_mouse_entered() -> void:
 	current_item = $"../inventory_ui".player_inventory.items[5]
+	current_slot = 5
 	$eat_menu.visible = true
 
 func _on_inventory_ui_slot_7_mouse_entered() -> void:
 	current_item = $"../inventory_ui".player_inventory.items[6]
+	current_slot = 6
 	$eat_menu.visible = true
 
 func _on_inventory_ui_slot_8_mouse_entered() -> void:
 	current_item = $"../inventory_ui".player_inventory.items[7]
-	
+	print("no issue")
+	current_slot = 7
+	$eat_menu.visible = true
