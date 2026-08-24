@@ -4,6 +4,24 @@ class_name PlayerWalkState
 
 const speed: int = 75
 const slipperiness_factor: int = 5 #higher is more slippery
+var last_animation: String
+
+func update(_delta: float):
+	if control.velocity.x == 0 and control.velocity.y == 0:
+		state_machine.change_state("playeridlestate")
+	elif control.velocity.x < 0:
+		last_animation = "move_left"
+		$"../../Sprite2D".animation = "move_left"
+	elif control.velocity.x > 0:
+		$"../../Sprite2D".animation = "move_right"
+		last_animation = "move_right"
+	elif control.velocity.y < 0:
+		$"../../Sprite2D".animation = "move_up"
+		last_animation = "move_up"
+	elif control.velocity.y > 0:
+		$"../../Sprite2D".animation = "move_down"
+		last_animation = "move_down"
+
 
 func physics_update(_delta):
 	var current_speed = speed * control.speed_multiplier
