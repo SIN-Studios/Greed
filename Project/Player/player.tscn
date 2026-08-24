@@ -10,8 +10,8 @@
 [ext_resource type="Script" uid="uid://clwfm81t7rv8m" path="res://Player/States/player_idle_state.gd" id="8_apopc"]
 [ext_resource type="Script" uid="uid://pi1yylx60pdd" path="res://Player/States/player_lay_state.gd" id="8_od3ui"]
 [ext_resource type="Script" uid="uid://dmewao14eoiit" path="res://Player/States/player_hurt_state.gd" id="9_00tjw"]
-[ext_resource type="Script" uid="uid://cada3n443ivqb" path="res://Player/States/player_walk_state.gd" id="9_5htga"]
 [ext_resource type="Script" uid="uid://13ithac0yrs1" path="res://Player/States/player_dies_state.gd" id="10_x3vf3"]
+[ext_resource type="Script" uid="uid://h7n3n8u8ehsb" path="res://Player/States/player_walk_state.gd" id="12_p5o4e"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_htcer"]
 radius = 100.0
@@ -106,10 +106,6 @@ metadata/_custom_type_script = "uid://cxaewei6kie7x"
 script = ExtResource("8_apopc")
 metadata/_custom_type_script = "uid://clwfm81t7rv8m"
 
-[node name="PlayerWalkState" type="Node" parent="StateMachine" unique_id=1506997018]
-script = ExtResource("9_5htga")
-metadata/_custom_type_script = "uid://cada3n443ivqb"
-
 [node name="PlayerLayState" type="Node" parent="StateMachine" unique_id=1244570938]
 script = ExtResource("8_od3ui")
 metadata/_custom_type_script = "uid://pi1yylx60pdd"
@@ -121,6 +117,10 @@ metadata/_custom_type_script = "uid://dmewao14eoiit"
 [node name="PlayerDiesState" type="Node" parent="StateMachine" unique_id=99198696]
 script = ExtResource("10_x3vf3")
 metadata/_custom_type_script = "uid://13ithac0yrs1"
+
+[node name="PlayerWalkState" type="Node" parent="StateMachine" unique_id=489405869]
+script = ExtResource("12_p5o4e")
+metadata/_custom_type_script = "uid://h7n3n8u8ehsb"
 
 [connection signal="area_shape_entered" from="interaction_range" to="interaction_range" method="_on_interaction_range_area_shape_entered"]
 [connection signal="area_shape_exited" from="interaction_range" to="interaction_range" method="_on_interaction_range_area_shape_exited"]

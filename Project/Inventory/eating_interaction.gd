@@ -12,6 +12,7 @@ func _process(_delta: float) -> void:
 	if Input.is_action_just_released("interact"):
 		can_interact = false
 	#checks if player is still interacting
+	can_interact = $"../..".visible
 	if Input.is_action_pressed("interact") and can_interact:
 		interact()
 	else:
