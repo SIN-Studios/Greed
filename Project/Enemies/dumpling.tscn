@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://b6dn2a32sem3f"]
+
+[ext_resource type="Script" uid="uid://bop6i241r56p6" path="res://Enemies/enemy.gd" id="1_t3daj"]
+[ext_resource type="Script" uid="uid://cxaewei6kie7x" path="res://Managers/state_machine.gd" id="2_g4juq"]
+[ext_resource type="Script" uid="uid://c67yxu37eiks" path="res://Enemies/States/enemy_dies_state.gd" id="4_htt8i"]
+[ext_resource type="Script" uid="uid://cdnmo13hyu0wh" path="res://Enemies/States/enemy_explode_state.gd" id="6_hglob"]
+[ext_resource type="Script" uid="uid://c13cwyjhiyyn0" path="res://Enemies/States/enemy_roam_state.gd" id="6_ky5up"]
+[ext_resource type="Script" uid="uid://yjbgn26jgydr" path="res://Enemies/States/enemy_hurt_state.gd" id="7_102pk"]
+[ext_resource type="Texture2D" uid="uid://bxvua0gasaqjd" path="res://icon.svg" id="8_v1p6e"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u1n1c"]
+radius = 25.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7rdt1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jlnat"]
+atlas = ExtResource("8_v1p6e")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gjwuc"]
+animations = [{
+"frames": [],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jlnat")
+}],
+"loop": 1,
+"name": &"test",
+"speed": 5.0
+}]
+
+[node name="bao_bun" type="CharacterBody2D" unique_id=923606778 groups=["enemy"]]
+collision_layer = 8
+collision_mask = 129
+script = ExtResource("1_t3daj")
+
+[node name="attack_range" type="Area2D" parent="." unique_id=93049031]
+collision_layer = 8
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="attack_range" unique_id=1530917231]
+shape = SubResource("CircleShape2D_u1n1c")
+
+[node name="collision" type="CollisionShape2D" parent="." unique_id=1463650258]
+shape = SubResource("CircleShape2D_7rdt1")
+
+[node name="Timer" type="Timer" parent="." unique_id=1214927114]
+wait_time = 0.5
+
+[node name="StateMachine" type="Node" parent="." unique_id=1783725191 node_paths=PackedStringArray("initial_state")]
+script = ExtResource("2_g4juq")
+initial_state = NodePath("EnemyRoamState")
+metadata/_custom_type_script = "uid://cxaewei6kie7x"
+
+[node name="EnemyDiesState" type="Node" parent="StateMachine" unique_id=1446591939]
+script = ExtResource("4_htt8i")
+metadata/_custom_type_script = "uid://c67yxu37eiks"
+
+[node name="EnemyRoamState" type="Node" parent="StateMachine" unique_id=1497154653]
+script = ExtResource("6_ky5up")
+metadata/_custom_type_script = "uid://c13cwyjhiyyn0"
+
+[node name="EnemyHurtState" type="Node" parent="StateMachine" unique_id=1569822622]
+script = ExtResource("7_102pk")
+metadata/_custom_type_script = "uid://yjbgn26jgydr"
+
+[node name="EnemyExplodeState" type="Node" parent="StateMachine" unique_id=730521916]
+script = ExtResource("6_hglob")
+metadata/_custom_type_script = "uid://cdnmo13hyu0wh"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1112023235]
+sprite_frames = SubResource("SpriteFrames_gjwuc")
+animation = &"test"
+
+[connection signal="body_entered" from="attack_range" to="StateMachine/EnemyExplodeState" method="_on_attack_range_body_entered"]
+[connection signal="timeout" from="Timer" to="StateMachine/EnemyRoamState" method="_on_timer_timeout"]

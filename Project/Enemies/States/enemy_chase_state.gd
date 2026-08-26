@@ -2,7 +2,6 @@ extends State
 
 class_name EnemyChaseState
 
-const speed: int = 90
 
 func enter():
 	if control.get_node("AnimatedSprite2D").sprite_frames.has_animation("chase"):
@@ -11,7 +10,7 @@ func enter():
 		control.get_node("AnimatedSprite2D").play("default")
 
 func physics_update(_delta):
-	control.velocity = control.position.direction_to(Global.player.position) * speed
+	control.velocity = control.position.direction_to(Global.player.position) * control.chase_speed
 	
 	control.move_and_slide()
 

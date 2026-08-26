@@ -10,3 +10,5 @@ class_name enemy
 @export var health: int
 @export var base_damage: int
 @export var nutrition: int
+@export var roam_speed: int
+@export var chase_speed: int

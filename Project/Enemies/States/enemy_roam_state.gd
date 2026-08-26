@@ -2,7 +2,6 @@ extends State
 
 class_name EnemyRoamState
 
-const speed: int = 10
 var direction: Vector2 = Vector2.ZERO
 @onready var timer = $"../../Timer"
 
@@ -26,7 +25,7 @@ func _on_timer_timeout() -> void:
 	direction = choose([Vector2.ZERO, Vector2.UP, Vector2.DOWN, Vector2.LEFT, Vector2.RIGHT])
 
 func physics_update(delta):
-	control.velocity += direction * speed * delta
+	control.velocity += direction * control.roam_speed * delta
 	
 	control.move_and_slide()
 

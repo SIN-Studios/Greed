@@ -6,6 +6,7 @@ class_name StateMachine
 
 @export var initial_state: State
 var current_state: State
+var last_state: State
 var states: Dictionary = {}
 
 func _ready() -> void:
@@ -31,6 +32,7 @@ func _input(event: InputEvent) -> void:
 
 func change_state(new_state_name: String) -> void:
 	if current_state:
+		last_state = current_state
 		current_state.exit()
 	
 	current_state = states.get(new_state_name.to_lower())

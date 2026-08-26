@@ -57,4 +57,6 @@ texture = SubResource("SpriteFrames_g2yqp")
 health = 500
 base_damage = 40
 nutrition = 800
+roam_speed = 20
+chase_speed = 70
 metadata/_custom_type_script = "uid://ju7wht6ok7t"

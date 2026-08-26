@@ -2,7 +2,7 @@ extends State
 
 class_name PlayerWalkState
 
-const speed: int = 75
+const speed: int = 100
 const slipperiness_factor: int = 5 #higher is more slippery
 var last_animation: String
 

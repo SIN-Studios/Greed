@@ -151,4 +151,6 @@ texture = SubResource("SpriteFrames_apopc")
 health = 500
 base_damage = 40
 nutrition = 200
+roam_speed = 30
+chase_speed = 80
 metadata/_custom_type_script = "uid://ju7wht6ok7t"
