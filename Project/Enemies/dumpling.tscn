@@ -6,16 +6,16 @@
 [ext_resource type="Script" uid="uid://cdnmo13hyu0wh" path="res://Enemies/States/enemy_explode_state.gd" id="6_hglob"]
 [ext_resource type="Script" uid="uid://c13cwyjhiyyn0" path="res://Enemies/States/enemy_roam_state.gd" id="6_ky5up"]
 [ext_resource type="Script" uid="uid://yjbgn26jgydr" path="res://Enemies/States/enemy_hurt_state.gd" id="7_102pk"]
-[ext_resource type="Texture2D" uid="uid://bxvua0gasaqjd" path="res://icon.svg" id="8_v1p6e"]
+[ext_resource type="Texture2D" uid="uid://k0i2dmue1tsr" path="res://Seth designs/BaoBun.png" id="7_hglob"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_u1n1c"]
 radius = 25.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7rdt1"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_jlnat"]
-atlas = ExtResource("8_v1p6e")
-region = Rect2(0, 0, 128, 128)
+[sub_resource type="AtlasTexture" id="AtlasTexture_hglob"]
+atlas = ExtResource("7_hglob")
+region = Rect2(0, 0, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_gjwuc"]
 animations = [{
@@ -26,7 +26,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_jlnat")
+"texture": SubResource("AtlasTexture_hglob")
 }],
 "loop": 1,
 "name": &"test",
