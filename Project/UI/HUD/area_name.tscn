@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://cuxe03xy1h51g"]
+
+[ext_resource type="Script" uid="uid://by7rx6tf02omn" path="res://UI/HUD/area_manager.gd" id="1_l62rm"]
+
+[node name="AreaName" type="Control" unique_id=1519710685]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 54.0
+offset_top = -80.0
+offset_right = 54.0
+offset_bottom = -80.0
+grow_vertical = 0
+script = ExtResource("1_l62rm")
+metadata/_edit_use_anchors_ = true
+
+[node name="Lava" type="RichTextLabel" parent="." unique_id=982307391]
+layout_mode = 0
+offset_left = 2.0
+offset_top = -124.0
+offset_right = 218.0
+theme_override_colors/default_color = Color(1, 0.12711531, 0.24058318, 1)
+theme_override_font_sizes/normal_font_size = 75
+text = "LAVA"
+metadata/_edit_use_anchors_ = true
+
+[node name="Plains" type="RichTextLabel" parent="." unique_id=406967321]
+layout_mode = 0
+offset_left = 2.0
+offset_top = -124.0
+offset_right = 289.0
+offset_bottom = -15.0
+theme_override_colors/default_color = Color(0.42643595, 0.546472, 3.85046e-07, 1)
+theme_override_font_sizes/normal_font_size = 75
+text = "PLAINS"
+metadata/_edit_use_anchors_ = true
+
+[node name="Forest" type="RichTextLabel" parent="." unique_id=84161456]
+layout_mode = 0
+offset_left = -4.0
+offset_top = -120.0
+offset_right = 424.0
+offset_bottom = -7.0
+theme_override_colors/default_color = Color(0.19301105, 0.3960821, 0, 1)
+theme_override_font_sizes/normal_font_size = 75
+text = "FOREST"
+metadata/_edit_use_anchors_ = true
