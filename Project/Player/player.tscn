@@ -188,7 +188,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"move_down",
-"speed": 6.0
+"speed": 7.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -307,8 +307,9 @@ scale_curve_y = null
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=1642436144]
 position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_7rdt1")
-animation = &"idle_down"
+animation = &"move_down"
 autoplay = "idle_down"
+frame_progress = 0.68508816
 
 [node name="StateMachine" type="Node" parent="." unique_id=187046789 node_paths=PackedStringArray("initial_state")]
 script = ExtResource("7_x3vf3")
