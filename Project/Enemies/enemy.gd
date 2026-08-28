@@ -1,13 +1,16 @@
 extends CharacterBody2D
 
-var enemy_array: Array = [preload("res://Enemies/Enemy Resources/bao_bun.tres")]
-var current_enemy: enemy = enemy_array.pick_random()
+@onready var enemy_path: String = "res://Enemies/Enemy Resources/" + self.name + ".tres"
+var current_enemy: enemy
 var health: int
 var base_damage: int
 var roam_speed: int
 var chase_speed: int
 
 func _ready() -> void:
+	if self.name.begins_with("enemy"):
+		return
+	current_enemy = load(enemy_path)
 	$AnimatedSprite2D.sprite_frames = current_enemy.texture
 	health = current_enemy.health
 	base_damage = current_enemy.base_damage
