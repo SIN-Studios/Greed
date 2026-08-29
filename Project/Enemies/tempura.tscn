@@ -1,15 +1,15 @@
-[gd_scene format=3 uid="uid://edxssx2kupab"]
+[gd_scene format=3 uid="uid://dq5ulp362yt5x"]
 
-[ext_resource type="Script" uid="uid://cxaewei6kie7x" path="res://Managers/state_machine.gd" id="1_3ih25"]
-[ext_resource type="Script" uid="uid://bop6i241r56p6" path="res://Enemies/enemy.gd" id="1_rt1x0"]
-[ext_resource type="Script" uid="uid://c13cwyjhiyyn0" path="res://Enemies/States/enemy_roam_state.gd" id="2_bxkaj"]
-[ext_resource type="Script" uid="uid://7hm510sx4ewt" path="res://Enemies/States/enemy_chase_state.gd" id="3_47qgu"]
-[ext_resource type="Script" uid="uid://d0hb5tp0u582q" path="res://Enemies/States/enemy_attack_state.gd" id="4_rt1x0"]
-[ext_resource type="Script" uid="uid://c67yxu37eiks" path="res://Enemies/States/enemy_dies_state.gd" id="5_8wvsg"]
-[ext_resource type="Script" uid="uid://yjbgn26jgydr" path="res://Enemies/States/enemy_hurt_state.gd" id="6_gk8ng"]
-[ext_resource type="Texture2D" uid="uid://bxvua0gasaqjd" path="res://icon.svg" id="9_koi6q"]
+[ext_resource type="Script" uid="uid://bop6i241r56p6" path="res://Enemies/enemy.gd" id="1_ikog2"]
+[ext_resource type="Script" uid="uid://cxaewei6kie7x" path="res://Managers/state_machine.gd" id="2_175fb"]
+[ext_resource type="Script" uid="uid://d0hb5tp0u582q" path="res://Enemies/States/enemy_attack_state.gd" id="3_lk03j"]
+[ext_resource type="Script" uid="uid://c67yxu37eiks" path="res://Enemies/States/enemy_dies_state.gd" id="4_vkbt4"]
+[ext_resource type="Script" uid="uid://7hm510sx4ewt" path="res://Enemies/States/enemy_chase_state.gd" id="5_rykdl"]
+[ext_resource type="Script" uid="uid://c13cwyjhiyyn0" path="res://Enemies/States/enemy_roam_state.gd" id="6_svgou"]
+[ext_resource type="Script" uid="uid://yjbgn26jgydr" path="res://Enemies/States/enemy_hurt_state.gd" id="7_7hccr"]
+[ext_resource type="Texture2D" uid="uid://b77c7chfhc2yj" path="res://Seth designs/tempura.png" id="8_ikog2"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_bsrlh"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_ikog2"]
 radius = 120.10412
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_u1n1c"]
@@ -23,9 +23,9 @@ radius = 100.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7rdt1"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_jlnat"]
-atlas = ExtResource("9_koi6q")
-region = Rect2(0, 0, 128, 128)
+[sub_resource type="AtlasTexture" id="AtlasTexture_175fb"]
+atlas = ExtResource("8_ikog2")
+region = Rect2(64, 0, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_gjwuc"]
 animations = [{
@@ -36,24 +36,24 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_jlnat")
+"texture": SubResource("AtlasTexture_175fb")
 }],
 "loop": 1,
 "name": &"test",
 "speed": 5.0
 }]
 
-[node name="enemy" type="CharacterBody2D" unique_id=923606778 groups=["enemy"]]
+[node name="tempura" type="CharacterBody2D" unique_id=923606778 groups=["enemy"]]
 collision_layer = 8
 collision_mask = 129
-script = ExtResource("1_rt1x0")
+script = ExtResource("1_ikog2")
 
-[node name="damage_range" type="Area2D" parent="." unique_id=378384327]
+[node name="damage_range" type="Area2D" parent="." unique_id=768945356]
 collision_layer = 8
 collision_mask = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="damage_range" unique_id=244746268]
-shape = SubResource("CircleShape2D_bsrlh")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="damage_range" unique_id=1110568919]
+shape = SubResource("CircleShape2D_ikog2")
 
 [node name="attack_range" type="Area2D" parent="." unique_id=93049031]
 collision_layer = 8
@@ -83,28 +83,28 @@ shape = SubResource("CircleShape2D_7rdt1")
 wait_time = 0.5
 
 [node name="StateMachine" type="Node" parent="." unique_id=1783725191 node_paths=PackedStringArray("initial_state")]
-script = ExtResource("1_3ih25")
+script = ExtResource("2_175fb")
 initial_state = NodePath("EnemyRoamState")
 metadata/_custom_type_script = "uid://cxaewei6kie7x"
 
 [node name="EnemyAttackState" type="Node" parent="StateMachine" unique_id=1617242545]
-script = ExtResource("4_rt1x0")
+script = ExtResource("3_lk03j")
 metadata/_custom_type_script = "uid://d0hb5tp0u582q"
 
 [node name="EnemyDiesState" type="Node" parent="StateMachine" unique_id=1446591939]
-script = ExtResource("5_8wvsg")
+script = ExtResource("4_vkbt4")
 metadata/_custom_type_script = "uid://c67yxu37eiks"
 
 [node name="EnemyChaseState" type="Node" parent="StateMachine" unique_id=1948555776]
-script = ExtResource("3_47qgu")
+script = ExtResource("5_rykdl")
 metadata/_custom_type_script = "uid://7hm510sx4ewt"
 
 [node name="EnemyRoamState" type="Node" parent="StateMachine" unique_id=1497154653]
-script = ExtResource("2_bxkaj")
+script = ExtResource("6_svgou")
 metadata/_custom_type_script = "uid://c13cwyjhiyyn0"
 
 [node name="EnemyHurtState" type="Node" parent="StateMachine" unique_id=1569822622]
-script = ExtResource("6_gk8ng")
+script = ExtResource("7_7hccr")
 metadata/_custom_type_script = "uid://yjbgn26jgydr"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1112023235]

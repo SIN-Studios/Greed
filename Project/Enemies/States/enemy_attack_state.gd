@@ -2,8 +2,10 @@ extends State
 
 class_name EnemyAttackState
 
+var in_damage_range: bool = false
 
 func _on_attack_range_body_entered(body: Node2D) -> void:
+	print(control.velocity)
 	if body.is_in_group("player"):
 		state_machine.change_state("enemyattackstate")
 
@@ -12,6 +14,8 @@ func enter():
 	if control.get_node("AnimatedSprite2D").sprite_frames.has_animation("attack"):
 		control.get_node("AnimatedSprite2D").play("attack")
 		await control.get_node("AnimatedSprite2D").animation_finished
+		if not in_damage_range:
+			return
 	elif control.get_node("AnimatedSprite2D").sprite_frames.has_animation("default"):
 		control.get_node("AnimatedSprite2D").play("default")
 
@@ -24,3 +28,17 @@ func enter():
 		control.get_node("AnimatedSprite2D").play("recoil")
 		await control.get_node("AnimatedSprite2D").animation_finished
 	state_machine.change_state("enemychasestate")
+
+func physics_update(delta: float) -> void:
+	control.move_and_slide()
+
+
+func _on_damage_range_body_entered(body: Node2D) -> void:
+	if body.is_in_group("player"):
+		in_damage_range = true
+
+
+
+func _on_damage_range_body_exited(body: Node2D) -> void:
+	if body.is_in_group("player"):
+		in_damage_range = false
