@@ -7,6 +7,8 @@ var base_damage: int
 var roam_speed: int
 var chase_speed: int
 
+var facing_right: bool = true
+
 func _ready() -> void:
 	if self.name.begins_with("enemy"):
 		return

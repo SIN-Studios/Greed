@@ -14,10 +14,20 @@ func physics_update(_delta):
 	
 	control.move_and_slide()
 
+func update(_delta: float):
+	if control.velocity.x > 1 and control.facing_right:
+		control.scale.x = 1
+		control.facing_right = false
+	elif control.velocity.x < 1 and not control.facing_right:
+		control.scale.x = -1
+		control.facing_right = true
+
+
 func _on_detection_range_exit_body_exited(body: Node2D) -> void:
 	if body != Global.player:
 		return
 	state_machine.change_state("enemyroamstate")
+
 
 
 func _on_attack_range_body_entered(body: Node2D) -> void:

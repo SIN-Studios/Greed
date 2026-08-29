@@ -9,22 +9,6 @@
 [ext_resource type="Script" uid="uid://yjbgn26jgydr" path="res://Enemies/States/enemy_hurt_state.gd" id="7_3g4un"]
 [ext_resource type="Texture2D" uid="uid://dx60hri1e5qqq" path="res://Seth designs/Drumsticks.png" id="8_egfue"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lk03j"]
-radius = 13.0
-height = 72.0
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_175fb"]
-radius = 16.0
-height = 50.0
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_2vwo2"]
-radius = 150.0
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_dnawn"]
-radius = 100.0
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_7rdt1"]
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_6ho4l"]
 atlas = ExtResource("8_egfue")
 region = Rect2(0, 0, 32, 32)
@@ -45,10 +29,45 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_2vwo2"]
+radius = 150.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dnawn"]
+radius = 100.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lk03j"]
+radius = 13.0
+height = 72.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_175fb"]
+radius = 12.0
+height = 38.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7rdt1"]
+
 [node name="drumstick" type="CharacterBody2D" unique_id=923606778 groups=["enemy"]]
 collision_layer = 8
 collision_mask = 129
 script = ExtResource("1_egfue")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1112023235]
+sprite_frames = SubResource("SpriteFrames_gjwuc")
+animation = &"test"
+frame_progress = 0.26454479
+
+[node name="detection_range_exit" type="Area2D" parent="." unique_id=493961257]
+collision_layer = 8
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detection_range_exit" unique_id=2089254631]
+shape = SubResource("CircleShape2D_2vwo2")
+
+[node name="detection_range_enter" type="Area2D" parent="." unique_id=358888585]
+collision_layer = 8
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detection_range_enter" unique_id=1841867787]
+shape = SubResource("CircleShape2D_dnawn")
 
 [node name="damage_range" type="Area2D" parent="." unique_id=1138869798]
 collision_layer = 8
@@ -64,28 +83,10 @@ collision_layer = 8
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="attack_range" unique_id=1530917231]
-position = Vector2(6, -3)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_175fb")
 
-[node name="detection_range_exit" type="Area2D" parent="." unique_id=493961257]
-visible = false
-collision_layer = 8
-collision_mask = 4
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="detection_range_exit" unique_id=2089254631]
-shape = SubResource("CircleShape2D_2vwo2")
-
-[node name="detection_range_enter" type="Area2D" parent="." unique_id=358888585]
-visible = false
-collision_layer = 8
-collision_mask = 4
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="detection_range_enter" unique_id=1841867787]
-shape = SubResource("CircleShape2D_dnawn")
-
 [node name="collision" type="CollisionShape2D" parent="." unique_id=1463650258]
-visible = false
 shape = SubResource("CircleShape2D_7rdt1")
 
 [node name="Timer" type="Timer" parent="." unique_id=1214927114]
@@ -116,14 +117,9 @@ metadata/_custom_type_script = "uid://c13cwyjhiyyn0"
 script = ExtResource("7_3g4un")
 metadata/_custom_type_script = "uid://yjbgn26jgydr"
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1112023235]
-sprite_frames = SubResource("SpriteFrames_gjwuc")
-animation = &"test"
-frame_progress = 0.26454479
-
+[connection signal="body_exited" from="detection_range_exit" to="StateMachine/EnemyChaseState" method="_on_detection_range_exit_body_exited"]
+[connection signal="body_entered" from="detection_range_enter" to="StateMachine/EnemyRoamState" method="_on_detection_range_enter_body_entered"]
 [connection signal="body_entered" from="damage_range" to="StateMachine/EnemyAttackState" method="_on_damage_range_body_entered"]
 [connection signal="body_exited" from="damage_range" to="StateMachine/EnemyAttackState" method="_on_damage_range_body_exited"]
 [connection signal="body_entered" from="attack_range" to="StateMachine/EnemyAttackState" method="_on_attack_range_body_entered"]
-[connection signal="body_exited" from="detection_range_exit" to="StateMachine/EnemyChaseState" method="_on_detection_range_exit_body_exited"]
-[connection signal="body_entered" from="detection_range_enter" to="StateMachine/EnemyRoamState" method="_on_detection_range_enter_body_entered"]
 [connection signal="timeout" from="Timer" to="StateMachine/EnemyRoamState" method="_on_timer_timeout"]

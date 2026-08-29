@@ -8,11 +8,6 @@
 [ext_resource type="Script" uid="uid://yjbgn26jgydr" path="res://Enemies/States/enemy_hurt_state.gd" id="7_102pk"]
 [ext_resource type="Texture2D" uid="uid://k0i2dmue1tsr" path="res://Seth designs/BaoBun.png" id="7_hglob"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_u1n1c"]
-radius = 25.0
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_7rdt1"]
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_hglob"]
 atlas = ExtResource("7_hglob")
 region = Rect2(0, 0, 64, 64)
@@ -33,10 +28,30 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_hglob"]
+radius = 58.077534
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u1n1c"]
+radius = 25.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7rdt1"]
+
 [node name="dumpling" type="CharacterBody2D" unique_id=923606778 groups=["enemy"]]
 collision_layer = 8
 collision_mask = 129
 script = ExtResource("1_t3daj")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1112023235]
+position = Vector2(0, -11)
+sprite_frames = SubResource("SpriteFrames_gjwuc")
+animation = &"test"
+
+[node name="damage_range" type="Area2D" parent="." unique_id=952904805]
+collision_layer = 8
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="damage_range" unique_id=460652391]
+shape = SubResource("CircleShape2D_hglob")
 
 [node name="attack_range" type="Area2D" parent="." unique_id=93049031]
 collision_layer = 8
@@ -71,11 +86,6 @@ metadata/_custom_type_script = "uid://yjbgn26jgydr"
 [node name="EnemyExplodeState" type="Node" parent="StateMachine" unique_id=730521916]
 script = ExtResource("6_hglob")
 metadata/_custom_type_script = "uid://cdnmo13hyu0wh"
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1112023235]
-position = Vector2(0, -11)
-sprite_frames = SubResource("SpriteFrames_gjwuc")
-animation = &"test"
 
 [connection signal="body_entered" from="attack_range" to="StateMachine/EnemyExplodeState" method="_on_attack_range_body_entered"]
 [connection signal="timeout" from="Timer" to="StateMachine/EnemyRoamState" method="_on_timer_timeout"]

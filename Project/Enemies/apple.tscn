@@ -9,17 +9,6 @@
 [ext_resource type="Script" uid="uid://yjbgn26jgydr" path="res://Enemies/States/enemy_hurt_state.gd" id="7_3d606"]
 [ext_resource type="Texture2D" uid="uid://c7gddsrdkno1g" path="res://Seth designs/Apple.png" id="8_qxfuy"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_u1n1c"]
-radius = 25.0
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_2vwo2"]
-radius = 150.0
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_dnawn"]
-radius = 100.0
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_7rdt1"]
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_eq8ve"]
 atlas = ExtResource("8_qxfuy")
 region = Rect2(0, 0, 64, 64)
@@ -40,17 +29,28 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_2vwo2"]
+radius = 150.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dnawn"]
+radius = 100.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qxfuy"]
+radius = 40.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u1n1c"]
+radius = 25.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7rdt1"]
+
 [node name="apple" type="CharacterBody2D" unique_id=923606778 groups=["enemy"]]
 collision_layer = 8
 collision_mask = 129
 script = ExtResource("1_qxfuy")
 
-[node name="attack_range" type="Area2D" parent="." unique_id=93049031]
-collision_layer = 8
-collision_mask = 4
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="attack_range" unique_id=1530917231]
-shape = SubResource("CircleShape2D_u1n1c")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1112023235]
+sprite_frames = SubResource("SpriteFrames_gjwuc")
+animation = &"test"
 
 [node name="detection_range_exit" type="Area2D" parent="." unique_id=493961257]
 collision_layer = 8
@@ -65,6 +65,20 @@ collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="detection_range_enter" unique_id=1841867787]
 shape = SubResource("CircleShape2D_dnawn")
+
+[node name="damage_range" type="Area2D" parent="." unique_id=156489882]
+collision_layer = 8
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="damage_range" unique_id=1168814814]
+shape = SubResource("CircleShape2D_qxfuy")
+
+[node name="attack_range" type="Area2D" parent="." unique_id=93049031]
+collision_layer = 8
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="attack_range" unique_id=1530917231]
+shape = SubResource("CircleShape2D_u1n1c")
 
 [node name="collision" type="CollisionShape2D" parent="." unique_id=1463650258]
 shape = SubResource("CircleShape2D_7rdt1")
@@ -97,11 +111,9 @@ metadata/_custom_type_script = "uid://c13cwyjhiyyn0"
 script = ExtResource("7_3d606")
 metadata/_custom_type_script = "uid://yjbgn26jgydr"
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1112023235]
-sprite_frames = SubResource("SpriteFrames_gjwuc")
-animation = &"test"
-
-[connection signal="body_entered" from="attack_range" to="StateMachine/EnemyAttackState" method="_on_attack_range_body_entered"]
 [connection signal="body_exited" from="detection_range_exit" to="StateMachine/EnemyChaseState" method="_on_detection_range_exit_body_exited"]
 [connection signal="body_entered" from="detection_range_enter" to="StateMachine/EnemyRoamState" method="_on_detection_range_enter_body_entered"]
+[connection signal="body_entered" from="damage_range" to="StateMachine/EnemyAttackState" method="_on_damage_range_body_entered"]
+[connection signal="body_exited" from="damage_range" to="StateMachine/EnemyAttackState" method="_on_damage_range_body_exited"]
+[connection signal="body_entered" from="attack_range" to="StateMachine/EnemyAttackState" method="_on_attack_range_body_entered"]
 [connection signal="timeout" from="Timer" to="StateMachine/EnemyRoamState" method="_on_timer_timeout"]
