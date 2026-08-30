@@ -4159,12 +4159,14 @@ texture = ExtResource("9_utf87")
 2:2/0 = 0
 2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-6, 8, -6, 4, 8, -2, 8, 8)
 3:2/0 = 0
+3:2/0/y_sort_origin = -2
 3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -1.5, 8, -2, 8, 8, -8, 8)
 4:2/0 = 0
 4:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(7, 8, 7, 4, -8, -2, -8, 8)
 2:3/0 = 0
 2:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-6, -1, 8, -5, 8, -8, -6, -8)
 3:3/0 = 0
+3:3/0/y_sort_origin = -18
 3:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -5, 8, -5, 8, -8, -8, -8)
 4:3/0 = 0
 4:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -5, 7, 0, 7, -8, -8, -8)
@@ -4405,7 +4407,7 @@ position = Vector2(343, 790)
 
 [node name="player" parent="." unique_id=1334899193 instance=ExtResource("1_s08vq")]
 y_sort_enabled = true
-position = Vector2(341, 811)
+position = Vector2(-1166, 986)
 
 [node name="enemies" type="Node2D" parent="." unique_id=1280438418]
 position = Vector2(-12, -15)

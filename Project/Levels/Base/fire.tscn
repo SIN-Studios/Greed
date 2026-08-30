@@ -2,9 +2,6 @@
 
 [ext_resource type="Texture2D" uid="uid://7xtvoqkbc1ts" path="res://isaac designs/isaac assets/Tilemaps/fire.png" id="1_jrnph"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_r5wtc"]
-size = Vector2(67, 15)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_ijrt7"]
 atlas = ExtResource("1_jrnph")
 region = Rect2(0, 0, 127, 128)
@@ -81,16 +78,19 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r5wtc"]
+size = Vector2(66.5, 32.5)
+
 [node name="StaticBody2D2" type="StaticBody2D" unique_id=1700855357]
 y_sort_enabled = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1349027223]
-position = Vector2(-2, -48.5)
-shape = SubResource("RectangleShape2D_r5wtc")
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=136843128]
-position = Vector2(2.5, -101)
 sprite_frames = SubResource("SpriteFrames_r5wtc")
 animation = &"new_animation"
 autoplay = "new_animation"
 frame_progress = 0.759789
+offset = Vector2(3.26, -47.525)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1349027223]
+position = Vector2(-1.75, -0.75)
+shape = SubResource("RectangleShape2D_r5wtc")
