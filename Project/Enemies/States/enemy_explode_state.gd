@@ -3,6 +3,7 @@ extends State
 class_name EnemyExplodeState
 
 var in_damage_range: bool = false
+@onready var death = preload("res://Sound/sfx/enemy death.mp3")
 
 func _on_attack_range_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
@@ -11,6 +12,7 @@ func _on_attack_range_body_entered(body: Node2D) -> void:
 
 func enter():
 	if control.get_node("AnimatedSprite2D").sprite_frames.has_animation("explode"):
+		AudioManager.play_sfx(death, true)
 		control.get_node("AnimatedSprite2D").play("explode")
 
 	if in_damage_range:

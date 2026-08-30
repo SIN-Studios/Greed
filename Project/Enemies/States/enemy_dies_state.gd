@@ -6,7 +6,7 @@ class_name EnemyDiesState
 @onready var death = preload("res://Sound/sfx/enemy death.mp3")
 
 func enter():
-	if state_machine.last_state != get_node("../EnemyExplodeState"):
+	if not state_machine.last_state is EnemyExplodeState:
 		drop_item()
 	#else:
 		#AudioManager.play_sfx(explode, true)

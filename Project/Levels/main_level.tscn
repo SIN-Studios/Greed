@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://c1es0s5rne32t" path="res://oar.tscn" id="13_vte7q"]
 [ext_resource type="Script" uid="uid://cu0q1iijhn68e" path="res://Levels/plainsenterleft.gd" id="13_wlypf"]
 [ext_resource type="Script" uid="uid://bri6pdqrmrp61" path="res://Levels/forestenter.gd" id="14_wlypf"]
+[ext_resource type="PackedScene" uid="uid://b6dn2a32sem3f" path="res://Enemies/dumpling.tscn" id="19_v22l5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6opdx"]
 texture = ExtResource("1_13urm")
@@ -4340,7 +4341,7 @@ y_sort_enabled = true
 position = Vector2(343, 790)
 
 [node name="player" parent="." unique_id=1334899193 instance=ExtResource("1_s08vq")]
-position = Vector2(-1068, 1012)
+position = Vector2(343, 816)
 
 [node name="enemies" type="Node2D" parent="." unique_id=1280438418]
 position = Vector2(-12, -15)
@@ -4358,7 +4359,7 @@ position = Vector2(1419, 1412)
 position = Vector2(551, 587)
 
 [node name="enemy5" parent="enemies" unique_id=1860039680 instance=ExtResource("9_3d006")]
-position = Vector2(-29, 802)
+position = Vector2(-46, 795)
 
 [node name="enemy6" parent="enemies" unique_id=91051681 instance=ExtResource("9_3d006")]
 position = Vector2(230, 1104)
@@ -4382,7 +4383,7 @@ position = Vector2(-1714, 2285)
 position = Vector2(-1525, 1063)
 
 [node name="enemy13" parent="enemies" unique_id=1868554089 instance=ExtResource("9_3d006")]
-position = Vector2(-1184, 1010)
+position = Vector2(-1267, 937)
 
 [node name="enemy14" parent="enemies" unique_id=2041188139 instance=ExtResource("9_3d006")]
 position = Vector2(-2664, 3065)
@@ -4392,6 +4393,9 @@ position = Vector2(-2388, 1806)
 
 [node name="enemy16" parent="enemies" unique_id=2073163572 instance=ExtResource("9_3d006")]
 position = Vector2(-1201, 2940)
+
+[node name="dumpling" parent="enemies" unique_id=1214049624 instance=ExtResource("19_v22l5")]
+position = Vector2(230, 702)
 
 [node name="shipwreck_pieces" type="Node2D" parent="." unique_id=361837745]
 y_sort_enabled = true
