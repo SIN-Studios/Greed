@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://c13cwyjhiyyn0" path="res://Enemies/States/enemy_roam_state.gd" id="6_hlqt0"]
 [ext_resource type="Script" uid="uid://yjbgn26jgydr" path="res://Enemies/States/enemy_hurt_state.gd" id="7_8ab7x"]
 [ext_resource type="Texture2D" uid="uid://chb7ca56g7rsu" path="res://Seth designs/Sushi.png" id="8_hp3g2"]
+[ext_resource type="Texture2D" uid="uid://bd87hl21sso7p" path="res://isaac designs/isaac assets/particles/dumplingparticle.png" id="9_nqnkq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nqnkq"]
 atlas = ExtResource("8_hp3g2")
@@ -39,6 +40,13 @@ radius = 100.0
 radius = 25.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7rdt1"]
+
+[sub_resource type="Curve" id="Curve_18srn"]
+_limits = [-360.0, 360.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_78k1t"]
 
 [node name="sushi" type="CharacterBody2D" unique_id=923606778 groups=["enemy"]]
 collision_layer = 8
@@ -100,6 +108,29 @@ metadata/_custom_type_script = "uid://c13cwyjhiyyn0"
 [node name="EnemyHurtState" type="Node" parent="StateMachine" unique_id=1569822622]
 script = ExtResource("7_8ab7x")
 metadata/_custom_type_script = "uid://yjbgn26jgydr"
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=408125942]
+emitting = false
+amount = 25
+texture = ExtResource("9_nqnkq")
+lifetime = 0.5
+one_shot = true
+speed_scale = 1.45
+explosiveness = 0.5
+randomness = 0.5
+fixed_fps = 75
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector2(100, 100)
+spread = 180.0
+initial_velocity_min = 252.53
+initial_velocity_max = 1000.0
+angular_velocity_max = 77.85
+angular_velocity_curve = SubResource("Curve_18srn")
+scale_amount_curve = SubResource("Curve_78k1t")
+split_scale = true
+scale_curve_x = null
+scale_curve_y = null
 
 [connection signal="body_exited" from="detection_range_exit" to="StateMachine/EnemyChaseState" method="_on_detection_range_exit_body_exited"]
 [connection signal="body_entered" from="detection_range_enter" to="StateMachine/EnemyRoamState" method="_on_detection_range_enter_body_entered"]

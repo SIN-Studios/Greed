@@ -14,7 +14,6 @@ var speed_multiplier: float = 1.0
 
 @export var player_inventory: inventory = load("res://Inventory/players_inventory.tres")
 @onready var player_state_machine: StateMachine = $StateMachine
-@onready var tilemap = $"../tilemaps/decorations"
 @onready var leaf_particles = $"../decoration particles/leaf"
 
 func _ready() -> void:
