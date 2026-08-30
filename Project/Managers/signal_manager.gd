@@ -5,6 +5,7 @@ signal player_update_calories
 signal new_day
 #signal player_go_to_sleep
 signal shake_requested(intensity: float)
+signal shake_stop_requested
 #yeah i want the screen to shake 
 signal lava
 signal plains

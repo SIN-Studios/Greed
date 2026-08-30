@@ -282,7 +282,8 @@ position = Vector2(1, -1)
 shape = SubResource("CapsuleShape2D_k3jbv")
 
 [node name="leafdetector" type="Area2D" parent="." unique_id=528308079]
-collision_mask = 129
+collision_layer = 0
+collision_mask = 32768
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="leafdetector" unique_id=1943456785]
 position = Vector2(1, -1)

@@ -4179,7 +4179,7 @@ physics_layer_1/collision_layer = 16
 physics_layer_1/collision_mask = 0
 physics_layer_2/collision_layer = 32
 physics_layer_2/collision_mask = 0
-physics_layer_3/collision_layer = 128
+physics_layer_3/collision_layer = 32768
 physics_layer_3/collision_mask = 0
 terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "ground0"
@@ -4401,7 +4401,7 @@ y_sort_enabled = true
 position = Vector2(343, 790)
 
 [node name="player" parent="." unique_id=1334899193 instance=ExtResource("1_s08vq")]
-position = Vector2(343, 816)
+position = Vector2(341, 811)
 
 [node name="enemies" type="Node2D" parent="." unique_id=1280438418]
 position = Vector2(-12, -15)
@@ -4455,7 +4455,7 @@ position = Vector2(-2388, 1806)
 position = Vector2(230, 702)
 
 [node name="drumstick" parent="enemies" unique_id=37999783 instance=ExtResource("21_p6e2r")]
-position = Vector2(435, 950)
+position = Vector2(698, 925)
 
 [node name="shipwreck_pieces" type="Node2D" parent="." unique_id=361837745]
 y_sort_enabled = true

@@ -14,10 +14,8 @@ func enter():
 	control.modulate = Color8(255, 0, 0, 200)
 	control.health -= damage
 	control.velocity += direction
-# Trigger particles
 	var particles = control.get_node_or_null("CPUParticles2D")
-	print("Particles on hit: ", particles) # <--- ADD THIS LINE
-	
+	print("Particles on hit: ", particles) 
 	if particles:
 		particles.emitting = false 
 		particles.restart() 

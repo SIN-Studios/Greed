@@ -1,43 +1,36 @@
 extends Camera2D
 
-@export var decay: float = 0.8                   
-@export var max_offset: Vector2 = Vector2(30, 30) 
-@export var max_roll: float = 0.05               
 
-var noise = FastNoiseLite.new()
-var noise_y: float = 0.0
-var trauma: float = 0.0
-var trauma_power: int = 2
+@export var random_strength: float = 5.0
+@export var max_shake: float = 15.0
+@export var shake_decay_rate: float = 5.0
 
-func _ready():
-	randomize()
-	noise.seed = randi()
-	noise.noise_type = FastNoiseLite.TYPE_PERLIN
-	noise.frequency = 0.05
-	
-	if SignalManager.shake_requested:
-		SignalManager.shake_requested.connect(add_trauma)
+var shake_strength: float = 0.0
+var rng = RandomNumberGenerator.new()
 
-func _process(delta):
-	if trauma > 0.0:
-		trauma = max(trauma - decay * delta, 0.0)
-		shake(delta)
+func _ready() -> void:
+	rng.randomize()
+	SignalManager.shake_requested.connect(apply_shake)
+	if SignalManager.has_signal("shake_stop_requested"):
+		SignalManager.shake_stop_requested.connect(_on_shake_stop_requested)
+
+func apply_shake(intensity: float) -> void:
+	var added_shake = intensity * random_strength
+	shake_strength = min(shake_strength + added_shake, max_shake)
+
+func _process(delta: float) -> void:
+	if shake_strength > 0:
+		shake_strength = move_toward(shake_strength, 0.0, shake_decay_rate * delta)
+		offset = get_random_offset()
 	else:
 		offset = Vector2.ZERO
-		rotation = 0.0
 
-func shake(delta):
-	var amount = pow(trauma, trauma_power)
-	noise_y += delta * 60.0 
+func get_random_offset() -> Vector2:
+	return Vector2(
+		rng.randf_range(-shake_strength, shake_strength),
+		rng.randf_range(-shake_strength, shake_strength)
+	)
 	
-	var target_rot = max_roll * amount * noise.get_noise_2d(noise.seed, noise_y)
-	var target_offset_x = max_offset.x * amount * noise.get_noise_2d(noise.seed * 2, noise_y)
-	var target_offset_y = max_offset.y * amount * noise.get_noise_2d(noise.seed * 3, noise_y)
-	
-	if is_finite(target_rot) and is_finite(target_offset_x) and is_finite(target_offset_y):
-		rotation = target_rot
-		offset.x = target_offset_x
-		offset.y = target_offset_y
-
-func add_trauma(amount: float):
-	trauma = min(trauma + amount, 1.0)
+func _on_shake_stop_requested() -> void:
+	shake_strength = 0.0
+	offset = Vector2.ZERO
