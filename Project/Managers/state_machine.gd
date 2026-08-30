@@ -37,6 +37,7 @@ func change_state(new_state_name: String) -> void:
 	
 	current_state = states.get(new_state_name.to_lower())
 	print(current_state)
+	print($"..")
 
 	if current_state:
 		current_state.enter()

@@ -6,27 +6,27 @@
 [ext_resource type="PackedScene" uid="uid://dy4hj6e31d7gw" path="res://Enemies/drumstick.tscn" id="4_pvdih"]
 [ext_resource type="PackedScene" uid="uid://d8vw3e2vvcoe" path="res://Enemies/apple.tscn" id="5_7e6fp"]
 [ext_resource type="PackedScene" uid="uid://dq5ulp362yt5x" path="res://Enemies/tempura.tscn" id="6_4t6x8"]
+[ext_resource type="PackedScene" uid="uid://dlmh0sxhsn4w" path="res://Enemies/cake_pop.tscn" id="7_pvdih"]
 
 [node name="test_level" type="Node2D" unique_id=428871611]
 
 [node name="sushi" parent="." unique_id=923606778 instance=ExtResource("1_ub4j8")]
-visible = false
-position = Vector2(-81, -18)
+position = Vector2(-126, 414)
 
 [node name="player" parent="." unique_id=1334899193 instance=ExtResource("1_2ytpj")]
 position = Vector2(291, -161)
 
 [node name="dumpling" parent="." unique_id=818062587 instance=ExtResource("3_4k50d")]
-visible = false
 position = Vector2(322, 14)
 
 [node name="drumstick" parent="." unique_id=1522809932 instance=ExtResource("4_pvdih")]
-position = Vector2(110, -232)
+position = Vector2(6, -587)
 
 [node name="apple" parent="." unique_id=2101777055 instance=ExtResource("5_7e6fp")]
-visible = false
-position = Vector2(822, 131)
+position = Vector2(976, 199)
 
 [node name="tempura" parent="." unique_id=236459031 instance=ExtResource("6_4t6x8")]
-visible = false
-position = Vector2(804, -400)
+position = Vector2(730, -403)
+
+[node name="cake_pop" parent="." unique_id=462235362 instance=ExtResource("7_pvdih")]
+position = Vector2(75, -187)

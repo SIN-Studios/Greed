@@ -37,15 +37,69 @@ animations = [{
 atlas = ExtResource("1_0esey")
 region = Rect2(0, 0, 64, 64)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_0esey"]
+atlas = ExtResource("1_0esey")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_21eyq"]
+atlas = ExtResource("1_0esey")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hp5w0"]
+atlas = ExtResource("1_0esey")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_epv3g"]
+atlas = ExtResource("1_0esey")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tabm2"]
+atlas = ExtResource("1_0esey")
+region = Rect2(128, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ukq27"]
+atlas = ExtResource("1_0esey")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_88jib"]
+atlas = ExtResource("1_0esey")
+region = Rect2(192, 64, 64, 64)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_ggnw5"]
 animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_820sr")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"default",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0esey")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_21eyq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hp5w0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_epv3g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tabm2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ukq27")
+}, {
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_88jib")
+}],
+"loop": 0,
+"name": &"explode",
+"speed": 6.0
 }]
 
 [resource]

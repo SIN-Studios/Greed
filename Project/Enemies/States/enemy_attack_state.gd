@@ -14,17 +14,14 @@ func enter():
 	if control.get_node("AnimatedSprite2D").sprite_frames.has_animation("attack"):
 		control.get_node("AnimatedSprite2D").play("attack")
 		await control.get_node("AnimatedSprite2D").animation_finished
-		if not in_damage_range:
-			control.get_node("AnimatedSprite2D").play("default")
-			state_machine.change_state("enemychasestate")
-			return
 	elif control.get_node("AnimatedSprite2D").sprite_frames.has_animation("default"):
 		control.get_node("AnimatedSprite2D").play("default")
-
-	var hit_direction = control.position.direction_to(Global.player.position)
-	var damage: int = control.base_damage * randf_range(0.8,1.2)
-	if Global.player.get_node("StateMachine/PlayerHurtState").has_method("take_damage"):
-		Global.player.get_node("StateMachine/PlayerHurtState").take_damage(damage, hit_direction * 300)
+	
+	if in_damage_range:
+		var hit_direction = control.position.direction_to(Global.player.position)
+		var damage: int = control.base_damage * randf_range(0.8,1.2)
+		if Global.player.get_node("StateMachine/PlayerHurtState").has_method("take_damage"):
+			Global.player.get_node("StateMachine/PlayerHurtState").take_damage(damage, hit_direction * 300)
 
 	if control.get_node("AnimatedSprite2D").sprite_frames.has_animation("recoil"):
 		control.get_node("AnimatedSprite2D").play("recoil")

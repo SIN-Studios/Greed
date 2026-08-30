@@ -2,12 +2,12 @@ extends State
 
 class_name EnemyChaseState
 
-
 func enter():
 	if control.get_node("AnimatedSprite2D").sprite_frames.has_animation("chase"):
 		control.get_node("AnimatedSprite2D").play("chase")
 	elif control.get_node("AnimatedSprite2D").sprite_frames.has_animation("default"):
 		control.get_node("AnimatedSprite2D").play("default")
+
 
 func physics_update(_delta):
 	control.velocity = control.position.direction_to(Global.player.position) * control.chase_speed
@@ -24,7 +24,7 @@ func update(_delta: float):
 
 
 func _on_detection_range_exit_body_exited(body: Node2D) -> void:
-	if body != Global.player:
+	if body != Global.player or state_machine.current_state != self:
 		return
 	state_machine.change_state("enemyroamstate")
 

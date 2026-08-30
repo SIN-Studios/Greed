@@ -1,0 +1,116 @@
+[gd_resource type="Resource" script_class="enemy" format=3 uid="uid://cr7akl4yphl3w"]
+
+[ext_resource type="Texture2D" uid="uid://dswe4w8yoov08" path="res://Seth designs/cakepop.png" id="1_6nmfx"]
+[ext_resource type="Script" uid="uid://ju7wht6ok7t" path="res://Enemies/Enemy Resources/enemy_class.gd" id="2_k4a48"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k4a48"]
+atlas = ExtResource("1_6nmfx")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k4a48"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k4a48")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eycyp"]
+atlas = ExtResource("1_6nmfx")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6nmfx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eycyp")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_73kei"]
+atlas = ExtResource("1_6nmfx")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6nmfx"]
+atlas = ExtResource("1_6nmfx")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j3lre"]
+atlas = ExtResource("1_6nmfx")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wy0d1"]
+atlas = ExtResource("1_6nmfx")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a3vn6"]
+atlas = ExtResource("1_6nmfx")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p2d0v"]
+atlas = ExtResource("1_6nmfx")
+region = Rect2(128, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_px8f8"]
+atlas = ExtResource("1_6nmfx")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q1b7r"]
+atlas = ExtResource("1_6nmfx")
+region = Rect2(192, 64, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_eycyp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_73kei")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6nmfx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j3lre")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wy0d1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a3vn6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p2d0v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_px8f8")
+}, {
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_q1b7r")
+}],
+"loop": 0,
+"name": &"explode",
+"speed": 6.0
+}]
+
+[resource]
+script = ExtResource("2_k4a48")
+name = "Cake Pop"
+item_inventory_texture = SubResource("SpriteFrames_6nmfx")
+item_ground_textre = SubResource("SpriteFrames_k4a48")
+texture = SubResource("SpriteFrames_eycyp")
+health = 200
+base_damage = 65
+nutrition = 400
+roam_speed = 20
+chase_speed = 60
+metadata/_custom_type_script = "uid://ju7wht6ok7t"

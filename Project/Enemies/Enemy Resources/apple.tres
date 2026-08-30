@@ -62,12 +62,12 @@ animations = [{
 
 [resource]
 script = ExtResource("2_2jsx0")
-name = "apple"
+name = "Apple"
 item_inventory_texture = SubResource("SpriteFrames_i4ak4")
 item_ground_textre = SubResource("SpriteFrames_4k50d")
 texture = SubResource("SpriteFrames_amj4j")
 health = 400
-base_damage = 40
+base_damage = 30
 nutrition = 400
 roam_speed = 20
 chase_speed = 90
