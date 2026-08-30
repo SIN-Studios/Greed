@@ -6,6 +6,11 @@ class_name EnemyDiesState
 @onready var death = preload("res://Sound/sfx/enemy death.mp3")
 
 func enter():
+	var particles = control.get_node_or_null("CPUParticles2D")
+	if particles:
+		particles.reparent(control.get_parent())
+		particles.emitting = true
+		get_tree().create_timer(particles.lifetime).timeout.connect(particles.queue_free)
 	if not state_machine.last_state is EnemyExplodeState:
 		drop_item()
 	#else:

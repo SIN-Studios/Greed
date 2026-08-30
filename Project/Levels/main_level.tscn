@@ -23,6 +23,7 @@
 [ext_resource type="Script" uid="uid://cu0q1iijhn68e" path="res://Levels/plainsenterleft.gd" id="13_wlypf"]
 [ext_resource type="Script" uid="uid://bri6pdqrmrp61" path="res://Levels/forestenter.gd" id="14_wlypf"]
 [ext_resource type="PackedScene" uid="uid://b6dn2a32sem3f" path="res://Enemies/dumpling.tscn" id="19_v22l5"]
+[ext_resource type="PackedScene" uid="uid://dy4hj6e31d7gw" path="res://Enemies/drumstick.tscn" id="21_p6e2r"]
 
 [sub_resource type="Curve" id="Curve_p6e2r"]
 _limits = [-360.0, 360.0, 0.0, 1.0]
@@ -4452,6 +4453,9 @@ position = Vector2(-2388, 1806)
 
 [node name="dumpling" parent="enemies" unique_id=1214049624 instance=ExtResource("19_v22l5")]
 position = Vector2(230, 702)
+
+[node name="drumstick" parent="enemies" unique_id=37999783 instance=ExtResource("21_p6e2r")]
+position = Vector2(435, 950)
 
 [node name="shipwreck_pieces" type="Node2D" parent="." unique_id=361837745]
 y_sort_enabled = true

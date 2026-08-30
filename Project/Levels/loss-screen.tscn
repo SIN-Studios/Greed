@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://dl8b7ws17iij3"]
 
+[ext_resource type="Script" uid="uid://cvcoysfksijex" path="res://Levels/loss_screen.gd" id="1_ypdu6"]
+
 [node name="Control" type="Control" unique_id=1089055683]
 layout_mode = 3
 anchors_preset = 15
@@ -9,6 +11,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+script = ExtResource("1_ypdu6")
 metadata/_edit_lock_ = true
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=384541554]

@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bop6i241r56p6" path="res://Enemies/enemy.gd" id="1_egfue"]
 [ext_resource type="Script" uid="uid://cxaewei6kie7x" path="res://Managers/state_machine.gd" id="2_6ho4l"]
+[ext_resource type="Texture2D" uid="uid://it0bbacknmd1" path="res://isaac designs/isaac assets/particles/Drumsticks-1.png (3).png" id="3_6ho4l"]
 [ext_resource type="Script" uid="uid://d0hb5tp0u582q" path="res://Enemies/States/enemy_attack_state.gd" id="3_t82o8"]
 [ext_resource type="Script" uid="uid://c67yxu37eiks" path="res://Enemies/States/enemy_dies_state.gd" id="4_0p54c"]
 [ext_resource type="Script" uid="uid://7hm510sx4ewt" path="res://Enemies/States/enemy_chase_state.gd" id="5_ukydp"]
@@ -42,6 +43,13 @@ height = 72.0
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_175fb"]
 radius = 12.0
 height = 38.0
+
+[sub_resource type="Curve" id="Curve_t82o8"]
+_limits = [-360.0, 360.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_0p54c"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7rdt1"]
 
@@ -85,6 +93,29 @@ collision_mask = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="attack_range" unique_id=1530917231]
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_175fb")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1391728418]
+emitting = false
+amount = 50
+texture = ExtResource("3_6ho4l")
+lifetime = 0.5
+one_shot = true
+speed_scale = 1.45
+explosiveness = 0.5
+randomness = 0.5
+fixed_fps = 75
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector2(100, 100)
+spread = 180.0
+initial_velocity_min = 252.53
+initial_velocity_max = 1000.0
+angular_velocity_max = 77.85
+angular_velocity_curve = SubResource("Curve_t82o8")
+scale_amount_curve = SubResource("Curve_0p54c")
+split_scale = true
+scale_curve_x = null
+scale_curve_y = null
 
 [node name="collision" type="CollisionShape2D" parent="." unique_id=1463650258]
 shape = SubResource("CircleShape2D_7rdt1")
