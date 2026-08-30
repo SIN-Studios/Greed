@@ -281,6 +281,13 @@ collision_mask = 32
 position = Vector2(1, -1)
 shape = SubResource("CapsuleShape2D_k3jbv")
 
+[node name="leafdetector" type="Area2D" parent="." unique_id=528308079]
+collision_mask = 129
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="leafdetector" unique_id=1943456785]
+position = Vector2(1, -1)
+shape = SubResource("CapsuleShape2D_k3jbv")
+
 [node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1503979517]
 emitting = false
 amount = 50
@@ -343,3 +350,4 @@ metadata/_custom_type_script = "uid://h7n3n8u8ehsb"
 [connection signal="body_entered" from="magmahurts" to="." method="_on_magmahurts_body_entered"]
 [connection signal="body_entered" from="magmahurts" to="." method="_on_lavahurts_body_entered"]
 [connection signal="body_exited" from="magmahurts" to="." method="_on_magmahurts_body_exited"]
+[connection signal="body_entered" from="leafdetector" to="." method="_on_leafdetector_body_entered"]

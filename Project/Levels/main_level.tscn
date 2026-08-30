@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://c6qse05x0fteq" path="res://isaac designs/isaac assets/Tilemaps/lavatilemap.png" id="1_13urm"]
 [ext_resource type="PackedScene" uid="uid://xu8pjhossg40" path="res://Player/player.tscn" id="1_s08vq"]
 [ext_resource type="PackedScene" uid="uid://w581ic2xt0wj" path="res://isaac designs/isaac assets/scenes/base.tscn" id="2_13urm"]
+[ext_resource type="Texture2D" uid="uid://b2eobl45i16g3" path="res://isaac designs/isaac assets/particles/light-grass-particle-1.png.png" id="2_lk0vy"]
 [ext_resource type="Texture2D" uid="uid://dgu3iom7af8do" path="res://isaac designs/isaac assets/Tilemaps/beachtilemap.png" id="3_6opdx"]
 [ext_resource type="Texture2D" uid="uid://clyupv27tm1to" path="res://isaac designs/isaac assets/Tilemaps/foresttilemap.png" id="4_k6a8t"]
 [ext_resource type="Texture2D" uid="uid://fdemf3b3jmob" path="res://isaac designs/isaac assets/Tilemaps/desserttilemap.png" id="4_nfesq"]
@@ -22,6 +23,23 @@
 [ext_resource type="Script" uid="uid://cu0q1iijhn68e" path="res://Levels/plainsenterleft.gd" id="13_wlypf"]
 [ext_resource type="Script" uid="uid://bri6pdqrmrp61" path="res://Levels/forestenter.gd" id="14_wlypf"]
 [ext_resource type="PackedScene" uid="uid://b6dn2a32sem3f" path="res://Enemies/dumpling.tscn" id="19_v22l5"]
+
+[sub_resource type="Curve" id="Curve_p6e2r"]
+_limits = [-360.0, 360.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_r5wtc"]
+_limits = [-200.0, 200.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_bj1wu"]
+_limits = [0.0, 100.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_kfyib"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6opdx"]
 texture = ExtResource("1_13urm")
@@ -4111,6 +4129,8 @@ texture = ExtResource("6_3d006")
 0:0/size_in_atlas = Vector2i(2, 2)
 0:0/0 = 0
 0:0/0/y_sort_origin = 12
+0:0/0/physics_layer_3/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:0/0/custom_data_0 = true
 4:2/size_in_atlas = Vector2i(1, 2)
 4:2/0 = 0
 4:2/0/y_sort_origin = 16
@@ -4158,6 +4178,8 @@ physics_layer_1/collision_layer = 16
 physics_layer_1/collision_mask = 0
 physics_layer_2/collision_layer = 32
 physics_layer_2/collision_mask = 0
+physics_layer_3/collision_layer = 128
+physics_layer_3/collision_mask = 0
 terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "ground0"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
@@ -4186,10 +4208,12 @@ terrain_set_3/terrain_1/name = "grass 1"
 terrain_set_3/terrain_1/color = Color(0.230353, 0.52391875, 0, 1)
 terrain_set_3/terrain_2/name = "water2"
 terrain_set_3/terrain_2/color = Color(4.1392445e-06, 0.514069, 0.7316366, 1)
-custom_data_layer_0/name = "Lava"
-custom_data_layer_0/type = 2
-custom_data_layer_1/name = "Magma"
+custom_data_layer_0/name = "spawns_leaves "
+custom_data_layer_0/type = 1
+custom_data_layer_1/name = "Lava"
 custom_data_layer_1/type = 2
+custom_data_layer_2/name = "Magma"
+custom_data_layer_2/type = 2
 sources/5 = SubResource("TileSetAtlasSource_oi8lg")
 sources/2 = SubResource("TileSetAtlasSource_8b1du")
 sources/1 = SubResource("TileSetAtlasSource_nfesq")
@@ -4284,6 +4308,41 @@ z_index = -2
 y_sort_enabled = true
 position = Vector2(0, -127)
 texture = ExtResource("1_1u8fg")
+
+[node name="decoration particles" type="Node2D" parent="." unique_id=889021825]
+
+[node name="leaf" type="CPUParticles2D" parent="decoration particles" unique_id=89990356]
+z_index = 10
+emitting = false
+amount = 15
+texture = ExtResource("2_lk0vy")
+lifetime = 0.5
+one_shot = true
+speed_scale = 1.45
+explosiveness = 1.0
+randomness = 0.5
+fixed_fps = 75
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 40.0
+initial_velocity_max = 80.0
+angular_velocity_max = 77.85
+angular_velocity_curve = SubResource("Curve_p6e2r")
+tangential_accel_min = 1.6
+tangential_accel_max = 2.25
+tangential_accel_curve = SubResource("Curve_r5wtc")
+damping_min = 30.0
+damping_max = 60.0
+damping_curve = SubResource("Curve_bj1wu")
+angle_min = -180.0
+angle_max = 180.0
+scale_amount_curve = SubResource("Curve_kfyib")
+split_scale = true
+scale_curve_x = null
+scale_curve_y = null
 
 [node name="tilemaps" type="Node2D" parent="." unique_id=92240839]
 y_sort_enabled = true
@@ -4390,9 +4449,6 @@ position = Vector2(-2664, 3065)
 
 [node name="enemy15" parent="enemies" unique_id=428054980 instance=ExtResource("9_3d006")]
 position = Vector2(-2388, 1806)
-
-[node name="enemy16" parent="enemies" unique_id=2073163572 instance=ExtResource("9_3d006")]
-position = Vector2(-1201, 2940)
 
 [node name="dumpling" parent="enemies" unique_id=1214049624 instance=ExtResource("19_v22l5")]
 position = Vector2(230, 702)

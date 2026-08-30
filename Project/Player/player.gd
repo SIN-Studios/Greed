@@ -1,6 +1,5 @@
 extends CharacterBody2D
 
-
 var health: float = 100.0
 var time_till_regen: float = 0.0
 var regen_factor: float = 0.0
@@ -17,19 +16,27 @@ var speed_multiplier: float = 1.0
 
 @export var player_inventory: inventory = load("res://Inventory/players_inventory.tres")
 @onready var player_state_machine: StateMachine = $StateMachine
+@onready var tilemap = $"../tilemaps/decorations"
+@onready var leaf_particles = $"../decoration particles/leaf"
 
 func _ready() -> void:
 	Global.player = self
 	$CPUParticles2D.emitting = false
 	
 func _process(delta: float) -> void:
+	if velocity.length() > 0:
+		if $leafdetector.has_overlapping_bodies():
+			trigger_leaf_particles()
+		
 	var touching_lava = $lavahurts.has_overlapping_bodies()
 	var touching_magma = $magmahurts.has_overlapping_bodies()
+	
 	if touching_lava or touching_magma:
 		if touching_lava:
 			speed_multiplier = 0.5
 		else:
 			speed_multiplier = 0.7
+			
 		damage_timer -= delta
 		if damage_timer <= 0.0:
 			damage_timer = DAMAGE_INTERVAL
@@ -43,7 +50,7 @@ func _process(delta: float) -> void:
 				player_state_machine.change_state("playerdiesstate")
 	else:
 		speed_multiplier = 1.0
-		damage_timer = 0.0 
+		damage_timer = 0.0
 
 	if time_till_regen > 0:
 		time_till_regen -= delta
@@ -51,14 +58,28 @@ func _process(delta: float) -> void:
 
 	if health < 100 and !in_lava and !in_magma:
 		health += regen_factor * delta
-		regen_factor += 2.0 * delta 
+		regen_factor += 2.0 * delta
 		if health > 100:
 			health = 100
+
+func trigger_leaf_particles() -> void:
+	if not leaf_particles:
+		return
+		
+	print("Found leaves! Spawning particles...") # <--- ADD THIS
+	
+	leaf_particles.global_position = global_position
+	if not leaf_particles.emitting:
+		leaf_particles.restart()
+		leaf_particles.emitting = true
+		
+
 
 func _on_lavahurts_body_entered(body: Node2D) -> void:
 	if body is TileMapLayer:
 		in_lava = true
-		damage_timer = 0.0 
+		damage_timer = 0.0
+
 func _on_lavahurts_body_exited(body: Node2D) -> void:
 	if body is TileMapLayer:
 		in_lava = false
