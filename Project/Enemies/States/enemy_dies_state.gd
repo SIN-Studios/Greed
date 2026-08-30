@@ -8,6 +8,8 @@ class_name EnemyDiesState
 func enter():
 	if state_machine.last_state != get_node("../EnemyExplodeState"):
 		drop_item()
+	#else:
+		#AudioManager.play_sfx(explode, true)
 	control.queue_free()
 
 func drop_item():
