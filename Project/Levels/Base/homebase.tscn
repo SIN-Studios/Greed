@@ -275,13 +275,13 @@ script = ExtResource("3_4vjcd")
 position = Vector2(26, 1062)
 shape = SubResource("RectangleShape2D_4ule4")
 
-[node name="fire(REPLACE)" type="Sprite2D" parent="." unique_id=2123065555]
-position = Vector2(15, 669)
-scale = Vector2(0.7265624, 1)
-texture = ExtResource("4_wgwyp")
-
 [node name="bed" parent="." unique_id=1666831885 instance=ExtResource("5_2u8it")]
 position = Vector2(-121, 699)
+
+[node name="fire(REPLACE)" type="Sprite2D" parent="." unique_id=2123065555]
+position = Vector2(97, 649)
+scale = Vector2(0.7265624, 1)
+texture = ExtResource("4_wgwyp")
 
 [node name="player" parent="." unique_id=1334899193 instance=ExtResource("2_4vjcd")]
 position = Vector2(30, 823)

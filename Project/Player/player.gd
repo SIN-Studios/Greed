@@ -15,17 +15,20 @@ var speed_multiplier: float = 1.0
 @export var player_inventory: inventory = load("res://Inventory/players_inventory.tres")
 @onready var player_state_machine: StateMachine = $StateMachine
 @onready var leaf_particles = $"../decoration particles/leaf"
+@onready var grass = preload("res://Sound/sfx/grass.mp3")
 
 func _ready() -> void:
 	Global.player = self
 	$CPUParticles2D.emitting = false
 	
 func _process(delta: float) -> void:
-	# Leaf Particle Detection
 	if velocity.length() > 0 and $leafdetector.has_overlapping_bodies():
 		trigger_leaf_particles()
+		AudioManager.play_sfx(grass, true)
+	else:
+		AudioManager.stop_sfx(grass)
 		
-	# Hazard Physics Checks
+		
 	var touching_lava = $lavahurts.has_overlapping_bodies()
 	var touching_magma = $magmahurts.has_overlapping_bodies()
 
@@ -68,6 +71,7 @@ func _process(delta: float) -> void:
 
 func trigger_leaf_particles() -> void:
 	if not leaf_particles:
+		AudioManager.stop_sfx(grass)
 		return
 		
 	leaf_particles.global_position = global_position
