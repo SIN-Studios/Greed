@@ -76,14 +76,18 @@ func _process(_delta: float) -> void:
 	
 	
 	if sleeping:
+		$Sprite2D.texture = preload("res://Seth designs/bedwplayer.png")
 		$interaction/Label.text = ""
 		$interaction.can_interact = false
 	elif laying:
+		$Sprite2D.texture = preload("res://Seth designs/bedwplayer.png")
 		$interaction/Label.text = "Hold E to get up"
 		$interaction.can_interact = true
-	elif not after_20 or not before_08:
+	elif not after_20 and not before_08:
+		$Sprite2D.texture = preload("res://Seth designs/bed.png")
 		$interaction/Label.text = "Can't sleep: too early"
 		$interaction.can_interact = false
 	else:
+		$Sprite2D.texture = preload("res://Seth designs/bed.png")
 		$interaction/Label.text = "Hold E to lie down"
 		$interaction.can_interact = true

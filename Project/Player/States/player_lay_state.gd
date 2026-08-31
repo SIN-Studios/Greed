@@ -14,7 +14,6 @@ func lay_down_signal(bed_node):
 	state_machine.change_state("playerlaystate")
 
 func get_up_signal():
-	
 	state_machine.change_state("playeridlestate")
 
 func enter():
@@ -22,7 +21,9 @@ func enter():
 	wake_up_position = control.global_position
 	control.global_position = bed.global_position
 	control.rotation = bed.rotation
+	$"../../knife".visible = false
 
 func exit():
 	control.global_position = wake_up_position
 	control.rotation = 0
+	$"../../knife".visible = true
