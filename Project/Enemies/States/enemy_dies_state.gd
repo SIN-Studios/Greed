@@ -18,6 +18,7 @@ func enter():
 	control.queue_free()
 
 func drop_item():
+	Global.enemies_killed += 1
 	AudioManager.play_sfx(death, true)
 	var dropped_item = item_scene.instantiate()
 	dropped_item.item = control.current_enemy

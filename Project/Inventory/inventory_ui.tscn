@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://cer7rfavgxd4c" path="res://Inventory/inventory-slot.png" id="5_jhqvo"]
 
 [node name="inventory_ui" type="Control" unique_id=1055113431]
-process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

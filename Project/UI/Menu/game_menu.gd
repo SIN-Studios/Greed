@@ -49,6 +49,7 @@ func _on_settings_pressed() -> void:
 func _on_quit_pressed() -> void:
 	if OS.get_name() == "Web":
 		print("Quit button does not work on web.")
+		$PanelContainer/Node/VBoxContainer/quit.visible = false
 		return
 	tween = create_tween().set_trans(Tween.TRANS_SPRING)
 	tween.tween_property($PanelContainer/Node/VBoxContainer/quit, "scale", Vector2(0,0), 0.1).from_current()

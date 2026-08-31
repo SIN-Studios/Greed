@@ -6,11 +6,13 @@
 [ext_resource type="PackedScene" uid="uid://br1fl5vgfqr31" path="res://Inventory/inventory_ui.tscn" id="4_5t5gs"]
 [ext_resource type="PackedScene" uid="uid://cuxe03xy1h51g" path="res://UI/HUD/area_name.tscn" id="4_f8tkx"]
 [ext_resource type="PackedScene" uid="uid://cfvyui0q4mpxb" path="res://UI/Menu/game_menu.tscn" id="5_3y5q1"]
+[ext_resource type="PackedScene" uid="uid://cyw5r8i1wcmnv" path="res://UI/game_over.tscn" id="7_f8tkx"]
 
 [node name="UI_manager" type="CanvasLayer" unique_id=707474778]
 process_mode = 3
 
 [node name="HUD" type="Control" parent="." unique_id=901373795]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -31,6 +33,7 @@ layout_mode = 1
 layout_mode = 1
 
 [node name="UI" type="Control" parent="." unique_id=1213947697]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -39,6 +42,9 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="game_menu" parent="UI" unique_id=996962239 instance=ExtResource("5_3y5q1")]
+layout_mode = 1
+
+[node name="game_over" parent="UI" unique_id=818339441 instance=ExtResource("7_f8tkx")]
 layout_mode = 1
 
 [node name="inventory_ui" parent="UI" unique_id=1055113431 instance=ExtResource("4_5t5gs")]

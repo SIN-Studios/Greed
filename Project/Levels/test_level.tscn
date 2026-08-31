@@ -17,10 +17,10 @@ position = Vector2(-126, 414)
 position = Vector2(291, -161)
 
 [node name="dumpling" parent="." unique_id=818062587 instance=ExtResource("3_4k50d")]
-position = Vector2(322, 14)
+position = Vector2(318, 276)
 
 [node name="drumstick" parent="." unique_id=1522809932 instance=ExtResource("4_pvdih")]
-position = Vector2(6, -587)
+position = Vector2(275, -338)
 
 [node name="apple" parent="." unique_id=2101777055 instance=ExtResource("5_7e6fp")]
 position = Vector2(976, 199)
@@ -29,4 +29,4 @@ position = Vector2(976, 199)
 position = Vector2(730, -403)
 
 [node name="cake_pop" parent="." unique_id=462235362 instance=ExtResource("7_pvdih")]
-position = Vector2(75, -187)
+position = Vector2(-379, -365)

@@ -40,7 +40,7 @@ func _process(_delta: float) -> void:
 	$eat_menu/calorie_bar_updated/goal.position.x = CalorieManager.calorie_defecit / 10
 
 func interacted_with():
-	CalorieManager.calories += item_calories
+	SignalManager.player_update_calories.emit(item_calories)
 	player_inventory.eat_item(current_slot)
 	current_item = $"../inventory_ui".player_inventory.items[current_slot]
 

@@ -1,5 +1,6 @@
 extends Node
 
+var all_time_calories: int
 var calories: int = 2250
 var max_calories: int = 4500
 var calorie_defecit: int 
@@ -23,6 +24,8 @@ func _ready() -> void:
 func player_update_calories(amount):
 	#adds calories to the total
 	calories += amount
+	all_time_calories += amount
+	print(all_time_calories)
 	#checks if the player should die from exceding the bar fully, is an instant death
 	if calories < 0 or calories > calories_max:
 		SignalManager.player_dies.emit()
@@ -36,8 +39,6 @@ func check_hunger():
 		if updated_calories >= zone["range"].x and updated_calories <= zone["range"].y:
 			apply_effect(zone["state"])
 			break
-	#resets calories
-	calories = 0
 
 func apply_effect(state):
 	match state:
