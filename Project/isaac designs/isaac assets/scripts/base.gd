@@ -16,3 +16,4 @@ func trigger_transition(target_path: String):
 		get_tree().get_root().add_child(transition)
 		# Start the animation sequence
 		transition.slide_and_change_scene(target_path)
+	

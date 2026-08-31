@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Greed"
-run/main_scene="uid://1wj3dy7c4o24"
+run/main_scene="uid://cbm8wkrbhppjn"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 

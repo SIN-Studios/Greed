@@ -77,7 +77,6 @@ func _process(delta: float) -> void:
 		if health > 100:
 			health = 100
 			regen_factor = 0.0
-
 func trigger_leaf_particles() -> void:
 	if not leaf_particles:
 		AudioManager.stop_sfx(grass)

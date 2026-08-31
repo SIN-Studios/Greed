@@ -27,6 +27,7 @@
 [ext_resource type="PackedScene" uid="uid://dlmh0sxhsn4w" path="res://Enemies/cake_pop.tscn" id="22_kfyib"]
 [ext_resource type="PackedScene" uid="uid://bc4wlfw04nrp6" path="res://Enemies/sushi.tscn" id="23_nghx4"]
 [ext_resource type="PackedScene" uid="uid://dq5ulp362yt5x" path="res://Enemies/tempura.tscn" id="24_8fxkl"]
+[ext_resource type="PackedScene" uid="uid://1wj3dy7c4o24" path="res://Levels/Base/homebase.tscn" id="28_swjh3"]
 
 [sub_resource type="Curve" id="Curve_p6e2r"]
 _limits = [-360.0, 360.0, 0.0, 1.0]
@@ -4405,9 +4406,12 @@ shape = SubResource("SeparationRayShape2D_nltnq")
 y_sort_enabled = true
 position = Vector2(343, 790)
 
+[node name="homebase" parent="." unique_id=942994169 instance=ExtResource("28_swjh3")]
+position = Vector2(0, -5000)
+
 [node name="player" parent="." unique_id=1334899193 instance=ExtResource("1_s08vq")]
 y_sort_enabled = true
-position = Vector2(346, 810)
+position = Vector2(30, -4175)
 
 [node name="enemies" type="Node2D" parent="." unique_id=1280438418]
 position = Vector2(-12, -15)
