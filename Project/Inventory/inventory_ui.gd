@@ -27,8 +27,10 @@ func _process(_delta: float) -> void:
 	
 	if current_item == null:
 		item_calories = 0
+		$eat_menu/Control/Sprite2D.sprite_frames = null
 	else:
 		item_calories = current_item.nutrition
+		$eat_menu/Control/Sprite2D.sprite_frames = current_item.item_inventory_texture
 	
 	updated_calories = CalorieManager.calories + item_calories
 	

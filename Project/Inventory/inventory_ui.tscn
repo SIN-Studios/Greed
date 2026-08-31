@@ -3,9 +3,12 @@
 [ext_resource type="Script" uid="uid://dof2sv6ee2nmo" path="res://Inventory/inventory_ui.gd" id="1_gka8b"]
 [ext_resource type="Texture2D" uid="uid://c6e2558stckv8" path="res://Inventory/inventory-background.png" id="2_l6l0t"]
 [ext_resource type="PackedScene" uid="uid://dq837tnw08i1u" path="res://Inventory/inventory_ui_slot.tscn" id="3_dk10o"]
+[ext_resource type="Texture2D" uid="uid://dtgingt575cq3" path="res://Seth designs/Plus.png" id="3_ju6sq"]
+[ext_resource type="Texture2D" uid="uid://h7sb4jsie8od" path="res://Seth designs/Arrow.png" id="4_inc1q"]
 [ext_resource type="PackedScene" uid="uid://b65d3ippcmfhu" path="res://UI/HUD/calorie_bar.tscn" id="4_jhqvo"]
 [ext_resource type="Script" uid="uid://dbxrudnk3c7x0" path="res://Inventory/eating_interaction.gd" id="4_pphwo"]
-[ext_resource type="Texture2D" uid="uid://cer7rfavgxd4c" path="res://Inventory/inventory-slot.png" id="5_jhqvo"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7rdt1"]
 
 [node name="inventory_ui" type="Control" unique_id=1055113431]
 layout_mode = 3
@@ -35,17 +38,48 @@ offset_right = -450.0
 grow_horizontal = 0
 script = null
 
+[node name="ColorRect2" type="TextureRect" parent="eat_menu" unique_id=1582812070]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -420.0
+offset_top = 36.0
+offset_right = -388.0
+offset_bottom = 68.0
+grow_horizontal = 2
+scale = Vector2(4, 4)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("3_ju6sq")
+stretch_mode = 5
+
+[node name="Control" type="Control" parent="eat_menu" unique_id=1373363117]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -270.0
+offset_right = -230.0
+offset_bottom = 40.0
+grow_horizontal = 2
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="eat_menu/Control" unique_id=1867839948]
+position = Vector2(0, 50)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_7rdt1")
+
 [node name="ColorRect" type="TextureRect" parent="eat_menu" unique_id=481400813]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -250.0
-offset_right = 250.0
+offset_left = -111.0
+offset_right = 111.0
 offset_bottom = 100.0
 grow_horizontal = 2
 pivot_offset_ratio = Vector2(0.5, 0.5)
-texture = ExtResource("5_jhqvo")
+texture = ExtResource("4_inc1q")
+stretch_mode = 5
 
 [node name="Label" type="Label" parent="eat_menu/ColorRect" unique_id=2103750285]
 layout_mode = 1
@@ -54,8 +88,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "20
-"
+text = "20"
 horizontal_alignment = 1
 vertical_alignment = 1
 
