@@ -3,6 +3,7 @@ extends Node
 signal player_update_calories
 signal new_day
 signal game_over
+signal player_dies
 signal shake_requested(intensity: float)
 signal shake_stop_requested
 #yeah i want the screen to shake 
