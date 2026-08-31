@@ -281,7 +281,7 @@ position = Vector2(-121, 699)
 
 [node name="player" parent="." unique_id=1334899193 instance=ExtResource("2_4vjcd")]
 y_sort_enabled = true
-position = Vector2(30, 823)
+position = Vector2(29, 752)
 
 [node name="fire" parent="." unique_id=1700855357 instance=ExtResource("4_2u8it")]
 position = Vector2(31, 713)
