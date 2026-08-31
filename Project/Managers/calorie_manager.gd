@@ -24,7 +24,8 @@ func _ready() -> void:
 func player_update_calories(amount):
 	#adds calories to the total
 	calories += amount
-	all_time_calories += amount
+	if amount > 0:
+		all_time_calories += amount
 	print(all_time_calories)
 	#checks if the player should die from exceding the bar fully, is an instant death
 	if calories < 0 or calories > calories_max:
@@ -48,6 +49,8 @@ func apply_effect(state):
 		#player has had slightly to little or to much food so it will come use or store it as fat
 		"unhealthy":
 			calorie_defecit += calories_middle - calories
+			Global.player.speed_multiplier2 = 0.65
 		#player ate a good amount of food no consequence
 		"healthy":
 			calorie_defecit = 0
+			Global.player.speed_multiplier2 = 1

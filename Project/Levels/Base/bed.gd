@@ -7,7 +7,8 @@ var waketime: int
 var sleep_defecit: int 
 var laying: bool = false
 var can_sleep: bool
-var after_8: bool
+var after_20: bool
+var before_08: bool
 
 #trigered whenever the item on the ground is interacted with
 func interacted_with():
@@ -18,7 +19,7 @@ func interacted_with():
 		return
 
 	#if its after 8:00pm (night time)
-	if after_8:
+	if after_20:
 		SignalManager.player_lay_down.emit(self)
 		@warning_ignore("integer_division")
 		#waits 15-30 in game minutes for player to fall asleep
@@ -34,6 +35,7 @@ func interacted_with():
 		waketime = bedtime + 32400
 		if waketime > 86400:
 			waketime -= 86400
+			sleep_defecit = 0
 		if waketime > 28800:
 			sleep_defecit = waketime - 28800
 			waketime = 28800
@@ -43,12 +45,17 @@ func interacted_with():
 #triggered every frame
 func _process(_delta: float) -> void:
 	laying = (Global.player.player_state_machine.current_state.name.to_lower() == "playerlaystate")
-	after_8 = TimeManager.day_time > 72000
+	after_20 = TimeManager.day_time > 72000
+	before_08 = TimeManager.day_time > 28800
 	#checks if the players inventory is full
 	#checks to see if the player should be woken up
-	if sleeping and TimeManager.day_time >= waketime and not after_8:
+	if sleeping and TimeManager.day_time >= waketime and not after_20:
 		#wakes the player up
 		sleeping = false
+		if sleep_defecit > 0:
+			Global.player.speed_multiplier3 = max(1.0 - (sleep_defecit / 60.0 * 0.01), 0.5)
+		else:
+			Global.player.speed_multiplier3 = 1.0
 		SignalManager.player_get_up.emit()
 		TimeManager.timescale = 120
 	if sleeping:
@@ -57,7 +64,7 @@ func _process(_delta: float) -> void:
 	elif laying:
 		$interaction/Label.text = "Hold E to get up"
 		$interaction.can_interact = true
-	elif not after_8:
+	elif not after_20:
 		$interaction/Label.text = "Can't sleep: too early"
 		$interaction.can_interact = false
 	else:

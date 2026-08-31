@@ -14,6 +14,7 @@ func lay_down_signal(bed_node):
 	state_machine.change_state("playerlaystate")
 
 func get_up_signal():
+	
 	state_machine.change_state("playeridlestate")
 
 func enter():

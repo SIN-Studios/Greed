@@ -4,13 +4,16 @@ var health: float = 100.0
 var time_till_regen: float = 0.0
 var regen_factor: float = 0.0
 var wake_up_position: Vector2
+const speed: int = 100
 
 const LAVA_DPS: float = 20.0
 const MAGMA_DPS: float = 10.0
 const DAMAGE_INTERVAL: float = 0.5
 
 var damage_timer: float = 0.0
-var speed_multiplier: float = 1.0
+var speed_multiplier1: float = 1.0
+var speed_multiplier2: float = 1.0
+var speed_multiplier3: float = 1.0
 
 @export var player_inventory: inventory = load("res://Inventory/players_inventory.tres")
 @onready var player_state_machine: StateMachine = $StateMachine
@@ -33,7 +36,7 @@ func _process(delta: float) -> void:
 	var touching_magma = $magmahurts.has_overlapping_bodies()
 
 	if touching_lava or touching_magma:
-		speed_multiplier = 0.5 if touching_lava else 1.0
+		speed_multiplier1 = 0.5 if touching_lava else 1.0
 		damage_timer -= delta
 		
 		if damage_timer <= 0.0:
@@ -51,7 +54,7 @@ func _process(delta: float) -> void:
 				player_state_machine.change_state("playerdiesstate")
 	else:
 		# Reset mechanics when completely outside hazards
-		speed_multiplier = 1.0
+		speed_multiplier1 = 1.0
 		damage_timer = 0.0
 		$CPUParticles2D.emitting = false
 		
