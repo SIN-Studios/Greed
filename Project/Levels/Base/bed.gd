@@ -52,10 +52,15 @@ func _process(_delta: float) -> void:
 		slept = false
 	elif not before_08 and not slept:
 		nights_missed += 1
-	if nights_missed > 2:
+	if nights_missed == 1:
+		Global.player.speed_multiplier3 = 0.80
+	elif nights_missed == 2:
+		Global.player.speed_multiplier3 = 0.40
+	elif nights_missed == 3:
+		Global.player.speed_multiplier3 = 0.20
+	elif nights_missed > 3:
 		SignalManager.player_dies.emit()
-	elif nights_missed > 1:
-		Global.player.speed_multiplier3 = 0.5
+	
 	#checks if the players inventory is full
 	#checks to see if the player should be woken up
 	if sleeping and TimeManager.day_time >= waketime and before_08:

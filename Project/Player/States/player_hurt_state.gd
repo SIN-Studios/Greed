@@ -16,6 +16,7 @@ func take_damage(input_damage, input_direction):
 func enter():
 	control.modulate = Color8(255, 0, 0, 200)
 	control.health -= damage
+	control.time_till_regen = 8
 	control.velocity += direction
 	await get_tree().create_timer(0.2).timeout
 	if control.health <= 0:

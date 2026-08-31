@@ -26,7 +26,6 @@ func player_update_calories(amount):
 	calories += amount
 	if amount > 0:
 		all_time_calories += amount
-	print(all_time_calories)
 	#checks if the player should die from exceding the bar fully, is an instant death
 	if calories < 0 or calories > calories_max:
 		SignalManager.player_dies.emit()

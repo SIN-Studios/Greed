@@ -5,6 +5,12 @@ class_name PlayerWalkState
 const slipperiness_factor: int = 5 #higher is more slippery
 var last_animation: String
 
+func enter():
+	$"../../walk_timer".paused = false
+
+func exit():
+	$"../../walk_timer".paused = true
+
 func update(_delta: float):
 	if control.velocity.x == 0 and control.velocity.y == 0:
 		state_machine.change_state("playeridlestate")
@@ -35,3 +41,7 @@ func physics_update(_delta):
 	else:
 		control.velocity.y = move_toward(control.velocity.y, 0, slipperiness_factor)
 	control.move_and_slide()
+
+
+func _on_walk_timer_timeout() -> void:
+		SignalManager.player_update_calories.emit(-50)

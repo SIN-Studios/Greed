@@ -319,6 +319,13 @@ animation = &"move_down"
 autoplay = "idle_down"
 frame_progress = 0.68508816
 
+[node name="idle_timer" type="Timer" parent="." unique_id=363520443]
+wait_time = 30.0
+
+[node name="walk_timer" type="Timer" parent="." unique_id=604934201]
+wait_time = 180.0
+autostart = true
+
 [node name="StateMachine" type="Node" parent="." unique_id=187046789 node_paths=PackedStringArray("initial_state")]
 script = ExtResource("7_x3vf3")
 initial_state = NodePath("PlayerIdleState")
@@ -348,7 +355,9 @@ metadata/_custom_type_script = "uid://h7n3n8u8ehsb"
 [connection signal="area_shape_exited" from="interaction_range" to="interaction_range" method="_on_interaction_range_area_shape_exited"]
 [connection signal="body_entered" from="lavahurts" to="." method="_on_lavahurts_body_entered"]
 [connection signal="body_exited" from="lavahurts" to="." method="_on_lavahurts_body_exited"]
-[connection signal="body_entered" from="magmahurts" to="." method="_on_lavahurts_body_entered"]
 [connection signal="body_entered" from="magmahurts" to="." method="_on_magmahurts_body_entered"]
+[connection signal="body_entered" from="magmahurts" to="." method="_on_lavahurts_body_entered"]
 [connection signal="body_exited" from="magmahurts" to="." method="_on_magmahurts_body_exited"]
 [connection signal="body_entered" from="leafdetector" to="." method="_on_leafdetector_body_entered"]
+[connection signal="timeout" from="idle_timer" to="StateMachine/PlayerIdleState" method="_on_idle_timer_timeout"]
+[connection signal="timeout" from="walk_timer" to="StateMachine/PlayerWalkState" method="_on_walk_timer_timeout"]
