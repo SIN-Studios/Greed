@@ -6,6 +6,7 @@ signal game_over
 signal player_dies
 signal shake_requested(intensity: float)
 signal shake_stop_requested
+signal first_enemy_killed
 #yeah i want the screen to shake 
 signal lava
 signal plains

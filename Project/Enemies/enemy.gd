@@ -13,9 +13,13 @@ func _ready() -> void:
 	if self.name.begins_with("enemy"):
 		return
 	current_enemy = load(enemy_path)
-	print(enemy_path)
 	$AnimatedSprite2D.sprite_frames = current_enemy.texture
 	health = current_enemy.health
 	base_damage = current_enemy.base_damage
 	roam_speed = current_enemy.roam_speed
 	chase_speed = current_enemy.chase_speed
+	if self.name == "apple_1":
+		health = 50
+		base_damage = 10
+		roam_speed = 0
+		chase_speed = 30

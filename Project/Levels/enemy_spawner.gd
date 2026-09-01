@@ -7,6 +7,7 @@ var tiles: Array[Vector2i] = []
 var enemy_count: int
 
 func _ready() -> void:
+	SignalManager.first_enemy_killed.connect(timer_start)
 	tiles = tile_map_layer.get_used_cells()
 	
 	tiles = tiles.filter(func(cell):
@@ -17,7 +18,8 @@ func _ready() -> void:
 	)
 
 
-
+func timer_start():
+	$Timer.start()
 
 func spawn_enemy() -> void:
 	if tiles.is_empty():

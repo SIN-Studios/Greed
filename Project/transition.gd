@@ -21,6 +21,6 @@ func change_scene():
 	if _target_scene == "":
 		return
 	if _target_scene == "res://Levels/main_level.tscn":
-		Global.player.global_position =  Vector2(343,800)
+		Global.player.global_position =  Vector2(1158.0,780.0)
 	if _target_scene == "res://Levels/Base/homebase.tscn":
-		Global.player.global_position =  Vector2(30,-4175.0)
+		Global.player.global_position =  Vector2(30.0,-4175.0)

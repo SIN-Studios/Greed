@@ -6,6 +6,8 @@ class_name EnemyDiesState
 @onready var death = preload("res://Sound/sfx/enemy death.mp3")
 
 func enter():
+	if control.name == "apple_1":
+		SignalManager.first_enemy_killed.emit()
 	var particles = control.get_node_or_null("CPUParticles2D")
 	if particles:
 		particles.reparent(control.get_parent())
