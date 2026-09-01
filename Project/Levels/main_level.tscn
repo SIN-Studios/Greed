@@ -4726,5 +4726,3 @@ autostart = true
 [connection signal="body_entered" from="raycasts for areas/plainsenterleft" to="raycasts for areas/plainsenterleft" method="_on_body_entered"]
 [connection signal="body_entered" from="raycasts for areas/forestenter" to="raycasts for areas/forestenter" method="_on_body_entered"]
 [connection signal="timeout" from="enemy_spawner/Timer" to="enemy_spawner" method="_on_timer_timeout"]
-
-[editable path="homebase"]
