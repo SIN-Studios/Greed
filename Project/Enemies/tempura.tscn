@@ -54,7 +54,7 @@ point_count = 2
 
 [node name="tempura" type="CharacterBody2D" unique_id=923606778 groups=["enemy"]]
 collision_layer = 8
-collision_mask = 129
+collision_mask = 145
 script = ExtResource("1_ikog2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1112023235]

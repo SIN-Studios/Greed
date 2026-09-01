@@ -1,0 +1,61 @@
+[gd_resource type="Resource" script_class="enemy" format=3 uid="uid://c3nauy6npd5kt"]
+
+[ext_resource type="Texture2D" uid="uid://bxvua0gasaqjd" path="res://icon.svg" id="1_pfdm6"]
+[ext_resource type="Script" uid="uid://ju7wht6ok7t" path="res://Enemies/Enemy Resources/enemy_class.gd" id="2_isb6l"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4gcu0"]
+atlas = ExtResource("1_pfdm6")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8g37b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4gcu0")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_idrt1"]
+atlas = ExtResource("1_pfdm6")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qh1hh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_idrt1")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iwdfj"]
+atlas = ExtResource("1_pfdm6")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0hf6v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iwdfj")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[resource]
+script = ExtResource("2_isb6l")
+name = "KILL"
+item_inventory_texture = SubResource("SpriteFrames_qh1hh")
+item_ground_textre = SubResource("SpriteFrames_8g37b")
+texture = SubResource("SpriteFrames_0hf6v")
+health = 10000
+base_damage = 1000
+nutrition = -4500
+chase_speed = 200
+metadata/_custom_type_script = "uid://ju7wht6ok7t"
