@@ -24,10 +24,10 @@
 [ext_resource type="PackedScene" uid="uid://b6dn2a32sem3f" path="res://Enemies/dumpling.tscn" id="19_v22l5"]
 [ext_resource type="PackedScene" uid="uid://d8vw3e2vvcoe" path="res://Enemies/apple.tscn" id="21_kfyib"]
 [ext_resource type="PackedScene" uid="uid://dy4hj6e31d7gw" path="res://Enemies/drumstick.tscn" id="21_p6e2r"]
-[ext_resource type="PackedScene" uid="uid://dlmh0sxhsn4w" path="res://Enemies/cake_pop.tscn" id="22_kfyib"]
+[ext_resource type="PackedScene" uid="uid://dlmh0sxhsn4w" path="res://Enemies/cakepop.tscn" id="22_kfyib"]
 [ext_resource type="PackedScene" uid="uid://bc4wlfw04nrp6" path="res://Enemies/sushi.tscn" id="23_nghx4"]
-[ext_resource type="PackedScene" uid="uid://dq5ulp362yt5x" path="res://Enemies/tempura.tscn" id="24_8fxkl"]
 [ext_resource type="PackedScene" uid="uid://1wj3dy7c4o24" path="res://Levels/Base/homebase.tscn" id="28_swjh3"]
+[ext_resource type="Script" uid="uid://15neu2oima4" path="res://Levels/enemy_spawner.gd" id="29_11sot"]
 
 [sub_resource type="Curve" id="Curve_p6e2r"]
 _limits = [-360.0, 360.0, 0.0, 1.0]
@@ -46,8 +46,11 @@ point_count = 2
 
 [sub_resource type="Curve" id="Curve_kfyib"]
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qh1hh"]
+load_path = "res://.godot/imported/lavatilemap.png-807cc0108d72853ed4eec30fda229ed6.ctex"
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6opdx"]
-texture = ExtResource("1_13urm")
+texture = SubResource("CompressedTexture2D_qh1hh")
 0:1/0 = 0
 0:1/0/terrain_set = 0
 0:1/0/terrain = 1
@@ -179,6 +182,7 @@ texture = ExtResource("1_13urm")
 1:3/0/terrains_peering_bit/top_left_corner = 0
 1:3/0/terrains_peering_bit/top_side = 0
 1:3/0/terrains_peering_bit/top_right_corner = 0
+1:3/0/custom_data_2 = true
 2:3/0 = 0
 2:3/0/terrain_set = 0
 2:3/0/terrain = 1
@@ -397,6 +401,7 @@ texture = ExtResource("1_13urm")
 1:6/0/terrains_peering_bit/top_left_corner = 0
 1:6/0/terrains_peering_bit/top_side = 0
 1:6/0/terrains_peering_bit/top_right_corner = 0
+1:6/0/custom_data_2 = true
 2:6/0 = 0
 2:6/0/terrain_set = 0
 2:6/0/terrain = 0
@@ -673,6 +678,7 @@ texture = ExtResource("1_6x3q2")
 1:3/0/terrains_peering_bit/top_left_corner = 1
 1:3/0/terrains_peering_bit/top_side = 1
 1:3/0/terrains_peering_bit/top_right_corner = 1
+1:3/0/custom_data_2 = true
 2:3/0 = 0
 2:3/0/terrain_set = 1
 2:3/0/terrain = 0
@@ -831,6 +837,7 @@ texture = ExtResource("1_6x3q2")
 4:3/0/terrains_peering_bit/top_left_corner = 0
 4:3/0/terrains_peering_bit/top_side = 0
 4:3/0/terrains_peering_bit/top_right_corner = 0
+4:3/0/custom_data_2 = true
 5:3/0 = 0
 5:3/0/terrain_set = 1
 5:3/0/terrain = 0
@@ -1046,6 +1053,7 @@ texture = ExtResource("1_6x3q2")
 4:6/0/terrains_peering_bit/top_side = 2
 4:6/0/terrains_peering_bit/top_right_corner = 2
 1:6/0 = 0
+1:6/0/custom_data_2 = true
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wcg7u"]
 texture = ExtResource("3_6opdx")
@@ -1073,12 +1081,14 @@ texture = ExtResource("3_6opdx")
 0:3/0/terrain_set = 1
 1:3/0 = 0
 1:3/0/terrain_set = 1
+1:3/0/custom_data_2 = true
 2:3/0 = 0
 2:3/0/terrain_set = 1
 3:3/0 = 0
 3:3/0/terrain_set = 1
 4:3/0 = 0
 4:3/0/terrain_set = 1
+4:3/0/custom_data_2 = true
 5:3/0 = 0
 5:3/0/terrain_set = 1
 0:4/0 = 0
@@ -1116,6 +1126,7 @@ texture = ExtResource("3_6opdx")
 0:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-1.0028229, -8, -1.0028229, 8, -8, 8, -8, -8)
 1:6/0 = 0
 1:6/0/terrain_set = 1
+1:6/0/custom_data_2 = true
 2:6/0 = 0
 2:6/0/terrain_set = 1
 2:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(2.0056477, 8, 2.0056496, -8, 8, -8, 8, 8)
@@ -1318,6 +1329,7 @@ texture = ExtResource("4_nfesq")
 1:3/0/terrains_peering_bit/top_left_corner = 2
 1:3/0/terrains_peering_bit/top_side = 2
 1:3/0/terrains_peering_bit/top_right_corner = 2
+1:3/0/custom_data_2 = true
 2:3/0 = 0
 2:3/0/terrain_set = 4
 2:3/0/terrain = 1
@@ -1351,6 +1363,7 @@ texture = ExtResource("4_nfesq")
 4:3/0/terrains_peering_bit/top_left_corner = 1
 4:3/0/terrains_peering_bit/top_side = 1
 4:3/0/terrains_peering_bit/top_right_corner = 1
+4:3/0/custom_data_2 = true
 5:3/0 = 0
 5:3/0/terrain_set = 4
 5:3/0/terrain = 1
@@ -1516,6 +1529,7 @@ texture = ExtResource("4_nfesq")
 1:6/0/terrains_peering_bit/top_left_corner = 2
 1:6/0/terrains_peering_bit/top_side = 2
 1:6/0/terrains_peering_bit/top_right_corner = 2
+1:6/0/custom_data_2 = true
 2:6/0 = 0
 2:6/0/terrain_set = 4
 2:6/0/terrain = 2
@@ -1788,6 +1802,7 @@ texture = ExtResource("4_k6a8t")
 1:3/0/terrains_peering_bit/top_left_corner = 1
 1:3/0/terrains_peering_bit/top_side = 1
 1:3/0/terrains_peering_bit/top_right_corner = 1
+1:3/0/custom_data_2 = true
 2:3/0 = 0
 2:3/0/terrain_set = 3
 2:3/0/terrain = 0
@@ -1821,6 +1836,7 @@ texture = ExtResource("4_k6a8t")
 4:3/0/terrains_peering_bit/top_left_corner = 0
 4:3/0/terrains_peering_bit/top_side = 0
 4:3/0/terrains_peering_bit/top_right_corner = 0
+4:3/0/custom_data_2 = true
 5:3/0 = 0
 5:3/0/terrain_set = 3
 5:3/0/terrain = 0
@@ -1993,6 +2009,7 @@ texture = ExtResource("4_k6a8t")
 1:6/0/terrains_peering_bit/top_left_corner = 1
 1:6/0/terrains_peering_bit/top_side = 1
 1:6/0/terrains_peering_bit/top_right_corner = 1
+1:6/0/custom_data_2 = true
 2:6/0 = 0
 2:6/0/terrain_set = 3
 2:6/0/terrain = 1
@@ -2182,6 +2199,8 @@ custom_data_layer_0/name = "Lava"
 custom_data_layer_0/type = 2
 custom_data_layer_1/name = "Magma"
 custom_data_layer_1/type = 2
+custom_data_layer_2/name = "enemy_spawns"
+custom_data_layer_2/type = 1
 sources/5 = SubResource("TileSetAtlasSource_2clls")
 sources/2 = SubResource("TileSetAtlasSource_wcg7u")
 sources/0 = SubResource("TileSetAtlasSource_6opdx")
@@ -4416,23 +4435,9 @@ position = Vector2(30, -4175)
 [node name="enemies" type="Node2D" parent="." unique_id=1280438418]
 position = Vector2(-12, -15)
 
-[node name="dumpling" parent="enemies" unique_id=1214049624 instance=ExtResource("19_v22l5")]
-position = Vector2(230, 702)
-
-[node name="drumstick" parent="enemies" unique_id=37999783 instance=ExtResource("21_p6e2r")]
-position = Vector2(698, 925)
-
-[node name="apple" parent="enemies" unique_id=923606778 instance=ExtResource("21_kfyib")]
-position = Vector2(114, 926)
-
-[node name="cake_pop" parent="enemies" unique_id=788323196 instance=ExtResource("22_kfyib")]
-position = Vector2(44, 705)
-
-[node name="sushi" parent="enemies" unique_id=1252379847 instance=ExtResource("23_nghx4")]
-position = Vector2(371, 1005)
-
-[node name="tempura" parent="enemies" unique_id=1656444221 instance=ExtResource("24_8fxkl")]
-position = Vector2(-87, 885)
+[node name="dumpling_1" parent="enemies" unique_id=1214049624 instance=ExtResource("19_v22l5")]
+position = Vector2(-3940, 2803.0002)
+scale = Vector2(10, 10)
 
 [node name="shipwreck_pieces" type="Node2D" parent="." unique_id=361837745]
 y_sort_enabled = true
@@ -4449,7 +4454,15 @@ texture = ExtResource("12_8b1du")
 [node name="Oar" parent="shipwreck_pieces" unique_id=1828058146 instance=ExtResource("13_vte7q")]
 position = Vector2(499, 994)
 
+[node name="enemy_spawner" type="Node2D" parent="." unique_id=1783436120]
+script = ExtResource("29_11sot")
+enemy_scenes = Array[PackedScene]([ExtResource("21_kfyib"), ExtResource("22_kfyib"), ExtResource("21_p6e2r"), ExtResource("19_v22l5"), ExtResource("23_nghx4"), ExtResource("22_kfyib")])
+
+[node name="Timer" type="Timer" parent="enemy_spawner" unique_id=908211702]
+autostart = true
+
 [connection signal="body_entered" from="raycasts for areas/lavaenter" to="raycasts for areas/lavaenter" method="_on_body_entered"]
 [connection signal="body_entered" from="raycasts for areas/plainsenterright" to="raycasts for areas/plainsenterright" method="_on_body_entered"]
 [connection signal="body_entered" from="raycasts for areas/plainsenterleft" to="raycasts for areas/plainsenterleft" method="_on_body_entered"]
 [connection signal="body_entered" from="raycasts for areas/forestenter" to="raycasts for areas/forestenter" method="_on_body_entered"]
+[connection signal="timeout" from="enemy_spawner/Timer" to="enemy_spawner" method="_on_timer_timeout"]

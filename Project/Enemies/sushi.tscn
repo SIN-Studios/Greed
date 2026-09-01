@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bop6i241r56p6" path="res://Enemies/enemy.gd" id="1_hp3g2"]
 [ext_resource type="Script" uid="uid://cxaewei6kie7x" path="res://Managers/state_machine.gd" id="2_nqnkq"]
 [ext_resource type="Script" uid="uid://d0hb5tp0u582q" path="res://Enemies/States/enemy_attack_state.gd" id="3_18srn"]
+[ext_resource type="PackedScene" uid="uid://euehcy31rkr6" path="res://Assets/despawn_timer.tscn" id="3_78k1t"]
 [ext_resource type="Script" uid="uid://c67yxu37eiks" path="res://Enemies/States/enemy_dies_state.gd" id="4_78k1t"]
 [ext_resource type="Script" uid="uid://7hm510sx4ewt" path="res://Enemies/States/enemy_chase_state.gd" id="5_5t52g"]
 [ext_resource type="Script" uid="uid://c13cwyjhiyyn0" path="res://Enemies/States/enemy_roam_state.gd" id="6_hlqt0"]
@@ -80,6 +81,8 @@ shape = SubResource("CircleShape2D_u1n1c")
 
 [node name="collision" type="CollisionShape2D" parent="." unique_id=1463650258]
 shape = SubResource("CircleShape2D_7rdt1")
+
+[node name="despawn_timer" parent="." unique_id=2092257094 instance=ExtResource("3_78k1t")]
 
 [node name="Timer" type="Timer" parent="." unique_id=1214927114]
 wait_time = 0.5

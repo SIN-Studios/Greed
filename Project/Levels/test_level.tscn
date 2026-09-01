@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dy4hj6e31d7gw" path="res://Enemies/drumstick.tscn" id="4_pvdih"]
 [ext_resource type="PackedScene" uid="uid://d8vw3e2vvcoe" path="res://Enemies/apple.tscn" id="5_7e6fp"]
 [ext_resource type="PackedScene" uid="uid://dq5ulp362yt5x" path="res://Enemies/tempura.tscn" id="6_4t6x8"]
-[ext_resource type="PackedScene" uid="uid://dlmh0sxhsn4w" path="res://Enemies/cake_pop.tscn" id="7_pvdih"]
+[ext_resource type="PackedScene" uid="uid://dlmh0sxhsn4w" path="res://Enemies/cakepop.tscn" id="7_pvdih"]
 
 [node name="test_level" type="Node2D" unique_id=428871611]
 

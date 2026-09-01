@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@onready var enemy_path: String = "res://Enemies/Enemy Resources/" + self.name + ".tres"
+@onready var enemy_path: String = "res://Enemies/Enemy Resources/" + self.name.get_slice("_", 0) + ".tres"
 var current_enemy: enemy
 var health: int
 var base_damage: int
@@ -13,6 +13,7 @@ func _ready() -> void:
 	if self.name.begins_with("enemy"):
 		return
 	current_enemy = load(enemy_path)
+	print(enemy_path)
 	$AnimatedSprite2D.sprite_frames = current_enemy.texture
 	health = current_enemy.health
 	base_damage = current_enemy.base_damage
