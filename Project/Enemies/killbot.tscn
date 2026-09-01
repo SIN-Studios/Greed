@@ -31,13 +31,13 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2vwo2"]
-radius = 5000.0
+radius = 500.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dnawn"]
-radius = 5000.0
+radius = 500.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bsrlh"]
-radius = 5000.0
+radius = 500.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_u1n1c"]
 radius = 100.0
@@ -54,7 +54,6 @@ sprite_frames = SubResource("SpriteFrames_gjwuc")
 animation = &"test"
 
 [node name="detection_range_exit" type="Area2D" parent="." unique_id=493961257]
-visible = false
 collision_layer = 8
 collision_mask = 4
 
@@ -62,7 +61,6 @@ collision_mask = 4
 shape = SubResource("CircleShape2D_2vwo2")
 
 [node name="detection_range_enter" type="Area2D" parent="." unique_id=358888585]
-visible = false
 collision_layer = 8
 collision_mask = 4
 
@@ -70,7 +68,6 @@ collision_mask = 4
 shape = SubResource("CircleShape2D_dnawn")
 
 [node name="damage_range" type="Area2D" parent="." unique_id=378384327]
-visible = false
 collision_layer = 8
 collision_mask = 4
 
