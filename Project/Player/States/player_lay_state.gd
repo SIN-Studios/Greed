@@ -21,7 +21,9 @@ func enter():
 	wake_up_position = control.global_position
 	control.global_position = bed.global_position
 	control.rotation = bed.rotation
+	control.visible = false
 
 func exit():
 	control.global_position = wake_up_position
 	control.rotation = 0
+	control.visible = true

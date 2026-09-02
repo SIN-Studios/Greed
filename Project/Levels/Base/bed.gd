@@ -52,6 +52,7 @@ func _process(_delta: float) -> void:
 		slept = false
 	elif not before_08 and not slept:
 		nights_missed += 1
+		slept = true
 	if nights_missed == 1:
 		Global.player.speed_multiplier3 = 0.80
 	elif nights_missed == 2:
