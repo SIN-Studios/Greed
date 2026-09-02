@@ -30,8 +30,8 @@ AudioManager="*uid://vavass1lx4vt"
 
 window/size/viewport_width=3840
 window/size/viewport_height=2160
-window/stretch/mode="canvas_items"
-window/stretch/aspect="expand"
+window/size/mode=3
+window/stretch/mode="viewport"
 window/stretch/scale=2.0
 
 [global_group]
