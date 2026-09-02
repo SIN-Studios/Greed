@@ -20,6 +20,8 @@ func _ready() -> void:
 
 func timer_start():
 	$Timer.start()
+	for i in range(0, randi_range(5, 10)):
+		spawn_enemy()
 
 func spawn_enemy() -> void:
 	if tiles.is_empty():
