@@ -4597,6 +4597,7 @@ position = Vector2(0, -5000)
 position = Vector2(-118, -4385)
 
 [node name="enemies" type="Node2D" parent="." unique_id=1280438418]
+y_sort_enabled = true
 
 [node name="killbots" type="Node2D" parent="enemies" unique_id=1505559488]
 
