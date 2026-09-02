@@ -4,6 +4,7 @@ class_name PlayerHurtState
 
 var damage: int
 var direction: Vector2
+@onready var death = preload("res://Sound/sfx/enemy death.mp3")
 
 func take_damage(input_damage, input_direction):
 	damage = input_damage
@@ -15,10 +16,12 @@ func take_damage(input_damage, input_direction):
 func enter():
 	control.modulate = Color8(255, 0, 0, 200)
 	control.health -= damage
+	control.time_till_regen = 8
 	control.velocity += direction
 	await get_tree().create_timer(0.2).timeout
 	if control.health <= 0:
 		state_machine.change_state("playerdiesstate")
+		AudioManager.play_sfx(death, true)
 	else:
 		state_machine.change_state("playeridlestate")
 

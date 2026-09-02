@@ -1,15 +1,32 @@
 [gd_scene format=3 uid="uid://bfgyopghckhci"]
 
 [ext_resource type="PackedScene" uid="uid://xu8pjhossg40" path="res://Player/player.tscn" id="1_2ytpj"]
-[ext_resource type="PackedScene" uid="uid://bojvsu82a50d3" path="res://Levels/Base/bed.tscn" id="2_00vsl"]
+[ext_resource type="PackedScene" uid="uid://bc4wlfw04nrp6" path="res://Enemies/sushi.tscn" id="1_ub4j8"]
 [ext_resource type="PackedScene" uid="uid://b6dn2a32sem3f" path="res://Enemies/dumpling.tscn" id="3_4k50d"]
+[ext_resource type="PackedScene" uid="uid://dy4hj6e31d7gw" path="res://Enemies/drumstick.tscn" id="4_pvdih"]
+[ext_resource type="PackedScene" uid="uid://d8vw3e2vvcoe" path="res://Enemies/apple.tscn" id="5_7e6fp"]
+[ext_resource type="PackedScene" uid="uid://dq5ulp362yt5x" path="res://Enemies/tempura.tscn" id="6_4t6x8"]
+[ext_resource type="PackedScene" uid="uid://dlmh0sxhsn4w" path="res://Enemies/cakepop.tscn" id="7_pvdih"]
 
 [node name="test_level" type="Node2D" unique_id=428871611]
 
-[node name="bed" parent="." unique_id=1666831885 instance=ExtResource("2_00vsl")]
-rotation = -1.5707964
+[node name="sushi" parent="." unique_id=923606778 instance=ExtResource("1_ub4j8")]
+position = Vector2(-126, 414)
 
 [node name="player" parent="." unique_id=1334899193 instance=ExtResource("1_2ytpj")]
 position = Vector2(291, -161)
 
-[node name="dumpling" parent="." unique_id=923606778 instance=ExtResource("3_4k50d")]
+[node name="dumpling" parent="." unique_id=818062587 instance=ExtResource("3_4k50d")]
+position = Vector2(318, 276)
+
+[node name="drumstick" parent="." unique_id=1522809932 instance=ExtResource("4_pvdih")]
+position = Vector2(275, -338)
+
+[node name="apple" parent="." unique_id=2101777055 instance=ExtResource("5_7e6fp")]
+position = Vector2(976, 199)
+
+[node name="tempura" parent="." unique_id=236459031 instance=ExtResource("6_4t6x8")]
+position = Vector2(730, -403)
+
+[node name="cake_pop" parent="." unique_id=462235362 instance=ExtResource("7_pvdih")]
+position = Vector2(-379, -365)

@@ -29,6 +29,14 @@ func physics_update(delta):
 	
 	control.move_and_slide()
 
+func update(_delta: float):
+	if control.velocity.x > 1 and control.facing_right:
+		control.scale.x = 1
+		control.facing_right = false
+	elif control.velocity.x < 1 and not control.facing_right:
+		control.scale.x = -1
+		control.facing_right = true
+
 func choose(array):
 	array.shuffle()
 	return array.front()

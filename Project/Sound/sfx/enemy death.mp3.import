@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cvn0co06jlkwu"
+path="res://.godot/imported/enemy death.mp3-f7d79bbf05b02233277dfe8c8633ec09.mp3str"
+
+[deps]
+
+source_file="res://Sound/sfx/enemy death.mp3"
+dest_files=["res://.godot/imported/enemy death.mp3-f7d79bbf05b02233277dfe8c8633ec09.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

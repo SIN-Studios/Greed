@@ -18,5 +18,9 @@ func slide_and_change_scene(scene_path: String):
 	tween.tween_callback(Callable(self, "queue_free"))
 
 func change_scene():
-	if _target_scene != "":
-		get_tree().change_scene_to_file.call_deferred(_target_scene)
+	if _target_scene == "":
+		return
+	if _target_scene == "res://Levels/main_level.tscn":
+		Global.player.global_position =  Vector2(1158.0,780.0)
+	if _target_scene == "res://Levels/Base/homebase.tscn":
+		Global.player.global_position =  Vector2(30.0,-4175.0)

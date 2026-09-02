@@ -1,0 +1,141 @@
+[gd_scene format=3 uid="uid://bc4wlfw04nrp6"]
+
+[ext_resource type="Script" uid="uid://bop6i241r56p6" path="res://Enemies/enemy.gd" id="1_hp3g2"]
+[ext_resource type="Script" uid="uid://cxaewei6kie7x" path="res://Managers/state_machine.gd" id="2_nqnkq"]
+[ext_resource type="Script" uid="uid://d0hb5tp0u582q" path="res://Enemies/States/enemy_attack_state.gd" id="3_18srn"]
+[ext_resource type="PackedScene" uid="uid://euehcy31rkr6" path="res://Assets/despawn_timer.tscn" id="3_78k1t"]
+[ext_resource type="Script" uid="uid://c67yxu37eiks" path="res://Enemies/States/enemy_dies_state.gd" id="4_78k1t"]
+[ext_resource type="Script" uid="uid://7hm510sx4ewt" path="res://Enemies/States/enemy_chase_state.gd" id="5_5t52g"]
+[ext_resource type="Script" uid="uid://c13cwyjhiyyn0" path="res://Enemies/States/enemy_roam_state.gd" id="6_hlqt0"]
+[ext_resource type="Script" uid="uid://yjbgn26jgydr" path="res://Enemies/States/enemy_hurt_state.gd" id="7_8ab7x"]
+[ext_resource type="Texture2D" uid="uid://chb7ca56g7rsu" path="res://Seth designs/Sushi.png" id="8_hp3g2"]
+[ext_resource type="Texture2D" uid="uid://bd87hl21sso7p" path="res://isaac designs/isaac assets/particles/dumplingparticle.png" id="9_nqnkq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nqnkq"]
+atlas = ExtResource("8_hp3g2")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gjwuc"]
+animations = [{
+"frames": [],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nqnkq")
+}],
+"loop": 1,
+"name": &"test",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2vwo2"]
+radius = 150.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dnawn"]
+radius = 100.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u1n1c"]
+radius = 25.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7rdt1"]
+
+[sub_resource type="Curve" id="Curve_18srn"]
+_limits = [-360.0, 360.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_78k1t"]
+
+[node name="sushi" type="CharacterBody2D" unique_id=923606778 groups=["enemy"]]
+collision_layer = 8
+collision_mask = 145
+script = ExtResource("1_hp3g2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1112023235]
+sprite_frames = SubResource("SpriteFrames_gjwuc")
+animation = &"test"
+
+[node name="detection_range_exit" type="Area2D" parent="." unique_id=493961257]
+collision_layer = 8
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detection_range_exit" unique_id=2089254631]
+shape = SubResource("CircleShape2D_2vwo2")
+
+[node name="detection_range_enter" type="Area2D" parent="." unique_id=358888585]
+collision_layer = 8
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detection_range_enter" unique_id=1841867787]
+shape = SubResource("CircleShape2D_dnawn")
+
+[node name="attack_range" type="Area2D" parent="." unique_id=93049031]
+collision_layer = 8
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="attack_range" unique_id=1530917231]
+shape = SubResource("CircleShape2D_u1n1c")
+
+[node name="collision" type="CollisionShape2D" parent="." unique_id=1463650258]
+shape = SubResource("CircleShape2D_7rdt1")
+
+[node name="despawn_timer" parent="." unique_id=2092257094 instance=ExtResource("3_78k1t")]
+
+[node name="Timer" type="Timer" parent="." unique_id=1214927114]
+wait_time = 0.5
+
+[node name="StateMachine" type="Node" parent="." unique_id=1783725191 node_paths=PackedStringArray("initial_state")]
+script = ExtResource("2_nqnkq")
+initial_state = NodePath("EnemyRoamState")
+metadata/_custom_type_script = "uid://cxaewei6kie7x"
+
+[node name="EnemyAttackState" type="Node" parent="StateMachine" unique_id=1617242545]
+script = ExtResource("3_18srn")
+metadata/_custom_type_script = "uid://d0hb5tp0u582q"
+
+[node name="EnemyDiesState" type="Node" parent="StateMachine" unique_id=1446591939]
+script = ExtResource("4_78k1t")
+metadata/_custom_type_script = "uid://c67yxu37eiks"
+
+[node name="EnemyChaseState" type="Node" parent="StateMachine" unique_id=1948555776]
+script = ExtResource("5_5t52g")
+metadata/_custom_type_script = "uid://7hm510sx4ewt"
+
+[node name="EnemyRoamState" type="Node" parent="StateMachine" unique_id=1497154653]
+script = ExtResource("6_hlqt0")
+metadata/_custom_type_script = "uid://c13cwyjhiyyn0"
+
+[node name="EnemyHurtState" type="Node" parent="StateMachine" unique_id=1569822622]
+script = ExtResource("7_8ab7x")
+metadata/_custom_type_script = "uid://yjbgn26jgydr"
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=408125942]
+emitting = false
+amount = 25
+texture = ExtResource("9_nqnkq")
+lifetime = 0.5
+one_shot = true
+speed_scale = 1.45
+explosiveness = 0.5
+randomness = 0.5
+fixed_fps = 75
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector2(100, 100)
+spread = 180.0
+initial_velocity_min = 252.53
+initial_velocity_max = 1000.0
+angular_velocity_max = 77.85
+angular_velocity_curve = SubResource("Curve_18srn")
+scale_amount_curve = SubResource("Curve_78k1t")
+split_scale = true
+scale_curve_x = null
+scale_curve_y = null
+
+[connection signal="body_exited" from="detection_range_exit" to="StateMachine/EnemyChaseState" method="_on_detection_range_exit_body_exited"]
+[connection signal="body_entered" from="detection_range_enter" to="StateMachine/EnemyRoamState" method="_on_detection_range_enter_body_entered"]
+[connection signal="body_entered" from="attack_range" to="StateMachine/EnemyAttackState" method="_on_attack_range_body_entered"]
+[connection signal="timeout" from="Timer" to="StateMachine/EnemyRoamState" method="_on_timer_timeout"]

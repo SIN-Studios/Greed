@@ -2,6 +2,12 @@ extends State
 
 class_name PlayerDiesState
 
+func _ready() -> void:
+	SignalManager.player_dies.connect(player_dies)
+
+func player_dies():
+	state_machine.change_state("playerdiesstate")
+
 func enter():
 	print("player died")
-	get_tree().quit()
+	SignalManager.emit_signal("game_over")

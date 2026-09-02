@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://cyw5r8i1wcmnv"]
+
+[ext_resource type="Texture2D" uid="uid://cer7rfavgxd4c" path="res://Inventory/inventory-slot.png" id="1_jawqf"]
+[ext_resource type="Script" uid="uid://capoevc5rmpms" path="res://UI/game_over.gd" id="1_wruqd"]
+[ext_resource type="Texture2D" uid="uid://c6e2558stckv8" path="res://Inventory/inventory-background.png" id="2_3y5qq"]
+
+[node name="game_over" type="Control" unique_id=818339441]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wruqd")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1316024448]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=1786208745]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 250
+text = "Game Over"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="VBoxContainer" unique_id=602722111]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 50
+text = "You survived x days
+You killed x enemies
+You ate x calories"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="restart" type="TextureButton" parent="VBoxContainer" unique_id=208897696]
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = ExtResource("1_jawqf")
+texture_hover = ExtResource("2_3y5qq")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="VBoxContainer/restart" unique_id=423989045]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 100
+text = "Restart"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="quit" type="TextureButton" parent="VBoxContainer" unique_id=2080314830]
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = ExtResource("1_jawqf")
+texture_hover = ExtResource("2_3y5qq")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="VBoxContainer/quit" unique_id=986482684]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 100
+text = "Quit"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="VBoxContainer/restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="VBoxContainer/quit" to="." method="_on_quit_pressed"]

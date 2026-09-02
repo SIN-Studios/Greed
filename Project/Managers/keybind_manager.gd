@@ -2,6 +2,9 @@ extends Node
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("quit"):
+		if OS.get_name() == "Web":
+			print("Quit button does not work on web.")
+			return
 		get_tree().quit()
 	
 	if Input.is_action_just_pressed("eat"):

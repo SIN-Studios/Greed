@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://fqva4pvqfymt"
-path="res://.godot/imported/light-grass-particle.png-676aa2fdae7b65621a1550b684a7e5e1.ctex"
+uid="uid://bcxoskoaqy46h"
+path="res://.godot/imported/er.png-01649b4bd0a5aadf389fdad8380319c1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://isaac designs/isaac assets/particles/light-grass-particle.png"
-dest_files=["res://.godot/imported/light-grass-particle.png-676aa2fdae7b65621a1550b684a7e5e1.ctex"]
+source_file="res://isaac designs/isaac assets/art/er.png"
+dest_files=["res://.godot/imported/er.png-01649b4bd0a5aadf389fdad8380319c1.ctex"]
 
 [params]
 

@@ -14,6 +14,12 @@ func enter():
 	control.modulate = Color8(255, 0, 0, 200)
 	control.health -= damage
 	control.velocity += direction
+	var particles = control.get_node_or_null("CPUParticles2D")
+	print("Particles on hit: ", particles) 
+	if particles:
+		particles.emitting = false 
+		particles.restart() 
+		particles.emitting = true
 	await get_tree().create_timer(0.2).timeout
 	if control.health <= 0:
 		state_machine.change_state("enemydiesstate")

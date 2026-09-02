@@ -1,0 +1,155 @@
+[gd_scene format=3 uid="uid://dq5ulp362yt5x"]
+
+[ext_resource type="Script" uid="uid://bop6i241r56p6" path="res://Enemies/enemy.gd" id="1_ikog2"]
+[ext_resource type="Script" uid="uid://cxaewei6kie7x" path="res://Managers/state_machine.gd" id="2_175fb"]
+[ext_resource type="Script" uid="uid://d0hb5tp0u582q" path="res://Enemies/States/enemy_attack_state.gd" id="3_lk03j"]
+[ext_resource type="Script" uid="uid://c67yxu37eiks" path="res://Enemies/States/enemy_dies_state.gd" id="4_vkbt4"]
+[ext_resource type="Script" uid="uid://7hm510sx4ewt" path="res://Enemies/States/enemy_chase_state.gd" id="5_rykdl"]
+[ext_resource type="Script" uid="uid://c13cwyjhiyyn0" path="res://Enemies/States/enemy_roam_state.gd" id="6_svgou"]
+[ext_resource type="Script" uid="uid://yjbgn26jgydr" path="res://Enemies/States/enemy_hurt_state.gd" id="7_7hccr"]
+[ext_resource type="Texture2D" uid="uid://b77c7chfhc2yj" path="res://Seth designs/tempura.png" id="8_ikog2"]
+[ext_resource type="Texture2D" uid="uid://b6vg0yyasnmj8" path="res://isaac designs/isaac assets/particles/tempuraparticle.png" id="9_175fb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_175fb"]
+atlas = ExtResource("8_ikog2")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gjwuc"]
+animations = [{
+"frames": [],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_175fb")
+}],
+"loop": 1,
+"name": &"test",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2vwo2"]
+radius = 150.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dnawn"]
+radius = 100.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ikog2"]
+radius = 15.0
+height = 52.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u1n1c"]
+radius = 21.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7rdt1"]
+
+[sub_resource type="Curve" id="Curve_lk03j"]
+_limits = [-360.0, 360.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_vkbt4"]
+
+[node name="tempura" type="CharacterBody2D" unique_id=923606778 groups=["enemy"]]
+collision_layer = 8
+collision_mask = 145
+script = ExtResource("1_ikog2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1112023235]
+position = Vector2(-11, 5)
+sprite_frames = SubResource("SpriteFrames_gjwuc")
+animation = &"test"
+frame_progress = 0.9374688
+
+[node name="detection_range_exit" type="Area2D" parent="." unique_id=493961257]
+collision_layer = 8
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detection_range_exit" unique_id=2089254631]
+shape = SubResource("CircleShape2D_2vwo2")
+
+[node name="detection_range_enter" type="Area2D" parent="." unique_id=358888585]
+collision_layer = 8
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detection_range_enter" unique_id=1841867787]
+shape = SubResource("CircleShape2D_dnawn")
+
+[node name="damage_range" type="Area2D" parent="." unique_id=768945356]
+collision_layer = 8
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="damage_range" unique_id=1110568919]
+position = Vector2(-9, 0)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_ikog2")
+
+[node name="attack_range" type="Area2D" parent="." unique_id=93049031]
+collision_layer = 8
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="attack_range" unique_id=1530917231]
+shape = SubResource("CircleShape2D_u1n1c")
+
+[node name="collision" type="CollisionShape2D" parent="." unique_id=1463650258]
+shape = SubResource("CircleShape2D_7rdt1")
+
+[node name="Timer" type="Timer" parent="." unique_id=1214927114]
+wait_time = 0.5
+
+[node name="StateMachine" type="Node" parent="." unique_id=1783725191 node_paths=PackedStringArray("initial_state")]
+script = ExtResource("2_175fb")
+initial_state = NodePath("EnemyRoamState")
+metadata/_custom_type_script = "uid://cxaewei6kie7x"
+
+[node name="EnemyAttackState" type="Node" parent="StateMachine" unique_id=1617242545]
+script = ExtResource("3_lk03j")
+metadata/_custom_type_script = "uid://d0hb5tp0u582q"
+
+[node name="EnemyDiesState" type="Node" parent="StateMachine" unique_id=1446591939]
+script = ExtResource("4_vkbt4")
+metadata/_custom_type_script = "uid://c67yxu37eiks"
+
+[node name="EnemyChaseState" type="Node" parent="StateMachine" unique_id=1948555776]
+script = ExtResource("5_rykdl")
+metadata/_custom_type_script = "uid://7hm510sx4ewt"
+
+[node name="EnemyRoamState" type="Node" parent="StateMachine" unique_id=1497154653]
+script = ExtResource("6_svgou")
+metadata/_custom_type_script = "uid://c13cwyjhiyyn0"
+
+[node name="EnemyHurtState" type="Node" parent="StateMachine" unique_id=1569822622]
+script = ExtResource("7_7hccr")
+metadata/_custom_type_script = "uid://yjbgn26jgydr"
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1456954088]
+emitting = false
+amount = 25
+texture = ExtResource("9_175fb")
+lifetime = 0.5
+one_shot = true
+speed_scale = 1.45
+explosiveness = 0.5
+randomness = 0.5
+fixed_fps = 75
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector2(100, 100)
+spread = 180.0
+initial_velocity_min = 252.53
+initial_velocity_max = 1000.0
+angular_velocity_max = 77.85
+angular_velocity_curve = SubResource("Curve_lk03j")
+scale_amount_curve = SubResource("Curve_vkbt4")
+split_scale = true
+scale_curve_x = null
+scale_curve_y = null
+
+[connection signal="body_exited" from="detection_range_exit" to="StateMachine/EnemyChaseState" method="_on_detection_range_exit_body_exited"]
+[connection signal="body_entered" from="detection_range_enter" to="StateMachine/EnemyRoamState" method="_on_detection_range_enter_body_entered"]
+[connection signal="body_entered" from="damage_range" to="StateMachine/EnemyAttackState" method="_on_damage_range_body_entered"]
+[connection signal="body_exited" from="damage_range" to="StateMachine/EnemyAttackState" method="_on_damage_range_body_exited"]
+[connection signal="body_entered" from="attack_range" to="StateMachine/EnemyAttackState" method="_on_attack_range_body_entered"]
+[connection signal="timeout" from="Timer" to="StateMachine/EnemyRoamState" method="_on_timer_timeout"]

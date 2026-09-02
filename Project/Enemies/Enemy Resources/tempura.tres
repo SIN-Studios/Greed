@@ -88,27 +88,27 @@ region = Rect2(320, 64, 64, 64)
 [sub_resource type="SpriteFrames" id="SpriteFrames_apopc"]
 animations = [{
 "frames": [{
-"duration": 1.0,
+"duration": 1.5,
 "texture": SubResource("AtlasTexture_pl3av")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_4pdva")
 }, {
-"duration": 1.0,
+"duration": 0.75,
 "texture": SubResource("AtlasTexture_4ta7q")
 }, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_jhkh4")
 }, {
-"duration": 1.0,
+"duration": 0.25,
 "texture": SubResource("AtlasTexture_lk3lw")
 }, {
-"duration": 1.0,
+"duration": 2.0,
 "texture": SubResource("AtlasTexture_lhgo1")
 }],
 "loop": 0,
 "name": &"attack",
-"speed": 5.0
+"speed": 18.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -119,19 +119,19 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 1.0,
+"duration": 2.0,
 "texture": SubResource("AtlasTexture_8v5i2")
 }, {
-"duration": 1.0,
+"duration": 0.75,
 "texture": SubResource("AtlasTexture_k8lvp")
 }, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_424as")
 }, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_0x2jq")
 }, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_i0bb8")
 }, {
 "duration": 1.0,
@@ -139,7 +139,7 @@ animations = [{
 }],
 "loop": 0,
 "name": &"recoil",
-"speed": 5.0
+"speed": 12.0
 }]
 
 [resource]
@@ -149,7 +149,7 @@ item_inventory_texture = SubResource("SpriteFrames_00tjw")
 item_ground_textre = SubResource("SpriteFrames_x3vf3")
 texture = SubResource("SpriteFrames_apopc")
 health = 500
-base_damage = 40
+base_damage = 45
 nutrition = 200
 roam_speed = 30
 chase_speed = 80

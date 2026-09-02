@@ -1,0 +1,114 @@
+[gd_resource type="Resource" script_class="enemy" format=3 uid="uid://d1warmmb7py4v"]
+
+[ext_resource type="Texture2D" uid="uid://k0i2dmue1tsr" path="res://Seth designs/BaoBun.png" id="1_0esey"]
+[ext_resource type="Script" uid="uid://ju7wht6ok7t" path="res://Enemies/Enemy Resources/enemy_class.gd" id="2_21eyq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k1nbx"]
+atlas = ExtResource("1_0esey")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ruttw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k1nbx")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rpch3"]
+atlas = ExtResource("1_0esey")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kkpky"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rpch3")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_820sr"]
+atlas = ExtResource("1_0esey")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0esey"]
+atlas = ExtResource("1_0esey")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_21eyq"]
+atlas = ExtResource("1_0esey")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hp5w0"]
+atlas = ExtResource("1_0esey")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_epv3g"]
+atlas = ExtResource("1_0esey")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tabm2"]
+atlas = ExtResource("1_0esey")
+region = Rect2(128, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ukq27"]
+atlas = ExtResource("1_0esey")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_88jib"]
+atlas = ExtResource("1_0esey")
+region = Rect2(192, 64, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ggnw5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_820sr")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0esey")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_21eyq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hp5w0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_epv3g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tabm2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ukq27")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_88jib")
+}],
+"loop": 0,
+"name": &"explode",
+"speed": 12.0
+}]
+
+[resource]
+script = ExtResource("2_21eyq")
+name = "Dumpling"
+item_inventory_texture = SubResource("SpriteFrames_kkpky")
+item_ground_textre = SubResource("SpriteFrames_ruttw")
+texture = SubResource("SpriteFrames_ggnw5")
+health = 700
+base_damage = 80
+nutrition = 800
+metadata/_custom_type_script = "uid://ju7wht6ok7t"

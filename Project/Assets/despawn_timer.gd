@@ -1,4 +1,4 @@
-extends Timer
+extends Node2D
 
 
 
