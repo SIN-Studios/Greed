@@ -12,6 +12,9 @@ var before_08: bool
 var slept: bool = true
 var nights_missed: int
 
+func _ready() -> void:
+	Global.bed = self
+
 #trigered whenever the item on the ground is interacted with
 func interacted_with():
 	if laying:
@@ -21,7 +24,7 @@ func interacted_with():
 		return
 
 	#if its after 8:00pm (night time)
-	SignalManager.player_lay_down.emit(self)
+	SignalManager.player_lay_down.emit()
 	@warning_ignore("integer_division")
 	#waits 15-30 in game minutes for player to fall asleep
 	await get_tree().create_timer(randi_range(900, 1800) / TimeManager.timescale).timeout
