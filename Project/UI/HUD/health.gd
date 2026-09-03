@@ -19,7 +19,6 @@ func _process(_delta: float) -> void:
 	#changes vignette to the frame depending on the players health
 	$health_indicator.frame = clampi(floor((player.health / player.max_health) * 4), 0, 3)
 	var tween = create_tween()
-	tween.set_trans(Tween.TRANS_SPRING)
 	if (player.health - 90) < 0:
 		tween.tween_property($ColorRect, "color", Color8(255, 0, 0, 100), 1.0)
 	else:
