@@ -2,12 +2,17 @@
 
 [ext_resource type="Script" uid="uid://1n4vr7k52ngr" path="res://Assets/interaction.gd" id="1_xsffv"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_adeda"]
+font_size = 15
+font_color = Color(0, 0, 0, 1)
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_mfe32"]
 
 [node name="interaction" type="Node2D" unique_id=1391498403]
 script = ExtResource("1_xsffv")
 
 [node name="Label" type="Label" parent="." unique_id=704071601]
+texture_filter = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -15,6 +20,8 @@ offset_top = -23.0
 offset_right = 130.0
 grow_vertical = 0
 text = "Hold E to"
+label_settings = SubResource("LabelSettings_adeda")
+vertical_alignment = 2
 
 [node name="ColorRect" type="ColorRect" parent="Label" unique_id=20821968]
 layout_mode = 1

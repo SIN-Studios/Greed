@@ -3,6 +3,16 @@
 [ext_resource type="Script" uid="uid://ceqkke8mwtbq5" path="res://UI/HUD/tutorial.gd" id="1_w7k6s"]
 [ext_resource type="Shader" uid="uid://cq8227socffes" path="res://UI/blur.gdshader" id="2_hhmka"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_adeda"]
+font_size = 50
+font_color = Color(0, 0, 0, 0.78431374)
+outline_size = 5
+
+[sub_resource type="LabelSettings" id="LabelSettings_hhmka"]
+font_size = 75
+font_color = Color(0, 0, 0, 1)
+outline_size = 5
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_adeda"]
 shader = ExtResource("2_hhmka")
 shader_parameter/lod = 0.750000035625
@@ -104,7 +114,7 @@ tracks/0/path = NodePath("black:color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 2),
+"times": PackedFloat32Array(0.5, 2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(0, 0, 0, 0.39215687), Color(0, 0, 0, 0)]
@@ -350,11 +360,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 2
-theme_override_font_sizes/font_size = 50
 text = "You wake up feeling dizzy. 
 Your whole body aches. 
 
 "
+label_settings = SubResource("LabelSettings_adeda")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -367,10 +377,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 2
-theme_override_font_sizes/font_size = 50
 text = "You don't know where you are or how you got there.
 
 "
+label_settings = SubResource("LabelSettings_adeda")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -383,10 +393,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 2
-theme_override_font_sizes/font_size = 50
 text = "All you remeber is the storm...
 
 "
+label_settings = SubResource("LabelSettings_adeda")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -399,10 +409,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 2
-theme_override_font_sizes/font_size = 50
 text = "As you begin to heal you may notice your hunger bar droping.
 
 "
+label_settings = SubResource("LabelSettings_adeda")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -415,9 +425,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 10
-theme_override_font_sizes/font_size = 100
 text = "
 Go outside and find something to eat."
+label_settings = SubResource("LabelSettings_hhmka")
 horizontal_alignment = 1
 
 [node name="blur" type="ColorRect" parent="." unique_id=2022229212]
@@ -431,15 +441,14 @@ grow_vertical = 2
 color = Color(1, 1, 1, 0)
 
 [node name="skip" type="Label" parent="." unique_id=68400272]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 50
 text = "Press any key to continue"
+label_settings = SubResource("LabelSettings_adeda")
 horizontal_alignment = 1
 vertical_alignment = 2
 
@@ -455,8 +464,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 50
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 text = "Use W, A, S, and D or the arrow keys to move."
+label_settings = SubResource("LabelSettings_adeda")
 horizontal_alignment = 1
 vertical_alignment = 2
 
@@ -472,9 +483,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 50
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 text = "Your mouse is locked in a circle around the player.
 Move your mouse in a circular motion to swing your knife and damage enemies."
+label_settings = SubResource("LabelSettings_adeda")
 horizontal_alignment = 1
 vertical_alignment = 2
 
@@ -490,10 +503,12 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 50
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 text = "Keep your hunger bar (top left) in the green or else at midnight you may die.
 To fill up your hunger bar you can open your inventory by pressing Tab or I
 then chose your desired meal by hovering over it and eat it by holding E."
+label_settings = SubResource("LabelSettings_adeda")
 horizontal_alignment = 1
 vertical_alignment = 2
 
@@ -505,9 +520,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 50
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 text = "Enemies can't get in the cave.
 You can always go there and wait to heal."
+label_settings = SubResource("LabelSettings_adeda")
 horizontal_alignment = 1
 vertical_alignment = 2
 
@@ -519,10 +536,12 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 50
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 text = "You can see the time in the top right.
 You should go to bed anytime between 8:00pm and 12:00pm
 If you don't get enough sleep you may experience drowsiness."
+label_settings = SubResource("LabelSettings_adeda")
 horizontal_alignment = 1
 vertical_alignment = 2
 
