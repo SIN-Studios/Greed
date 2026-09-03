@@ -26,7 +26,8 @@ func _on_timer_timeout() -> void:
 
 func physics_update(delta):
 	control.velocity += direction * control.roam_speed * delta
-	
+	if control.roam_speed == 0:
+		control.velocity = Vector2(move_toward(control.velocity.x, 0, 100), move_toward(control.velocity.y, 0, 100))
 	control.move_and_slide()
 
 func update(_delta: float):
