@@ -14,7 +14,7 @@ func take_damage(input_damage, input_direction):
 	$"../../CPUParticles2D".restart()
 
 func enter():
-	control.modulate = Color8(255, 0, 0, 200)
+	control.get_node("Sprite2D").modulate = Color8(255, 0, 0, 200)
 	control.health -= damage
 	control.time_till_regen = 8
 	control.velocity += direction
@@ -30,4 +30,4 @@ func physics_update(delta: float):
 	control.move_and_slide()
 
 func exit():
-	control.modulate = Color8(255, 255, 255, 255)
+	control.get_node("Sprite2D").modulate = Color8(255, 255, 255, 255)

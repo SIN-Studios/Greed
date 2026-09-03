@@ -34,6 +34,7 @@ func _on_restart_pressed() -> void:
 	get_tree().reload_current_scene()
 	CalorieManager.calories = 2250
 	TimeManager.full_time = 43200
+	Global.player.player_inventory = load("res://Inventory/players_inventory.tres")
 	close()
 
 func _on_quit_pressed() -> void:

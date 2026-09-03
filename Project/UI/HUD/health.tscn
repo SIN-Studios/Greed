@@ -48,6 +48,15 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ru2go")
 
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1712808363]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0, 0, 0)
+
 [node name="health_indicator" type="AnimatedSprite2D" parent="." unique_id=1804155351]
 position = Vector2(960, 540)
 scale = Vector2(30, 30)

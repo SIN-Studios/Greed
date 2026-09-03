@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 var t_delta: float = 0.0
 var health: float = 100.0
+var max_health: float = 250.0
 var time_till_regen: float = 0.0
 var regen_factor: float = 0.0
 var wake_up_position: Vector2
@@ -22,6 +23,7 @@ var speed_multiplier3: float = 1.0
 @onready var grass = preload("res://Sound/sfx/grass.mp3")
 
 func _ready() -> void:
+	SignalManager.new_day.connect(new_day)
 	Global.player = self
 	$CPUParticles2D.emitting = false
 	
@@ -67,16 +69,21 @@ func _process(delta: float) -> void:
 		time_till_regen -= delta
 		return
 
-	if health < 100 and not touching_lava and not touching_magma and time_till_regen <= 0:
+	if health < max_health and not touching_lava and not touching_magma and time_till_regen <= 0:
 		health += regen_factor * delta
 		regen_factor += 2.0 * delta
 		t_delta += delta
 		if t_delta > 1:
 			t_delta = 0
 			SignalManager.player_update_calories.emit(-50)
-		if health > 100:
-			health = 100
+		if health > max_health:
+			health = max_health
 			regen_factor = 0.0
+
+func new_day():
+	if max_health > 100:
+		max_health -= 50
+
 func trigger_leaf_particles() -> void:
 	if not leaf_particles:
 		AudioManager.stop_sfx(grass)

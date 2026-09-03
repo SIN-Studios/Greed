@@ -31,7 +31,7 @@ func close():
 	menu_is_open = false
 	get_tree().paused = false
 	$AnimationPlayer.play_backwards("blur")
-	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED_HIDDEN)
 
 
 func _on_resume_pressed() -> void:

@@ -328,7 +328,7 @@ autostart = true
 
 [node name="StateMachine" type="Node" parent="." unique_id=187046789 node_paths=PackedStringArray("initial_state")]
 script = ExtResource("7_x3vf3")
-initial_state = NodePath("PlayerIdleState")
+initial_state = NodePath("PlayerLayState")
 metadata/_custom_type_script = "uid://cxaewei6kie7x"
 
 [node name="PlayerIdleState" type="Node" parent="StateMachine" unique_id=160471070]
