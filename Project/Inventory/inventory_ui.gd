@@ -49,7 +49,7 @@ func interacted_with():
 func close():
 	$eat_menu.visible = false
 	get_tree().paused = false
-	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED_HIDDEN)
 	visible = false
 	is_open = false
 
