@@ -15,6 +15,7 @@ func get_up_signal():
 	state_machine.change_state("playeridlestate")
 
 func enter():
+	print("lay_down")
 	control.set_physics_process(false)
 	wake_up_position = Global.bed.global_position + Vector2(25,0)
 	control.global_position = Global.bed.global_position
@@ -22,6 +23,7 @@ func enter():
 	control.visible = false
 
 func exit():
+	print("get_up")
 	control.global_position = wake_up_position
 	control.rotation = 0
 	control.visible = true
