@@ -37,6 +37,9 @@ radius = 150.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_dnawn"]
 radius = 100.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_18srn"]
+radius = 40.0
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_u1n1c"]
 radius = 25.0
 
@@ -71,6 +74,13 @@ collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="detection_range_enter" unique_id=1841867787]
 shape = SubResource("CircleShape2D_dnawn")
+
+[node name="damage_range" type="Area2D" parent="." unique_id=838134379]
+collision_layer = 8
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="damage_range" unique_id=1716439599]
+shape = SubResource("CircleShape2D_18srn")
 
 [node name="attack_range" type="Area2D" parent="." unique_id=93049031]
 collision_layer = 8
@@ -137,5 +147,7 @@ scale_curve_y = null
 
 [connection signal="body_exited" from="detection_range_exit" to="StateMachine/EnemyChaseState" method="_on_detection_range_exit_body_exited"]
 [connection signal="body_entered" from="detection_range_enter" to="StateMachine/EnemyRoamState" method="_on_detection_range_enter_body_entered"]
+[connection signal="body_entered" from="damage_range" to="StateMachine/EnemyAttackState" method="_on_damage_range_body_entered"]
+[connection signal="body_exited" from="damage_range" to="StateMachine/EnemyAttackState" method="_on_damage_range_body_exited"]
 [connection signal="body_entered" from="attack_range" to="StateMachine/EnemyAttackState" method="_on_attack_range_body_entered"]
 [connection signal="timeout" from="Timer" to="StateMachine/EnemyRoamState" method="_on_timer_timeout"]
