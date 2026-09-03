@@ -114,10 +114,10 @@ tracks/0/path = NodePath("black:color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.5, 2),
+"times": PackedFloat32Array(0, 2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(0, 0, 0, 0.39215687), Color(0, 0, 0, 0)]
+"values": [Color(0, 0, 0, 0.78431374), Color(0, 0, 0, 0.39215687)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -186,6 +186,18 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("black:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0.39215687), Color(0, 0, 0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_onh2p"]
@@ -409,7 +421,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 2
-text = "As you begin to heal you may notice your hunger bar droping.
+text = "As you begin to heal you may notice your hunger bar dropping.
 
 "
 label_settings = SubResource("LabelSettings_adeda")
@@ -441,6 +453,7 @@ grow_vertical = 2
 color = Color(1, 1, 1, 0)
 
 [node name="skip" type="Label" parent="." unique_id=68400272]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -472,7 +485,7 @@ horizontal_alignment = 1
 vertical_alignment = 2
 
 [node name="movement_timer" type="Timer" parent="movement" unique_id=1130476331]
-wait_time = 5.0
+wait_time = 8.0
 one_shot = true
 
 [node name="using_the_weapon" type="Label" parent="." unique_id=1770051205]
@@ -492,7 +505,7 @@ horizontal_alignment = 1
 vertical_alignment = 2
 
 [node name="weapon_timer" type="Timer" parent="using_the_weapon" unique_id=1107790533]
-wait_time = 5.0
+wait_time = 8.0
 one_shot = true
 
 [node name="hunger_bar" type="Label" parent="." unique_id=866373347]

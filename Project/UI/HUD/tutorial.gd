@@ -26,7 +26,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		if $AnimationPlayer.is_playing() or stage >= 5.0:
 			return
 		$skip.visible = false
-		$skip/skip_timer.start(5.0)
+		$skip/skip_timer.start(4.0)
 		stage += 1.0
 		if stage == 4.0:
 			stage = 3.5
@@ -96,6 +96,10 @@ func _process(_delta: float) -> void:
 
 
 func _on_skip_timer_timeout() -> void:
+	if stage == -1:
+		$skip.text = "Press any key to start"
+	else:
+		$skip.text = "Press any key to continue"
 	if stage < 5.0:
 		$skip.visible = true
 	else:
