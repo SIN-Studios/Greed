@@ -2,6 +2,10 @@
 
 [ext_resource type="Script" uid="uid://n0k6vrashoeh" path="res://UI/HUD/clock.gd" id="1_mojwd"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_oos65"]
+font_size = 40
+font_color = Color(0, 0, 0, 1)
+
 [node name="clock" type="Control" unique_id=1667837152]
 layout_mode = 3
 anchors_preset = 15
@@ -19,3 +23,4 @@ anchor_right = 1.0
 offset_left = -40.0
 offset_bottom = 23.0
 grow_horizontal = 0
+label_settings = SubResource("LabelSettings_oos65")
