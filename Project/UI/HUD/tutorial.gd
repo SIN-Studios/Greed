@@ -12,6 +12,13 @@ func _ready() -> void:
 	Global.bed.process_mode = Node.PROCESS_MODE_DISABLED
 
 func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("interact") and stage >= 0 and stage <= 3:
+		print('skip')
+		$AnimationPlayer.play("SKIP")
+		stage = 3.5
+		$skip.visible = false
+		get_tree().paused = false
+		$skip/skip_timer.start()
 	if event.is_action_pressed("ui_text_backspace"):
 		$AnimationPlayer.play("SKIP")
 		stage = 7.0
@@ -21,7 +28,6 @@ func _unhandled_input(event: InputEvent) -> void:
 		Global.player.player_state_machine.change_state("playeridlestate")
 		Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED_HIDDEN)
 		$skip/skip_timer.stop()
-		
 	if event.is_pressed() and not event.is_echo():
 		if $AnimationPlayer.is_playing() or stage >= 5.0:
 			return
@@ -32,7 +38,6 @@ func _unhandled_input(event: InputEvent) -> void:
 			stage = 3.5
 		elif stage == 4.5:
 			stage = 4.0
-		
 		if stage == 3.5:
 			get_tree().paused = false
 		elif stage == 5.0:
@@ -41,7 +46,6 @@ func _unhandled_input(event: InputEvent) -> void:
 			Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED_HIDDEN)
 			$movement/movement_timer.start()
 		$AnimationPlayer.play(str(stage))
-		
 		if stage == 5.0:
 			Global.bed.get_node("interaction").visible = true
 			$skip.visible = false
@@ -63,17 +67,17 @@ func _process(_delta: float) -> void:
 
 
 
-	if stage == 5.0 and Global.player.health < 150 and left_base:
+	if stage == 5.0 and Global.player.health <= 150 and left_base:
 		$using_the_weapon.visible = true
 
-	if stage == 6.0 and CalorieManager.calories < 1500 and not $base.visible and not understand_eating:
+	if stage == 6.0 and CalorieManager.calories <= 1500 and not $base.visible and not understand_eating:
 		$hunger_bar.visible = true
 
-	if stage == 6.0 and Global.player.health < 100 and not Global.in_base:
+	if stage == 6.0 and Global.player.health <= 100 and not Global.in_base:
 		$base.visible = true
 		$hunger_bar.visible = false
 
-	if stage == 6.0 and TimeManager.day_time > 79200 and not Global.player.player_state_machine.current_state.name.to_lower() == "playerlaystate":
+	if stage == 6.0 and TimeManager.day_time >= 79200 and not Global.player.player_state_machine.current_state.name.to_lower() == "playerlaystate":
 		$sleep.visible = true
 		$hunger_bar.visible = false
 		$base.visible = false
@@ -98,6 +102,8 @@ func _process(_delta: float) -> void:
 func _on_skip_timer_timeout() -> void:
 	if stage == -1:
 		$skip.text = "Press any key to start"
+	elif stage <= 3:
+		$skip.text = "Press any key to continue or E to skip cutscene"
 	else:
 		$skip.text = "Press any key to continue"
 	if stage < 5.0:
