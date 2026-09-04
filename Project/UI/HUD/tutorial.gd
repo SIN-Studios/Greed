@@ -23,6 +23,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		$AnimationPlayer.play("SKIP")
 		stage = 7.0
 		get_tree().paused = false
+		$skip.visible = false
 		Global.bed.get_node("interaction").visible = true
 		Global.bed.process_mode = Node.PROCESS_MODE_INHERIT
 		Global.player.player_state_machine.change_state("playeridlestate")
