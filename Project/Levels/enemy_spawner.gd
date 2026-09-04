@@ -5,6 +5,7 @@ extends Node2D
 var enemy_count: int
 
 var spawn_tiles: Array[Vector2i] = []
+var is_calculating_spawn: bool = false
 
 func _ready() -> void:
 	SignalManager.first_enemy_killed.connect(timer_start)
@@ -19,12 +20,22 @@ func spawn_enemy(chosen_enemy) -> void:
 
 	var player_local = tile_map_layer.to_local(Global.player.global_position)
 	var player_cell: Vector2i = tile_map_layer.local_to_map(player_local)
-	var min_tile_distance: float = 15.0
-
-	var valid_spawns = spawn_tiles.filter(func(cell: Vector2i):
-		return Vector2(cell).distance_to(Vector2(player_cell)) >= min_tile_distance
+	
+	WorkerThreadPool.add_task(
+		_filter_spawns_task.bind(player_cell, chosen_enemy)
 	)
 
+func _filter_spawns_task(player_cell: Vector2i, chosen_enemy) -> void:
+	var min_tile_distance: float = 15.0
+	var valid_spawns: Array[Vector2i] = []
+
+	for cell in spawn_tiles:
+		if Vector2(cell).distance_to(Vector2(player_cell)) >= min_tile_distance:
+			valid_spawns.append(cell)
+
+	call_deferred("_finish_spawn", valid_spawns, chosen_enemy)
+
+func _finish_spawn(valid_spawns: Array[Vector2i], chosen_enemy) -> void:
 	if valid_spawns.is_empty():
 		return
 
@@ -43,9 +54,6 @@ func spawn_enemy(chosen_enemy) -> void:
 	enemy_instance.global_position = spawn_pos
 
 	get_tree().current_scene.add_child(enemy_instance)
-
-
-
 
 func timer_start():
 	$Timer.start()
